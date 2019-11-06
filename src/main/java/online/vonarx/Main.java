@@ -10,9 +10,8 @@ import java.nio.file.Paths;
 
 public class Main {
 
-	private static boolean verbose = false;
 	private static boolean showEngineNames = false;
-	private static boolean showRedundantActors = false;
+	private static boolean showEngineActors = false;
 	private static String path = null;
 
 	public static void main(String[] args) throws IOException {
@@ -23,7 +22,7 @@ public class Main {
 		}
 		final var saveBinary = readSave(path);
 		final var save = new Save(saveBinary);
-		final var savePrinter = new SavePrinter(verbose, showEngineNames, showRedundantActors);
+		final var savePrinter = new SavePrinter(showEngineNames, showEngineActors);
 		System.out.println(savePrinter.printSave(save));
 	}
 
@@ -41,12 +40,8 @@ public class Main {
 				case "--engine-names":
 					showEngineNames = true;
 					break;
-				case "--redundant":
-					showRedundantActors = true;
-					break;
-				case "--verbose":
-				case "-v":
-					verbose = true;
+				case "--engine-actors":
+					showEngineActors = true;
 					break;
 				case "--help":
 				case "-h":
@@ -65,10 +60,7 @@ public class Main {
 			"Shows encounters in Remnant save.\n\n" +
 			"Options:\n" +
 			"  -f, --file string    Path to remnant save\n" +
-			"  -v, --verbose        Show encounters belonging to other encounters\n" +
-			"                       Example: The Beam Rifle belongs to The Lost Gantry so it would normally be hidden\n" +
-			"      --redundant      Show encounters which spawn in every new game and game engine related encounters, does not affect adventure mode output\n" +
-			"                       Example: Elf Queen and Undying King\n" +
+			"      --engine-actors  Show actors which are used by the engine\n" +
 			"      --engine-names   Show engine encounter names\n" +
 			"  -h, --help           Show this guide :)");
 	}

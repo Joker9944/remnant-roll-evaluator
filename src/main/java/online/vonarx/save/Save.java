@@ -11,7 +11,6 @@ import java.util.*;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 
-import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
 @Data
@@ -25,7 +24,6 @@ public class Save {
 	public Save(final String saveBinary) {
 		final var actorNamesDirty = extractActorNames(saveBinary);
 		final var actorNamesByMode = filterSaveByModes(actorNamesDirty);
-		actorNamesByMode.forEach((mode, actorNames) -> cleanUnwantedActorNames(actorNames));
 		final var actors = mapToActorObject(actorNamesByMode);
 		addRelatedActors(actors);
 		this.actors = Collections.unmodifiableList(actors);
@@ -74,26 +72,7 @@ public class Save {
 		return new ArrayList<>(unfilteredActorNames.subList(startIndex, endIndex));
 	}
 
-	public static final int questIdentifierIndex = 4;
-
-	private static void cleanUnwantedActorNames(final List<String> actorNames) {
-		final var unwantedByType = actorNames.stream()
-			.filter(name -> /*name.contains("/Maps/") ||*/ name.contains("/Campaign_Main/"))
-			.collect(toList());
-		actorNames.removeAll(unwantedByType);
-		final var duplicateQuestEntries = actorNames.stream()
-			.filter(name -> name.contains("/Quests/"))
-			.collect(groupingBy(name -> name.split("/")[questIdentifierIndex]))
-			.values().stream()
-			.filter(names -> names.size() > 1)
-			.map(names -> names.subList(1, names.size()))
-			.flatMap(Collection::stream)
-			.collect(toList());
-		actorNames.removeAll(duplicateQuestEntries);
-	}
-
 	private static final String isTemplateRegEx = "^/Game/World_.+/Templates/.*$";
-	private static final String isPoiRegEx = "^/Game/World.+/Quests/.+OverworldPOI.*$";
 
 	private static List<Actor> mapToActorObject(final Map<Mode, List<String>> actorNamesByMode) {
 		final var mappedActors = new ArrayList<Actor>();

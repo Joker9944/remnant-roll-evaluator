@@ -27,6 +27,7 @@ repositories {
 
 dependencies {
 	implementation 'commons-io:commons-io:2.6'
+	implementation 'com.mitchtalmadge:ascii-data:1.4.0'
 	compileOnly 'org.projectlombok:lombok:1.18.10'
 	annotationProcessor 'org.projectlombok:lombok:1.18.10'
 }

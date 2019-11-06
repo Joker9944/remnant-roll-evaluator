@@ -1,7 +1,8 @@
 package online.vonarx;
 
 import online.vonarx.save.Save;
-import online.vonarx.save.SavePrinter;
+import online.vonarx.save.implementation.ListSavePrinter;
+import online.vonarx.save.implementation.TableSavePrinter;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
@@ -22,8 +23,10 @@ public class Main {
 		}
 		final var saveBinary = readSave(path);
 		final var save = new Save(saveBinary);
-		final var savePrinter = new SavePrinter(showEngineNames, showEngineActors);
-		System.out.print(savePrinter.printSave(save));
+		final var savePrinter = new ListSavePrinter(showEngineNames, showEngineActors);
+		System.out.print(savePrinter.print(save));
+		final var locationSavePrinter = new TableSavePrinter();
+		System.out.print(locationSavePrinter.print(save));
 	}
 
 	private static void readParameters(final String[] args) {

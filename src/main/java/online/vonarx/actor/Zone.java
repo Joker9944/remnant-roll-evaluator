@@ -19,6 +19,7 @@ public enum Zone {
 	@Getter
 	@Accessors
 	private final String displayName;
+
 	private final String keyword;
 
 	Zone(final String displayName, final String keyword) {

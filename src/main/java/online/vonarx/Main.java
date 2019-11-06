@@ -23,7 +23,7 @@ public class Main {
 		final var saveBinary = readSave(path);
 		final var save = new Save(saveBinary);
 		final var savePrinter = new SavePrinter(showEngineNames, showEngineActors);
-		System.out.println(savePrinter.printSave(save));
+		System.out.print(savePrinter.printSave(save));
 	}
 
 	private static void readParameters(final String[] args) {

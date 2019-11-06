@@ -10,34 +10,37 @@ import java.util.function.Predicate;
 
 import static java.util.Arrays.stream;
 
+@Accessors
 public enum Type {
-	BOSS("Bosses", "(?i)^/Game/World_.+/Quests.*boss.*$", TypeDictionaries.bossDictionary),
-	PICKUP("Pickups", "^/Game/World_.+/Quests/Quest_Event_.*$", TypeDictionaries.pickupDictionary),
-	QUEST("Quests", "^/Game/World_.+/Quests.*$", TypeDictionaries.questDictionary),
-	MAIN_QUEST("Main quest", "^/Game/Campaign_Main/.*$", key -> Optional.empty()),
-	TEMPLATE("Template", "^/Game/.+/Templates/.*$", key -> Optional.empty()),
-	OTHER("Misc", "^.*$", key -> Optional.empty());
-
-	private final String regex;
+	BOSS("Bosses", "(?i)^/Game/World_.+/Quests.*boss.*$", TypeDictionaries.bossDictionary, 0),
+	PICKUP("Pickups", "^/Game/World_.+/Quests/Quest_Event_.*$", TypeDictionaries.pickupDictionary, 2),
+	QUEST("Quests", "^/Game/World_.+/Quests.*$", TypeDictionaries.questDictionary, 1),
+	MAIN_QUEST("Main quest", "^/Game/Campaign_Main/.*$", key -> Optional.empty(), 3),
+	TEMPLATE("Template", "^/Game/.+/Templates/.*$", key -> Optional.empty(), 4),
+	OTHER("Misc", "^.*$", key -> Optional.empty(), 5);
 
 	@Getter
-	@Accessors
 	private final String displayName;
 
 	@Getter
-	@Accessors
 	private final Dictionary<String, String> dictionary;
 
-	Type(final String displayName, final String regex, final Dictionary<String, String> dictionary) {
+	@Getter
+	private final int order;
+
+	private final String regex;
+
+	Type(final String displayName, final String regex, final Dictionary<String, String> dictionary, final int order) {
 		this.displayName = displayName;
 		this.regex = regex;
 		this.dictionary = dictionary;
+		this.order = order;
 	}
 
 	public static Type matchType(final String name) {
 		return stream(values())
 			.filter(nameMatchesType(name))
-			.findAny()
+			.findFirst()
 			.orElseThrow(() -> new RuntimeException("RegEx as we know it does not work anymore, run!"));
 	}
 

@@ -17,7 +17,15 @@ import static java.util.stream.Collectors.toList;
 @Accessors
 public class Save {
 
-	private static final Pattern actorNamePattern = Pattern.compile("/Game/[a-zA-Z0-9/._]+");
+	public static final Pattern ACTOR_NAME_PATTERN = Pattern.compile("/Game/[a-zA-Z0-9/._]+");
+
+	public static final String START_STORY_MODE = "/Game/Campaign_Main/Quest_Campaign_City.Quest_Campaign_City";
+	public static final String END_STORY_MODE = "/Game/Campaign_Main/Quest_Campaign_Ward13.Quest_Campaign_Ward13";
+
+	public static final String START_ADVENTURE_MODE_REG_EX = "^/Game/World_.+/Quests/Quest_AdventureMode/Quest_AdventureMode_[a-zA-Z]+_\\d{2}\\.Quest_AdventureMode_[a-zA-Z]+_\\d{2}$";
+	public static final String END_ADVENTURE_MODE_REG_EX = "^/Game/World_.+/Quests/Quest_AdventureMode/Quest_AdventureMode_.+\\.Quest_AdventureMode_.+_C$";
+
+	public static final String IS_TEMPLATE_REG_EX = "^/Game/World_.+/Templates/.*$";
 
 	private final List<Actor> actors;
 
@@ -30,7 +38,7 @@ public class Save {
 	}
 
 	private static List<String> extractActorNames(final String save) {
-		return actorNamePattern.matcher(save).results()
+		return ACTOR_NAME_PATTERN.matcher(save).results()
 			.map(MatchResult::group)
 			.collect(toList());
 	}
@@ -42,26 +50,20 @@ public class Save {
 		);
 	}
 
-	private static final String startStoryMode = "/Game/Campaign_Main/Quest_Campaign_City.Quest_Campaign_City";
-	private static final String endStoryMode = "/Game/Campaign_Main/Quest_Campaign_Ward13.Quest_Campaign_Ward13";
-
 	private static List<String> extractStoryMode(final List<String> unfilteredActorNames) {
-		final var startIndex = unfilteredActorNames.indexOf(startStoryMode);
-		final var endIndex = unfilteredActorNames.indexOf(endStoryMode);
+		final var startIndex = unfilteredActorNames.indexOf(START_STORY_MODE);
+		final var endIndex = unfilteredActorNames.indexOf(END_STORY_MODE);
 		if (startIndex == -1 || endIndex == -1)
 			throw new IllegalStateException("Could not find story mode.");
 		return new ArrayList<>(unfilteredActorNames.subList(startIndex, endIndex + 1));
 	}
 
-	private static final String startAdventureModeRegEx = "^/Game/World_.+/Quests/Quest_AdventureMode/Quest_AdventureMode_[a-zA-Z]+_\\d{2}\\.Quest_AdventureMode_[a-zA-Z]+_\\d{2}$";
-	private static final String endAdventureModeRegEx = "^/Game/World_.+/Quests/Quest_AdventureMode/Quest_AdventureMode_.+\\.Quest_AdventureMode_.+_C$";
-
 	private static List<String> extractAdventureMode(final List<String> unfilteredActorNames) {
 		final var startIndexName = unfilteredActorNames.stream()
-			.filter(name -> name.matches(startAdventureModeRegEx))
+			.filter(name -> name.matches(START_ADVENTURE_MODE_REG_EX))
 			.findFirst();
 		final var endIndexName = unfilteredActorNames.stream()
-			.filter(name -> name.matches(endAdventureModeRegEx))
+			.filter(name -> name.matches(END_ADVENTURE_MODE_REG_EX))
 			.findFirst();
 		if (startIndexName.isEmpty() || endIndexName.isEmpty()) {
 			System.out.println("No adventure mode found.");
@@ -72,14 +74,12 @@ public class Save {
 		return new ArrayList<>(unfilteredActorNames.subList(startIndex, endIndex));
 	}
 
-	private static final String isTemplateRegEx = "^/Game/World_.+/Templates/.*$";
-
 	private static List<Actor> mapToActorObject(final Map<Mode, List<String>> actorNamesByMode) {
 		final var mappedActors = new ArrayList<Actor>();
 		actorNamesByMode.forEach((mode, actorNames) -> {
 			var currentZone = Zone.NONE;
 			for (final String actorName : actorNames) {
-				if (actorName.matches(isTemplateRegEx))
+				if (actorName.matches(IS_TEMPLATE_REG_EX))
 					currentZone = Zone.matchZone(actorName);
 				mappedActors.add(new Actor(actorName, mode, currentZone));
 			}

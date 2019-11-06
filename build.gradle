@@ -1,0 +1,32 @@
+plugins {
+	id 'java'
+	id 'application'
+	id 'edu.sc.seis.launch4j' version '2.4.6'
+	id "com.github.johnrengelman.shadow" version "5.1.0"
+}
+
+group 'online.vonarx'
+version = '0.1.0'
+
+sourceCompatibility = JavaVersion.VERSION_12
+targetCompatibility = JavaVersion.VERSION_12
+
+mainClassName = 'online.vonarx.Main'
+
+createExe {
+	headerType = 'console'
+	jar = 'lib/' + project.tasks.shadowJar.archiveName
+	bundledJrePath = 'C:/Tools/open-jdk/jdk-12.0.2'
+	bundledJre64Bit = true
+	copyConfigurable = project.tasks.shadowJar.outputs.files
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'commons-io:commons-io:2.6'
+	compileOnly 'org.projectlombok:lombok:1.18.10'
+	annotationProcessor 'org.projectlombok:lombok:1.18.10'
+}

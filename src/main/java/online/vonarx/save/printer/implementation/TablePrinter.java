@@ -1,4 +1,4 @@
-package online.vonarx.save.implementation;
+package online.vonarx.save.printer.implementation;
 
 import com.mitchtalmadge.asciidata.table.ASCIITable;
 import com.mitchtalmadge.asciidata.table.formats.ASCIITableFormat;
@@ -6,13 +6,13 @@ import online.vonarx.actor.Actor;
 import online.vonarx.actor.Mode;
 import online.vonarx.dictionary.LocationDictionary;
 import online.vonarx.save.Save;
-import online.vonarx.save.SavePrinter;
+import online.vonarx.save.printer.Printer;
 
 import java.util.List;
 
 import static java.util.stream.Collectors.groupingBy;
 
-public class TableSavePrinter implements SavePrinter {
+public class TablePrinter extends Printer<String> {
 
 	private static final String[] STORY_MODE_TABLE_HEADER = new String[]{"Biome", "Zone", "Subzone", "Name", "Engine name"};
 	private static final String[] ADVENTURE_MODE_TABLE_HEADER = new String[]{"Subzone", "Name", "Engine name"};

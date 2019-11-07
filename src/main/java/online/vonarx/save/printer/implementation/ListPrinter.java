@@ -1,12 +1,14 @@
-package online.vonarx.save.implementation;
+package online.vonarx.save.printer.implementation;
 
 import lombok.RequiredArgsConstructor;
 import online.vonarx.actor.*;
-import online.vonarx.dictionary.Undesirables;
 import online.vonarx.save.Save;
-import online.vonarx.save.SavePrinter;
+import online.vonarx.save.printer.Printer;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.comparingInt;
@@ -14,9 +16,7 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
 @RequiredArgsConstructor
-public class ListSavePrinter implements SavePrinter {
-
-	private static final int QUEST_IDENTIFIER_INDEX = 4;
+public class ListPrinter extends Printer<String> {
 
 	private final boolean showEngineNames;
 	private final boolean showEngineActors;
@@ -24,32 +24,12 @@ public class ListSavePrinter implements SavePrinter {
 	@Override
 	public String print(final Save save) {
 		final var actors = new ArrayList<>(save.actors());
+		addRelatedActors(actors);
 		purgeDuplicateQuestEntries(actors);
 		if (!showEngineActors)
 			purgeRedundantActors(actors);
 		final var groupedActors = groupActors(actors);
-		return print(groupedActors);
-	}
-
-	private static void purgeDuplicateQuestEntries(final List<Actor> actorNames) {
-		final var duplicateQuestEntries = actorNames.stream()
-			.filter(actor -> actor.name().contains("/Quests/"))
-			.collect(groupingBy(actor -> actor.mode() + "|" + actor.name().split("/")[QUEST_IDENTIFIER_INDEX]))
-			.values().stream()
-			.filter(actors -> actors.size() > 1)
-			.map(actors -> actors.subList(1, actors.size()))
-			.flatMap(Collection::stream)
-			.collect(toList());
-		actorNames.removeAll(duplicateQuestEntries);
-	}
-
-	private static void purgeRedundantActors(final List<Actor> actors) {
-		final var undesirables = actors.stream()
-			.filter(actor -> Undesirables.redundantActorTypes.contains(actor.type()) ||
-				Undesirables.redundantActorsByMode.lookup(actor.mode()).orElseThrow(IllegalStateException::new).stream()
-					.anyMatch(undesirableActorName -> actor.name().contains(undesirableActorName)))
-			.collect(toList());
-		actors.removeAll(undesirables);
+		return printGroupedActors(groupedActors);
 	}
 
 	private Map<Mode, Map<Biome, Map<Zone, Map<Type, List<Actor>>>>> groupActors(final List<Actor> actors) {
@@ -67,7 +47,7 @@ public class ListSavePrinter implements SavePrinter {
 								toList())))));
 	}
 
-	private String print(final Map<Mode, Map<Biome, Map<Zone, Map<Type, List<Actor>>>>> groupedActors) {
+	private String printGroupedActors(final Map<Mode, Map<Biome, Map<Zone, Map<Type, List<Actor>>>>> groupedActors) {
 		final var sb = new StringBuilder();
 		groupedActors.forEach((mode, biomes) -> {
 			if (mode.equals(Mode.STORY)) {

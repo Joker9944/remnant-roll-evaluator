@@ -5,9 +5,11 @@ import lombok.experimental.Accessors;
 import online.vonarx.actor.Actor;
 import online.vonarx.actor.Mode;
 import online.vonarx.actor.Zone;
-import online.vonarx.dictionary.RelatedActorsDictionary;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 
@@ -33,7 +35,6 @@ public class Save {
 		final var actorNamesDirty = extractActorNames(saveBinary);
 		final var actorNamesByMode = filterSaveByModes(actorNamesDirty);
 		final var actors = mapToActorObject(actorNamesByMode);
-		addRelatedActors(actors);
 		this.actors = Collections.unmodifiableList(actors);
 	}
 
@@ -85,16 +86,5 @@ public class Save {
 			}
 		});
 		return mappedActors;
-	}
-
-	private static void addRelatedActors(final List<Actor> actors) {
-		final var relatedActors = actors.stream()
-			.map(actor -> RelatedActorsDictionary.dictionary.lookup(actor.name())
-				.orElse(Collections.emptyList()).stream()
-				.map(relatedActor -> relatedActor.adapt(actor))
-				.collect(toList()))
-			.flatMap(Collection::stream)
-			.collect(toList());
-		actors.addAll(relatedActors);
 	}
 }

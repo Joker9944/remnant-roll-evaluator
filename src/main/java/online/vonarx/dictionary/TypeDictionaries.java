@@ -61,7 +61,7 @@ public abstract class TypeDictionaries {
 		Map.entry("Quest_OverworldPOI_StuckMerchant", "Stuck Merchant (Merchant)"),
 		Map.entry("Quest_OverWorldPOI_StuckMerchant", "Stuck Merchant (Merchant)"),
 		Map.entry("Quest_Siege_WolfShrine", "Wolf Shrine (Siege)"),
-		Map.entry("Quest_Siege_TheRisen", "The Re-Animator (Siege)"),
+		Map.entry("Quest_Siege_TheRisen", "The Risen (Siege)"),
 		Map.entry("Quest_SmallD_DoeShrine", "Red Doe Shrine (Dungeon)")
 	));
 

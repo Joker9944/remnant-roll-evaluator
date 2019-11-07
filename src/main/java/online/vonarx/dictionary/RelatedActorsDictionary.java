@@ -9,8 +9,7 @@ import java.util.Map;
 
 public abstract class RelatedActorsDictionary {
 
-	public static final Dictionary<String, List<RelatedActor>> dictionary = new MapDictionary<>(
-		Map.ofEntries(
+	public static final Dictionary<String, List<RelatedActor>> dictionary = new MapDictionary<>(Map.ofEntries(
 			Map.entry("/Game/World_City/Quests/Quest_MiniBoss_Splitter/Quest_MiniBoss_Splitter.Quest_MiniBoss_Splitter", List.of(
 				new RelatedActor("Based on Riphide", "Leto's Lab (Dungeon)", Type.QUEST)
 			)),

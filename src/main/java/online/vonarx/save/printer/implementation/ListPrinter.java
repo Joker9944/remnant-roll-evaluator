@@ -1,6 +1,5 @@
 package online.vonarx.save.printer.implementation;
 
-import lombok.RequiredArgsConstructor;
 import online.vonarx.actor.*;
 import online.vonarx.save.Save;
 import online.vonarx.save.printer.Printer;
@@ -15,15 +14,21 @@ import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
-@RequiredArgsConstructor
 public class ListPrinter extends Printer<String> {
 
 	private final boolean showEngineNames;
 	private final boolean showEngineActors;
 
+	public ListPrinter(final List<Mode> modesToShow, final boolean showEngineNames, final boolean showEngineActors) {
+		super(modesToShow);
+		this.showEngineNames = showEngineNames;
+		this.showEngineActors = showEngineActors;
+	}
+
 	@Override
 	public String print(final Save save) {
 		final var actors = new ArrayList<>(save.actors());
+		filterActorsByMode(actors);
 		addRelatedActors(actors);
 		purgeDuplicateQuestEntries(actors);
 		if (!showEngineActors)

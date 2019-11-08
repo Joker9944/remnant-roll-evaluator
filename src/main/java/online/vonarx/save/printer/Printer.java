@@ -1,6 +1,8 @@
 package online.vonarx.save.printer;
 
+import lombok.RequiredArgsConstructor;
 import online.vonarx.actor.Actor;
+import online.vonarx.actor.Mode;
 import online.vonarx.dictionary.RelatedActorsDictionary;
 import online.vonarx.dictionary.Undesirables;
 import online.vonarx.save.Save;
@@ -12,11 +14,21 @@ import java.util.List;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
+@RequiredArgsConstructor
 public abstract class Printer<T> {
 
 	private static final int QUEST_IDENTIFIER_INDEX = 4;
 
+	private final List<Mode> modesToShow;
+
 	public abstract T print(final Save save);
+
+	protected void filterActorsByMode(final List<Actor> actors) {
+		final var actorsWithUndesiredMode = actors.stream()
+			.filter(actor -> !modesToShow.contains(actor.mode()))
+			.collect(toList());
+		actors.removeAll(actorsWithUndesiredMode);
+	}
 
 	protected static void addRelatedActors(final List<Actor> actors) {
 		final var relatedActors = actors.stream()

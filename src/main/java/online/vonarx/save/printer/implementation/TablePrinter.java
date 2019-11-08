@@ -8,7 +8,9 @@ import online.vonarx.dictionary.LocationDictionary;
 import online.vonarx.save.Save;
 import online.vonarx.save.printer.Printer;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.stream.Collectors.groupingBy;
 
@@ -17,13 +19,24 @@ public class TablePrinter extends Printer<String> {
 	private static final String[] STORY_MODE_TABLE_HEADER = new String[]{"Biome", "Zone", "Subzone", "Name", "Engine name"};
 	private static final String[] ADVENTURE_MODE_TABLE_HEADER = new String[]{"Subzone", "Name", "Engine name"};
 
+	public TablePrinter(final List<Mode> modesToShow) {
+		super(modesToShow);
+	}
+
 	@Override
 	public String print(final Save save) {
-		final var actorsByMode = save.actors().stream()
+		final var actors = new ArrayList<>(save.actors());
+		filterActorsByMode(actors);
+		final var actorsByMode = actors.stream()
 			.collect(groupingBy(Actor::mode));
-		final var storyTable = createStoryTableFromActors(actorsByMode.get(Mode.STORY));
-		final var adventureTable = createAdventureTableFromActors(actorsByMode.get(Mode.ADVENTURE));
-		return "Story\n" + storyTable.toString() + "\nAdventure\n" + adventureTable.toString();
+		final var sb = new StringBuilder();
+		if (Objects.nonNull(actorsByMode.get(Mode.STORY)))
+			sb.append("Story\n").append(createStoryTableFromActors(actorsByMode.get(Mode.STORY)));
+		if (sb.length() != 0)
+			sb.append("\n");
+		if (Objects.nonNull(actorsByMode.get(Mode.ADVENTURE)))
+			sb.append("Adventure\n").append(createAdventureTableFromActors(actorsByMode.get(Mode.ADVENTURE)));
+		return sb.toString();
 	}
 
 	private static ASCIITable createStoryTableFromActors(final List<Actor> actors) {

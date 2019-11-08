@@ -41,6 +41,11 @@ If you run into problem please open a new issue on the Issues page.
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
+## Dependencies
+
+* [ASCII-Data](https://github.com/MitchTalmadge/ASCII-Data)
+* [JCommander](http://jcommander.org/)
+
 ## Acknowledgments
 
 * [Remnant: From the Ashes Wiki](https://remnantfromtheashes.wiki.fextralife.com/Remnant+From+The+Ashes+Wiki)

@@ -1,70 +1,80 @@
 package online.vonarx;
 
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
+import online.vonarx.actor.Mode;
 import online.vonarx.save.Save;
+import online.vonarx.save.printer.Printer;
+import online.vonarx.save.printer.PrinterType;
 import online.vonarx.save.printer.implementation.ListPrinter;
 import online.vonarx.save.printer.implementation.TablePrinter;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Paths;
+import java.util.List;
 
 public class Main {
 
-	private static boolean showEngineNames = false;
-	private static boolean showEngineActors = false;
-	private static String path = null;
+	private static final String PROGRAM_NAME = "remnant-roll-evaluator";
 
-	public static void main(String[] args) throws IOException {
-		readParameters(args);
-		if (path == null) {
-			System.out.println("Save path missing. Use --help for help.");
+	private static class Parameters {
+		@Parameter(names = {"--file", "-f"}, description = "Path to remnant save", order = 0,
+			required = true, converter = RelativeURIConverter.class)
+		URI saveFilepath;
+
+		@Parameter(names = "--mode", description = "Which game modes should be printed", order = 1)
+		List<Mode> modes = List.of(Mode.STORY);
+
+		@Parameter(names = "--output-type", description = "How the output should be printed", order = 2)
+		PrinterType printerType = PrinterType.TABLE;
+
+		@Parameter(names = "--engine-names", description = "Show engine encounter names", order = 3)
+		boolean showEngineNames = false;
+
+		@Parameter(names = "--engine-actors", description = "Show engine encounter names", order = 4)
+		boolean showEngineActors = false;
+
+		@Parameter(names = {"--help", "-h"}, description = "Print help", help = true, order = 5)
+		boolean printHelp = false;
+	}
+
+	private static Parameters parameters;
+	private static JCommander jCommander;
+	private static Save save;
+	private static Printer<String> printer;
+
+	public static void main(final String[] args) throws IOException {
+		initializeParameters(args);
+		if (parameters.printHelp) {
+			jCommander.usage();
 			return;
 		}
-		final var saveBinary = readSave(path);
-		final var save = new Save(saveBinary);
-		final var savePrinter = new ListPrinter(showEngineNames, showEngineActors);
-		System.out.print(savePrinter.print(save));
-		final var locationSavePrinter = new TablePrinter();
-		System.out.print(locationSavePrinter.print(save));
+		parseSave();
+		initializePrinter();
+		System.out.print(printer.print(save));
 	}
 
-	private static void readParameters(final String[] args) {
-		for (int i = 0; i < args.length; i++) {
-			switch (args[i]) {
-				case "--file":
-				case "-f":
-					try {
-						path = args[++i];
-					} catch (ArrayIndexOutOfBoundsException e) {
-						System.out.println("No supplied path found, please check with --help.");
-					}
-					break;
-				case "--engine-names":
-					showEngineNames = true;
-					break;
-				case "--engine-actors":
-					showEngineActors = true;
-					break;
-				case "--help":
-				case "-h":
-					printHelp();
-					break;
-			}
+	private static void initializeParameters(final String[] args) {
+		parameters = new Parameters();
+		jCommander = JCommander.newBuilder()
+			.programName(PROGRAM_NAME)
+			.addObject(parameters)
+			.build();
+		jCommander.parse(args);
+	}
+
+	private static void parseSave() throws IOException {
+		final var saveBinary = IOUtils.toString(parameters.saveFilepath, StandardCharsets.UTF_8);
+		save = new Save(saveBinary);
+	}
+
+	private static void initializePrinter() {
+		if (parameters.printerType.equals(PrinterType.TABLE)) {
+			printer = new TablePrinter(parameters.modes);
+		} else {
+			printer = new ListPrinter(parameters.modes, parameters.showEngineNames, parameters.showEngineActors);
 		}
-	}
-
-	private static String readSave(final String path) throws IOException {
-		return IOUtils.toString(Paths.get(path).toUri(), StandardCharsets.UTF_8);
-	}
-
-	private static void printHelp() {
-		System.out.println("Usage:  remnant-roll-evaluator.exe --file {path_to_save}\n\n" +
-			"Shows encounters in Remnant save.\n\n" +
-			"Options:\n" +
-			"  -f, --file string    Path to remnant save\n" +
-			"      --engine-actors  Show actors which are used by the engine\n" +
-			"      --engine-names   Show engine encounter names\n" +
-			"  -h, --help           Show this guide :)");
 	}
 }

@@ -1,10 +1,13 @@
 package online.vonarx.actor;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.Arrays;
 
+@Accessors
+@RequiredArgsConstructor
 public enum Zone {
 	FAIRVIEW("Fairview", "City_Overworld_Zone1"),
 	WESTCOURT("Westcourt", "City_Overworld_Zone2"),
@@ -16,16 +19,8 @@ public enum Zone {
 	THE_SCALDING_GLADE("The Scalding Glade", "Jungle_Overworld_Zone2"),
 	NONE("None", null);
 
-	@Getter
-	@Accessors
-	private final String displayName;
-
+	@Getter private final String displayName;
 	private final String keyword;
-
-	Zone(final String displayName, final String keyword) {
-		this.displayName = displayName;
-		this.keyword = keyword;
-	}
 
 	public static Zone matchZone(final String name) {
 		return Arrays.stream(values())

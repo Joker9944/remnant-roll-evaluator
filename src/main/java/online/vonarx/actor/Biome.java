@@ -1,12 +1,15 @@
 package online.vonarx.actor;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.function.Predicate;
 
 import static java.util.Arrays.stream;
 
+@Accessors
+@RequiredArgsConstructor
 public enum Biome {
 	BASE("Ward 13"),
 	CITY("Earth"),
@@ -17,13 +20,7 @@ public enum Biome {
 	ATOLL("Ward 17"),
 	UNKNOWN("Unknown");
 
-	@Getter
-	@Accessors
-	private final String displayName;
-
-	Biome (final String displayName) {
-		this.displayName = displayName;
-	}
+	@Getter private final String displayName;
 
 	public static Biome matchBiome(final String name) {
 		return stream(values())

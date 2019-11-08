@@ -32,7 +32,7 @@ public abstract class Printer<T> {
 
 	protected static void addRelatedActors(final List<Actor> actors) {
 		final var relatedActors = actors.stream()
-			.map(actor -> RelatedActorsDictionary.dictionary.lookup(actor.name())
+			.map(actor -> RelatedActorsDictionary.dictionary.lookup(actor.identifier())
 				.orElse(Collections.emptyList()).stream()
 				.map(relatedActor -> relatedActor.adapt(actor))
 				.collect(toList()))
@@ -41,23 +41,23 @@ public abstract class Printer<T> {
 		actors.addAll(relatedActors);
 	}
 
-	protected static void purgeDuplicateQuestEntries(final List<Actor> actorNames) {
-		final var duplicateQuestEntries = actorNames.stream()
-			.filter(actor -> actor.name().contains("/Quests/"))
-			.collect(groupingBy(actor -> actor.mode() + "|" + actor.name().split("/")[QUEST_IDENTIFIER_INDEX]))
+	protected static void purgeDuplicateQuestEntries(final List<Actor> actors) {
+		final var duplicateQuestEntries = actors.stream()
+			.filter(actor -> actor.identifier().contains("/Quests/"))
+			.collect(groupingBy(actor -> actor.mode() + "|" + actor.identifier().split("/")[QUEST_IDENTIFIER_INDEX]))
 			.values().stream()
-			.filter(actors -> actors.size() > 1)
-			.map(actors -> actors.subList(1, actors.size()))
+			.filter(groupedActors -> groupedActors.size() > 1)
+			.map(groupedActors -> groupedActors.subList(1, groupedActors.size()))
 			.flatMap(Collection::stream)
 			.collect(toList());
-		actorNames.removeAll(duplicateQuestEntries);
+		actors.removeAll(duplicateQuestEntries);
 	}
 
 	protected static void purgeRedundantActors(final List<Actor> actors) {
 		final var undesirables = actors.stream()
 			.filter(actor -> Undesirables.redundantActorTypes.contains(actor.type()) ||
 				Undesirables.redundantActorsByMode.lookup(actor.mode()).orElseThrow(IllegalStateException::new).stream()
-					.anyMatch(undesirableActorName -> actor.name().contains(undesirableActorName)))
+					.anyMatch(undesirableActorName -> actor.identifier().contains(undesirableActorName)))
 			.collect(toList());
 		actors.removeAll(undesirables);
 	}

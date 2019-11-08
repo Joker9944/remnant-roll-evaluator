@@ -16,12 +16,12 @@ import static java.util.stream.Collectors.toList;
 
 public class ListPrinter extends Printer<String> {
 
-	private final boolean showEngineNames;
+	private final boolean showIdentifiers;
 	private final boolean showEngineActors;
 
-	public ListPrinter(final List<Mode> modesToShow, final boolean showEngineNames, final boolean showEngineActors) {
+	public ListPrinter(final List<Mode> modesToShow, final boolean showIdentifiers, final boolean showEngineActors) {
 		super(modesToShow);
-		this.showEngineNames = showEngineNames;
+		this.showIdentifiers = showIdentifiers;
 		this.showEngineActors = showEngineActors;
 	}
 
@@ -39,7 +39,7 @@ public class ListPrinter extends Printer<String> {
 
 	private Map<Mode, Map<Biome, Map<Zone, Map<Type, List<Actor>>>>> groupActors(final List<Actor> actors) {
 		return actors.stream()
-			.sorted(comparing(actor -> actor.displayName().orElse(actor.name())))
+			.sorted(comparing(actor -> actor.name().orElse(actor.identifier())))
 			.sorted(comparingInt(actor -> actor.type().order()))
 			.sorted(comparing(Actor::zone))
 			.sorted(comparing(Actor::biome))
@@ -95,12 +95,12 @@ public class ListPrinter extends Printer<String> {
 	}
 
 	private String printActor(final Actor actor) {
-		if (actor.displayName().isEmpty()) {
-			return actor.name();
-		} else if (showEngineNames) {
-			return actor.displayName().get() + " (" + actor.name() + ")";
+		if (actor.name().isEmpty()) {
+			return actor.identifier();
+		} else if (showIdentifiers) {
+			return actor.name().get() + " (" + actor.identifier() + ")";
 		} else {
-			return actor.displayName().get();
+			return actor.name().get();
 		}
 	}
 }

@@ -4,7 +4,6 @@ import com.mitchtalmadge.asciidata.table.ASCIITable;
 import com.mitchtalmadge.asciidata.table.formats.ASCIITableFormat;
 import online.vonarx.actor.Actor;
 import online.vonarx.actor.Mode;
-import online.vonarx.dictionary.LocationDictionary;
 import online.vonarx.save.Save;
 import online.vonarx.save.printer.Printer;
 
@@ -16,8 +15,8 @@ import static java.util.stream.Collectors.groupingBy;
 
 public class TablePrinter extends Printer<String> {
 
-	private static final String[] STORY_MODE_TABLE_HEADER = new String[]{"Biome", "Zone", "Subzone", "Name", "Engine name"};
-	private static final String[] ADVENTURE_MODE_TABLE_HEADER = new String[]{"Subzone", "Name", "Engine name"};
+	private static final String[] STORY_MODE_TABLE_HEADER = new String[]{"Biome", "Zone", "Subzone", "Name", "Identifier"};
+	private static final String[] ADVENTURE_MODE_TABLE_HEADER = new String[]{"Subzone", "Name", "Identifier"};
 
 	public TablePrinter(final List<Mode> modesToShow) {
 		super(modesToShow);
@@ -44,11 +43,11 @@ public class TablePrinter extends Printer<String> {
 			.map(actor -> new String[]{
 				actor.biome().displayName(),
 				actor.zone().displayName(),
-				LocationDictionary.dictionary.lookup(actor.name())
+				actor.subZone()
 					.orElse(null),
-				actor.displayName()
+				actor.name()
 					.orElse(null),
-				actor.name()})
+				actor.identifier()})
 			.toArray(String[][]::new);
 		return ASCIITable.fromData(STORY_MODE_TABLE_HEADER, tableBody)
 			.withTableFormat(new ASCIITableFormat());
@@ -57,11 +56,11 @@ public class TablePrinter extends Printer<String> {
 	private static ASCIITable createAdventureTableFromActors(final List<Actor> actors) {
 		final var tableBody = actors.stream()
 			.map(actor -> new String[]{
-				LocationDictionary.dictionary.lookup(actor.name())
+				actor.subZone()
 					.orElse(null),
-				actor.displayName()
+				actor.name()
 					.orElse(null),
-				actor.name()})
+				actor.identifier()})
 			.toArray(String[][]::new);
 		return ASCIITable.fromData(ADVENTURE_MODE_TABLE_HEADER, tableBody)
 			.withTableFormat(new ASCIITableFormat());

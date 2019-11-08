@@ -30,8 +30,8 @@ public class Main {
 		@Parameter(names = "--output-type", description = "How the output should be printed", order = 2)
 		PrinterType printerType = PrinterType.TABLE;
 
-		@Parameter(names = "--engine-names", description = "Show engine encounter names", order = 3)
-		boolean showEngineNames = false;
+		@Parameter(names = "--identifiers", description = "Show actor identifiers", order = 3)
+		boolean showIdentifiers = false;
 
 		@Parameter(names = "--engine-actors", description = "Show engine encounter names", order = 4)
 		boolean showEngineActors = false;
@@ -74,7 +74,7 @@ public class Main {
 		if (parameters.printerType.equals(PrinterType.TABLE)) {
 			printer = new TablePrinter(parameters.modes);
 		} else {
-			printer = new ListPrinter(parameters.modes, parameters.showEngineNames, parameters.showEngineActors);
+			printer = new ListPrinter(parameters.modes, parameters.showIdentifiers, parameters.showEngineActors);
 		}
 	}
 }

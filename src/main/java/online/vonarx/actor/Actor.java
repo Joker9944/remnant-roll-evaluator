@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import online.vonarx.dictionary.LocationDictionary;
 
 import java.util.Optional;
 
@@ -12,24 +13,31 @@ import java.util.Optional;
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class Actor {
 
-	private final String name;
-	private final String displayName;
+	private final Mode mode;
+	private final String identifier;
 	private final Biome biome;
 	private final Zone zone;
+	private final String subZone;
 	private final Type type;
-	private final Mode mode;
+	private final String name;
 
-	public Actor(final String name, final Mode mode, final Zone zone) {
-		this.name = name;
-		this.biome = Biome.matchBiome(name);
-		this.zone = zone;
-		this.type = Type.matchType(name);
+	public Actor(final Mode mode, final String identifier, final Zone zone) {
 		this.mode = mode;
-		this.displayName = type.dictionary().lookup(name)
+		this.identifier = identifier;
+		this.biome = Biome.matchBiome(identifier);
+		this.zone = zone;
+		this.subZone = LocationDictionary.dictionary.lookup(identifier)
+			.orElse(null);
+		this.type = Type.matchType(identifier);
+		this.name = type.dictionary().lookup(identifier)
 			.orElse(null);
 	}
 
-	public Optional<String> displayName() {
-		return Optional.ofNullable(displayName);
+	public Optional<String> subZone() {
+		return Optional.ofNullable(subZone);
+	}
+
+	public Optional<String> name() {
+		return Optional.ofNullable(name);
 	}
 }

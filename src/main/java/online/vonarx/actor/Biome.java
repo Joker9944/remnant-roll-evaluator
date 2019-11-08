@@ -22,7 +22,7 @@ public enum Biome {
 
 	@Getter private final String displayName;
 
-	public static Biome matchBiome(final String name) {
+	static Biome matchBiome(final String name) {
 		return stream(values())
 			.filter(nameMatchesBiome(name))
 			.findAny()

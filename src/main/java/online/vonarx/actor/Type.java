@@ -26,7 +26,7 @@ public enum Type {
 	@Getter private final Dictionary<String, String> dictionary;
 	@Getter private final int order;
 
-	public static Type matchType(final String name) {
+	static Type matchType(final String name) {
 		return stream(values())
 			.filter(nameMatchesType(name))
 			.findFirst()

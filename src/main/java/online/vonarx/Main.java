@@ -3,6 +3,7 @@ package online.vonarx;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import online.vonarx.actor.Mode;
+import online.vonarx.jcommander.RelativeURIConverter;
 import online.vonarx.save.Save;
 import online.vonarx.save.printer.Printer;
 import online.vonarx.save.printer.PrinterType;
@@ -18,6 +19,8 @@ import java.util.List;
 public class Main {
 
 	private static final String PROGRAM_NAME = "remnant-roll-evaluator";
+	private static final PrinterType DEFAULT_PRINTER_TYPE = PrinterType.TABLE;
+	private static final List<Mode> DEFAULT_MODES_TO_PRINT = List.of(Mode.STORY);
 
 	private static class Parameters {
 		@Parameter(names = {"--file", "-f"}, description = "Path to remnant save", order = 0,
@@ -25,10 +28,10 @@ public class Main {
 		URI saveFilepath;
 
 		@Parameter(names = "--mode", description = "Which game modes should be printed", order = 1)
-		List<Mode> modes = List.of(Mode.STORY);
+		List<Mode> modes = DEFAULT_MODES_TO_PRINT;
 
 		@Parameter(names = "--output-type", description = "How the output should be printed", order = 2)
-		PrinterType printerType = PrinterType.TABLE;
+		PrinterType printerType = DEFAULT_PRINTER_TYPE;
 
 		@Parameter(names = "--identifiers", description = "Show actor identifiers", order = 3)
 		boolean showIdentifiers = false;
@@ -72,7 +75,7 @@ public class Main {
 
 	private static void initializePrinter() {
 		if (parameters.printerType.equals(PrinterType.TABLE)) {
-			printer = new TablePrinter(parameters.modes);
+			printer = new TablePrinter(parameters.modes, parameters.showIdentifiers, parameters.showEngineActors);
 		} else {
 			printer = new ListPrinter(parameters.modes, parameters.showIdentifiers, parameters.showEngineActors);
 		}

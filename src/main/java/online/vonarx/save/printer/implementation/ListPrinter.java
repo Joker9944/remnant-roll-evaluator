@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 import static java.util.Comparator.comparing;
-import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
@@ -40,7 +39,7 @@ public class ListPrinter extends Printer<String> {
 	private Map<Mode, Map<Biome, Map<Zone, Map<Type, List<Actor>>>>> groupActors(final List<Actor> actors) {
 		return actors.stream()
 			.sorted(comparing(actor -> actor.name().orElse(actor.identifier())))
-			.sorted(comparingInt(actor -> actor.type().order()))
+			.sorted(comparing(Actor::type))
 			.sorted(comparing(Actor::zone))
 			.sorted(comparing(Actor::biome))
 			.sorted(comparing(Actor::mode))

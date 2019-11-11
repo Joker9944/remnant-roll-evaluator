@@ -10,11 +10,11 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-public class RegExDictionary implements Dictionary<String, String> {
+public class RegExExtractionDictionary implements Dictionary<String, String> {
 
 	private final List<Pattern> patterns;
 
-	public RegExDictionary(final String... patterns) {
+	public RegExExtractionDictionary(final String... patterns) {
 		this.patterns = Stream.of(patterns)
 			.map(Pattern::compile)
 			.collect(toList());

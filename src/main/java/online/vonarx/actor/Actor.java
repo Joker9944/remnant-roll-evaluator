@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import online.vonarx.dictionary.LocationDictionary;
+import online.vonarx.dictionary.NameDictionary;
 
 import java.util.Optional;
 
@@ -29,7 +30,7 @@ public class Actor {
 		this.subZone = LocationDictionary.dictionary.lookup(identifier)
 			.orElse(null);
 		this.type = Type.matchType(identifier);
-		this.name = type.dictionary().lookup(identifier)
+		this.name = NameDictionary.dictionary.lookup(identifier)
 			.orElse(null);
 	}
 

@@ -13,11 +13,9 @@ public abstract class Undesirables {
 	public static final Dictionary<Mode, Set<String>> redundantActorsByMode = new MapDictionary<>(Map.of(
 		Mode.STORY, Set.of(
 			"/Templates/",
-			"/Campaign_Main/",
-			"Quest_SmallD_BlinkThief"),
+			"/Campaign_Main/"),
 		Mode.ADVENTURE, Set.of(
 			"/Templates/",
-			"/Quest_AdventureMode/",
-			"Quest_SmallD_BlinkThief")
+			"/Quest_AdventureMode/")
 	));
 }

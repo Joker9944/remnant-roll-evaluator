@@ -1,4 +1,4 @@
-package online.vonarx;
+package online.vonarx.jcommander;
 
 import com.beust.jcommander.converters.BaseConverter;
 

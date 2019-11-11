@@ -15,17 +15,28 @@ import static java.util.stream.Collectors.groupingBy;
 
 public class TablePrinter extends Printer<String> {
 
-	private static final String[] STORY_MODE_TABLE_HEADER = new String[]{"Biome", "Zone", "Subzone", "Name", "Identifier"};
-	private static final String[] ADVENTURE_MODE_TABLE_HEADER = new String[]{"Subzone", "Name", "Identifier"};
+	private static final String[] STORY_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Biome", "Zone", "Type", "Subzone", "Name", "Identifier"};
+	private static final String[] ADVENTURE_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Type", "Subzone", "Name", "Identifier"};
+	private static final String[] STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Biome", "Zone", "Type", "Subzone", "Name"};
+	private static final String[] ADVENTURE_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Type", "Subzone", "Name"};
 
-	public TablePrinter(final List<Mode> modesToShow) {
+	private final boolean showIdentifiers;
+	private final boolean showEngineActors;
+
+	public TablePrinter(final List<Mode> modesToShow, final boolean showIdentifiers, final boolean showEngineActors) {
 		super(modesToShow);
+		this.showIdentifiers = showIdentifiers;
+		this.showEngineActors = showEngineActors;
 	}
 
 	@Override
 	public String print(final Save save) {
 		final var actors = new ArrayList<>(save.actors());
 		filterActorsByMode(actors);
+		if (!showEngineActors) {
+			purgeDuplicateQuestEntries(actors);
+			purgeRedundantActors(actors);
+		}
 		final var actorsByMode = actors.stream()
 			.collect(groupingBy(Actor::mode));
 		final var sb = new StringBuilder();
@@ -38,31 +49,71 @@ public class TablePrinter extends Printer<String> {
 		return sb.toString();
 	}
 
-	private static ASCIITable createStoryTableFromActors(final List<Actor> actors) {
+	private ASCIITable createStoryTableFromActors(final List<Actor> actors) {
+		return showIdentifiers ? createStoryTableFromActorsWithIdentifier(actors) :
+			createStoryTableFromActorsWithoutIdentifier(actors);
+	}
+
+	private static ASCIITable createStoryTableFromActorsWithIdentifier(final List<Actor> actors) {
 		final var tableBody = actors.stream()
 			.map(actor -> new String[]{
 				actor.biome().displayName(),
 				actor.zone().displayName(),
+				actor.type().displayName(),
 				actor.subZone()
 					.orElse(null),
 				actor.name()
 					.orElse(null),
 				actor.identifier()})
 			.toArray(String[][]::new);
-		return ASCIITable.fromData(STORY_MODE_TABLE_HEADER, tableBody)
+		return ASCIITable.fromData(STORY_MODE_TABLE_HEADER_WITH_IDENTIFIER, tableBody)
 			.withTableFormat(new ASCIITableFormat());
 	}
 
-	private static ASCIITable createAdventureTableFromActors(final List<Actor> actors) {
+	private static ASCIITable createStoryTableFromActorsWithoutIdentifier(final List<Actor> actors) {
 		final var tableBody = actors.stream()
 			.map(actor -> new String[]{
+				actor.biome().displayName(),
+				actor.zone().displayName(),
+				actor.type().displayName(),
+				actor.subZone()
+					.orElse(null),
+				actor.name()
+					.orElse(null)})
+			.toArray(String[][]::new);
+		return ASCIITable.fromData(STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER, tableBody)
+			.withTableFormat(new ASCIITableFormat());
+	}
+
+	private ASCIITable createAdventureTableFromActors(final List<Actor> actors) {
+		return showIdentifiers ? createAdventureTableFromActorsWithIdentifier(actors) :
+			createAdventureTableFromActorsWithoutIdentifier(actors);
+	}
+
+	private static ASCIITable createAdventureTableFromActorsWithIdentifier(final List<Actor> actors) {
+		final var tableBody = actors.stream()
+			.map(actor -> new String[]{
+				actor.type().displayName(),
 				actor.subZone()
 					.orElse(null),
 				actor.name()
 					.orElse(null),
 				actor.identifier()})
 			.toArray(String[][]::new);
-		return ASCIITable.fromData(ADVENTURE_MODE_TABLE_HEADER, tableBody)
+		return ASCIITable.fromData(ADVENTURE_MODE_TABLE_HEADER_WITH_IDENTIFIER, tableBody)
+			.withTableFormat(new ASCIITableFormat());
+	}
+
+	private static ASCIITable createAdventureTableFromActorsWithoutIdentifier(final List<Actor> actors) {
+		final var tableBody = actors.stream()
+			.map(actor -> new String[]{
+				actor.type().displayName(),
+				actor.subZone()
+					.orElse(null),
+				actor.name()
+					.orElse(actor.identifier())})
+			.toArray(String[][]::new);
+		return ASCIITable.fromData(ADVENTURE_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER, tableBody)
 			.withTableFormat(new ASCIITableFormat());
 	}
 }

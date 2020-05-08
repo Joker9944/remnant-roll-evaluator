@@ -96,4 +96,5 @@ public abstract class KnownActorIdentifiers {
 	public static final String RAZORSTONE = "Quest_Event_RazorStone";
 	public static final String BLOOD_FONT = "Quest_Event_BloodFont";
 	public static final String BAND_OF_POLLUX = "Quest_Event_BandOfPollux";
+	public static final String GUNSLINGERS_RING = "Quest_Event_GunslignersRing";
 }

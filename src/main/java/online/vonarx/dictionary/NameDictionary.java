@@ -80,6 +80,7 @@ public abstract class NameDictionary {
 			Map.entry(VENGEANCE_IDOL, "Vengeance Idol"),
 			Map.entry(BRUTAL_MARK, "Brutal Mark"),
 			Map.entry(ROCK_OF_ANGUISH, "Rock of Anguish"),
+			Map.entry(LETOS_AMULET, "Leto's Amulet"),
 			// Rings
 			Map.entry(HEARTSEEKER, "Heartseeker"),
 			Map.entry(PILLAR_OF_STONE, "Pillar of Stone"),

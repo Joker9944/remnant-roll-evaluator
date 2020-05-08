@@ -73,6 +73,7 @@ public abstract class KnownActorIdentifiers {
 	public static final String VENGEANCE_IDOL = "Quest_Event_VengeanceIdol";
 	public static final String BRUTAL_MARK = "Quest_Event_BrutalMark";
 	public static final String ROCK_OF_ANGUISH = "Quest_Event_RockOfAnguish";
+	public static final String LETOS_AMULET = "Quest_Event_Penitent";
 	// Rings
 	public static final String HEARTSEEKER = "Quest_Event_HeartSeeker";
 	public static final String PILLAR_OF_STONE = "Quest_Event_PillarOfStone";

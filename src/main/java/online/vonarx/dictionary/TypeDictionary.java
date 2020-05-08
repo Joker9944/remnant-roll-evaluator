@@ -28,7 +28,7 @@ public abstract class TypeDictionary {
 			GALENIC_CHARM, MENDERS_CHARM,
 			BUTCHERS_FETISH, STORM_AMULET,
 			VENGEANCE_IDOL, BRUTAL_MARK,
-			ROCK_OF_ANGUISH
+			ROCK_OF_ANGUISH, LETOS_AMULET
 		)),
 		new PartialKeySetDictionary<>(Type.RING, Set.of(
 			HEARTSEEKER, PILLAR_OF_STONE,

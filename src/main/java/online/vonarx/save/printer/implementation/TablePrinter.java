@@ -29,31 +29,6 @@ public class TablePrinter extends Printer<String> {
 		this.showEngineActors = showEngineActors;
 	}
 
-	@Override
-	public String print(final Save save) {
-		final var actors = new ArrayList<>(save.actors());
-		filterActorsByMode(actors);
-		if (!showEngineActors) {
-			purgeDuplicateQuestEntries(actors);
-			purgeRedundantActors(actors);
-		}
-		final var actorsByMode = actors.stream()
-			.collect(groupingBy(Actor::mode));
-		final var sb = new StringBuilder();
-		if (Objects.nonNull(actorsByMode.get(Mode.STORY)))
-			sb.append("Story\n").append(createStoryTableFromActors(actorsByMode.get(Mode.STORY)));
-		if (sb.length() != 0)
-			sb.append("\n");
-		if (Objects.nonNull(actorsByMode.get(Mode.ADVENTURE)))
-			sb.append("Adventure\n").append(createAdventureTableFromActors(actorsByMode.get(Mode.ADVENTURE)));
-		return sb.toString();
-	}
-
-	private ASCIITable createStoryTableFromActors(final List<Actor> actors) {
-		return showIdentifiers ? createStoryTableFromActorsWithIdentifier(actors) :
-			createStoryTableFromActorsWithoutIdentifier(actors);
-	}
-
 	private static ASCIITable createStoryTableFromActorsWithIdentifier(final List<Actor> actors) {
 		final var tableBody = actors.stream()
 			.map(actor -> new String[]{
@@ -85,11 +60,6 @@ public class TablePrinter extends Printer<String> {
 			.withTableFormat(new ASCIITableFormat());
 	}
 
-	private ASCIITable createAdventureTableFromActors(final List<Actor> actors) {
-		return showIdentifiers ? createAdventureTableFromActorsWithIdentifier(actors) :
-			createAdventureTableFromActorsWithoutIdentifier(actors);
-	}
-
 	private static ASCIITable createAdventureTableFromActorsWithIdentifier(final List<Actor> actors) {
 		final var tableBody = actors.stream()
 			.map(actor -> new String[]{
@@ -115,5 +85,35 @@ public class TablePrinter extends Printer<String> {
 			.toArray(String[][]::new);
 		return ASCIITable.fromData(ADVENTURE_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER, tableBody)
 			.withTableFormat(new ASCIITableFormat());
+	}
+
+	@Override
+	public String print(final Save save) {
+		final var actors = new ArrayList<>(save.actors());
+		filterActorsByMode(actors);
+		if (!showEngineActors) {
+			purgeDuplicateQuestEntries(actors);
+			purgeRedundantActors(actors);
+		}
+		final var actorsByMode = actors.stream()
+			.collect(groupingBy(Actor::mode));
+		final var sb = new StringBuilder();
+		if (Objects.nonNull(actorsByMode.get(Mode.STORY)))
+			sb.append("Story\n").append(createStoryTableFromActors(actorsByMode.get(Mode.STORY)));
+		if (sb.length() != 0)
+			sb.append("\n");
+		if (Objects.nonNull(actorsByMode.get(Mode.ADVENTURE)))
+			sb.append("Adventure\n").append(createAdventureTableFromActors(actorsByMode.get(Mode.ADVENTURE)));
+		return sb.toString();
+	}
+
+	private ASCIITable createStoryTableFromActors(final List<Actor> actors) {
+		return showIdentifiers ? createStoryTableFromActorsWithIdentifier(actors) :
+			createStoryTableFromActorsWithoutIdentifier(actors);
+	}
+
+	private ASCIITable createAdventureTableFromActors(final List<Actor> actors) {
+		return showIdentifiers ? createAdventureTableFromActorsWithIdentifier(actors) :
+			createAdventureTableFromActorsWithoutIdentifier(actors);
 	}
 }

@@ -21,28 +21,6 @@ public class Main {
 	private static final String PROGRAM_NAME = "remnant-roll-evaluator";
 	private static final PrinterType DEFAULT_PRINTER_TYPE = PrinterType.TABLE;
 	private static final List<Mode> DEFAULT_MODES_TO_PRINT = List.of(Mode.STORY);
-
-	private static class Parameters {
-		@Parameter(names = {"--file", "-f"}, description = "Path to remnant save", order = 0,
-			required = true, converter = RelativeURIConverter.class)
-		URI saveFilepath;
-
-		@Parameter(names = "--mode", description = "Which game modes should be printed", order = 1)
-		List<Mode> modes = DEFAULT_MODES_TO_PRINT;
-
-		@Parameter(names = "--output-type", description = "How the output should be printed", order = 2)
-		PrinterType printerType = DEFAULT_PRINTER_TYPE;
-
-		@Parameter(names = "--identifiers", description = "Show actor identifiers", order = 3)
-		boolean showIdentifiers = false;
-
-		@Parameter(names = "--engine-actors", description = "Show engine encounter names", order = 4)
-		boolean showEngineActors = false;
-
-		@Parameter(names = {"--help", "-h"}, description = "Print help", help = true, order = 5)
-		boolean printHelp = false;
-	}
-
 	private static Parameters parameters;
 	private static JCommander jCommander;
 	private static Save save;
@@ -79,5 +57,26 @@ public class Main {
 		} else {
 			printer = new ListPrinter(parameters.modes, parameters.showIdentifiers, parameters.showEngineActors);
 		}
+	}
+
+	private static class Parameters {
+		@Parameter(names = {"--file", "-f"}, description = "Path to remnant save", order = 0,
+			required = true, converter = RelativeURIConverter.class)
+		URI saveFilepath;
+
+		@Parameter(names = "--mode", description = "Which game modes should be printed", order = 1)
+		List<Mode> modes = DEFAULT_MODES_TO_PRINT;
+
+		@Parameter(names = "--output-type", description = "How the output should be printed", order = 2)
+		PrinterType printerType = DEFAULT_PRINTER_TYPE;
+
+		@Parameter(names = "--identifiers", description = "Show actor identifiers", order = 3)
+		boolean showIdentifiers = false;
+
+		@Parameter(names = "--engine-actors", description = "Show engine encounter names", order = 4)
+		boolean showEngineActors = false;
+
+		@Parameter(names = {"--help", "-h"}, description = "Print help", help = true, order = 5)
+		boolean printHelp = false;
 	}
 }

@@ -41,8 +41,8 @@ public abstract class TypeDictionary {
 			CELERITY_STONE, GUARDIANS_RING,
 			SAGESTONE, MOTHERS_RING,
 			RAZORSTONE, BLOOD_FONT,
-						BAND_OF_POLLUX, GUNSLINGERS_RING,
-						PEARL_OF_LUMINESCENCE, COMPULSION_LOOP
+			BAND_OF_POLLUX, GUNSLINGERS_RING,
+			PEARL_OF_LUMINESCENCE, COMPULSION_LOOP
 		)),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_Boss_.*$", Type.BOSS),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_MiniBoss_.*$", Type.BOSS),

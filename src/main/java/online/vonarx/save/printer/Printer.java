@@ -21,15 +21,6 @@ public abstract class Printer<T> {
 
 	private final List<Mode> modesToShow;
 
-	public abstract T print(final Save save);
-
-	protected void filterActorsByMode(final List<Actor> actors) {
-		final var actorsWithUndesiredMode = actors.stream()
-			.filter(actor -> !modesToShow.contains(actor.mode()))
-			.collect(toList());
-		actors.removeAll(actorsWithUndesiredMode);
-	}
-
 	protected static void addRelatedActors(final List<Actor> actors) {
 		final var relatedActors = actors.stream()
 			.map(actor -> RelatedActorsDictionary.dictionary.lookup(actor.identifier())
@@ -60,5 +51,14 @@ public abstract class Printer<T> {
 					.anyMatch(undesirableActorName -> actor.identifier().contains(undesirableActorName)))
 			.collect(toList());
 		actors.removeAll(undesirables);
+	}
+
+	public abstract T print(final Save save);
+
+	protected void filterActorsByMode(final List<Actor> actors) {
+		final var actorsWithUndesiredMode = actors.stream()
+			.filter(actor -> !modesToShow.contains(actor.mode()))
+			.collect(toList());
+		actors.removeAll(actorsWithUndesiredMode);
 	}
 }

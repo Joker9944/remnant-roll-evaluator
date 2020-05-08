@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class MapDictionary<K, V> extends HashMap<K, V> implements Dictionary<K, V> {
 
-	public MapDictionary(final Map<K, V> map)  {
+	public MapDictionary(final Map<K, V> map) {
 		putAll(map);
 	}
 

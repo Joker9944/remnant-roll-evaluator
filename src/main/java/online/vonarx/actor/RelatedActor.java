@@ -1,7 +1,6 @@
 package online.vonarx.actor;
 
 
-
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

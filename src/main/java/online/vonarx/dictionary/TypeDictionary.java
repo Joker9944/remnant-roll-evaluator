@@ -40,7 +40,8 @@ public abstract class TypeDictionary {
 			RING_OF_EVASION, LEECH_EMBER,
 			CELERITY_STONE, GUARDIANS_RING,
 			SAGESTONE, MOTHERS_RING,
-			RAZORSTONE, BLOOD_FONT
+			RAZORSTONE, BLOOD_FONT,
+						BAND_OF_POLLUX
 		)),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_Boss_.*$", Type.BOSS),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_MiniBoss_.*$", Type.BOSS),

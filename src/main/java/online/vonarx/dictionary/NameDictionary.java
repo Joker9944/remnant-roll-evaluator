@@ -101,7 +101,8 @@ public abstract class NameDictionary {
 			Map.entry(SAGESTONE, "Sagestone"),
 			Map.entry(MOTHERS_RING, "Mother's Ring"),
 			Map.entry(RAZORSTONE, "Razorstone"),
-			Map.entry(BLOOD_FONT, "Blood Font")
+			Map.entry(BLOOD_FONT, "Blood Font"),
+						Map.entry(BAND_OF_POLLUX, "Band of Pollux")
 		)),
 		new RegExExtractionDictionary("^/Game/World_.+/Quest_Event_(.+)/.*$")
 	);

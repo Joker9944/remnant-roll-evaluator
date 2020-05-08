@@ -40,7 +40,7 @@ public abstract class LocationDictionary {
 		Map.entry(IXILLIS, "The Grotto"),
 		// Jungle
 		Map.entry(THE_WARDEN, "The Halls of Judgement -> The Ring of Trials"),
-		Map.entry(STORMCALLER, "Heretic's Nest -> Martyr’s Garden"),
+		Map.entry(STORMCALLER, "Heretic's Nest -> Martyr's Garden"),
 		Map.entry(SCALD_AND_SEAR, "Withering Village ->  Warden's Pulpit"),
 		Map.entry(ONSLAUGHT, "Widow's Pass -> Noble's Rest"),
 		Map.entry(TOTEM_FATHER, "The Tempest Court"),

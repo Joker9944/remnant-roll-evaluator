@@ -79,7 +79,7 @@ public class TablePrinter extends Printer<String> {
 				actor.subZone()
 					.orElse(null),
 				actor.name()
-					.orElse(null)})
+					.orElse(actor.identifier())})
 			.toArray(String[][]::new);
 		return ASCIITable.fromData(STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER, tableBody)
 			.withTableFormat(new ASCIITableFormat());

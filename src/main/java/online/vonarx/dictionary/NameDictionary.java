@@ -104,6 +104,7 @@ public abstract class NameDictionary {
 			// DLC
 			// Bosses
 			.put(FLICKERING_HORROR, "Flickering Horror")
+			.put(BARBED_TERROR, "Barbed Terror")
 			// Amulets
 			.put(TALISMAN_OF_ANIMOSITY, "Talisman of Animosity")
 			// Rings
@@ -115,6 +116,8 @@ public abstract class NameDictionary {
 			.put(BAND_OF_CASTOR, "Band of Castor")
 			.put(AGGRESSORS_BANE, "Aggressor's Bane")
 			.put(DECEIVERS_BAND, "Deceiver's Band")
+			.put(RING_OF_ELUSION, "Ring of Elusion")
+			.put(STOCKPILE_CIRCLET, "Stockpile Circlet")
 			.build()),
 		new RegExExtractionDictionary("^/Game/World_.+/Quest_Event_(.+)/.*$"));
 }

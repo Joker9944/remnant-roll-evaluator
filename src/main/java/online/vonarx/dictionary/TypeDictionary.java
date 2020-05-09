@@ -47,7 +47,8 @@ public abstract class TypeDictionary {
 			BAND_OF_POLLUX, GUNSLINGERS_RING,
 			PEARL_OF_LUMINESCENCE, COMPULSION_LOOP,
 			RING_OF_SHADOWS, BAND_OF_CASTOR,
-			AGGRESSORS_BANE, DECEIVERS_BAND
+			AGGRESSORS_BANE, DECEIVERS_BAND,
+			RING_OF_ELUSION, STOCKPILE_CIRCLET
 		)),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_Boss_.*$", Type.BOSS),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_MiniBoss_.*$", Type.BOSS),

@@ -48,5 +48,6 @@ public abstract class LocationDictionary {
 		.put(RED_DOE_SHRINE, "Widow's Vestry")
 		// DLC
 		.put(FLICKERING_HORROR, "TBD")
+		.put(BARBED_TERROR, "TBD")
 		.build());
 }

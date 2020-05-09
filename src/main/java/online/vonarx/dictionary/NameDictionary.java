@@ -29,7 +29,7 @@ public abstract class NameDictionary {
 			// Swamp boss
 			.put(THE_THRALL, "The Thrall")
 			.put(CANKER, "Canker")
-			.put(THE_UNDLEAN_ONE, "The Unclean One")
+			.put(THE_UNCLEAN_ONE, "The Unclean One")
 			.put(IXILLIS, "Ixillis")
 			// Jungle boss
 			.put(THE_WARDEN, "The Warden")

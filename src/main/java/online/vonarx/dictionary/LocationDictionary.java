@@ -34,7 +34,7 @@ public abstract class LocationDictionary {
 		// Swamp
 		.put(THE_THRALL, "The Capillary -> Musk Forge")
 		.put(CANKER, "The Drowned Trench -> Mire Hollow")
-		.put(THE_UNDLEAN_ONE, "The Shack")
+		.put(THE_UNCLEAN_ONE, "The Shack")
 		.put(IXILLIS, "The Grotto")
 		// Jungle
 		.put(THE_WARDEN, "The Halls of Judgement -> The Ring of Trials")

@@ -28,7 +28,9 @@ public abstract class TypeDictionary {
 			GALENIC_CHARM, MENDERS_CHARM,
 			BUTCHERS_FETISH, STORM_AMULET,
 			VENGEANCE_IDOL, BRUTAL_MARK,
-			ROCK_OF_ANGUISH, LETOS_AMULET
+			ROCK_OF_ANGUISH, LETOS_AMULET,
+			// DLC
+			TALISMAN_OF_ANIMOSITY
 		)),
 		new PartialKeySetDictionary<>(Type.RING, Set.of(
 			HEARTSEEKER, PILLAR_OF_STONE,
@@ -41,9 +43,11 @@ public abstract class TypeDictionary {
 			CELERITY_STONE, GUARDIANS_RING,
 			SAGESTONE, MOTHERS_RING,
 			RAZORSTONE, BLOOD_FONT,
+			// DLC
 			BAND_OF_POLLUX, GUNSLINGERS_RING,
 			PEARL_OF_LUMINESCENCE, COMPULSION_LOOP,
-			RING_OF_SHADOWS
+			RING_OF_SHADOWS, BAND_OF_CASTOR,
+			AGGRESSORS_BANE, DECEIVERS_BAND
 		)),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_Boss_.*$", Type.BOSS),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_MiniBoss_.*$", Type.BOSS),

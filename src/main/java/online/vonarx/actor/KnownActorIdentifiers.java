@@ -98,10 +98,15 @@ public abstract class KnownActorIdentifiers {
 	// DLC
 	// Bosses
 	public static final String FLICKERING_HORROR = "Quest_MiniBoss_FlickeringHorror";
+	// Amulets
+	public static final String TALISMAN_OF_ANIMOSITY = "Quest_Event_TalismanOfAnimosity";
 	// Rings
 	public static final String BAND_OF_POLLUX = "Quest_Event_BandOfPollux";
 	public static final String GUNSLINGERS_RING = "Quest_Event_GunslignersRing";
 	public static final String PEARL_OF_LUMINESCENCE = "Quest_Event_PearlOfLuminescence";
 	public static final String COMPULSION_LOOP = "Quest_Event_CompulsionLoop";
 	public static final String RING_OF_SHADOWS = "Quest_Event_RingOfShadows";
+	public static final String BAND_OF_CASTOR = "Quest_Event_BandOfCastor";
+	public static final String AGGRESSORS_BANE = "Quest_Event_AggressorsBane";
+	public static final String DECEIVERS_BAND = "Quest_Event_DeceiversBand";
 }

@@ -27,8 +27,10 @@ public class OriginDictionary {
 		)),
 		new PartialKeySetDictionary<>(Origin.LETOS_LAB_UPDATE, Set.of(RIPHIDE, RIPHIDE_FULL)),
 		new PartialKeySetDictionary<>(Origin.SWAMPS_OF_CORSUS_UPDATE, Set.of(
+			FLICKERING_HORROR,
 			BAND_OF_POLLUX, GUNSLINGERS_RING,
-			PEARL_OF_LUMINESCENCE, COMPULSION_LOOP
+			PEARL_OF_LUMINESCENCE, COMPULSION_LOOP,
+			RING_OF_SHADOWS
 		))
 	);
 }

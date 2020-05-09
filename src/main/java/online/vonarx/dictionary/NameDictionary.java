@@ -102,10 +102,14 @@ public abstract class NameDictionary {
 			.put(RAZORSTONE, "Razorstone")
 			.put(BLOOD_FONT, "Blood Font")
 			// DLC
+			// Bosses
+			.put(FLICKERING_HORROR, "Flickering Horror")
+			// Rings
 			.put(BAND_OF_POLLUX, "Band of Pollux")
 			.put(GUNSLINGERS_RING, "Gunslinger's Ring")
 			.put(PEARL_OF_LUMINESCENCE, "Pearl of Luminescence")
 			.put(COMPULSION_LOOP, "Compulsion Loop")
+			.put(RING_OF_SHADOWS, "Ring of Shadows")
 			.build()),
 		new RegExExtractionDictionary("^/Game/World_.+/Quest_Event_(.+)/.*$"));
 }

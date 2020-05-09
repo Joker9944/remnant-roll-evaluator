@@ -46,5 +46,7 @@ public abstract class LocationDictionary {
 		.put(WOLF_SHRINE, "Temple of the Ravager -> Martyr's Sanctuary")
 		.put(THE_RISEN, "Ahanae's Lament ->  The Radiant Tomb")
 		.put(RED_DOE_SHRINE, "Widow's Vestry")
+		// DLC
+		.put(FLICKERING_HORROR, "TBD")
 		.build());
 }

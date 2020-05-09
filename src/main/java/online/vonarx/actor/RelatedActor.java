@@ -19,6 +19,6 @@ public class RelatedActor {
 	}
 
 	public Actor adapt(final Actor actor) {
-		return new Actor(actor.mode(), identifier, actor.biome(), actor.zone(), subZone, type, name);
+		return new Actor(actor.mode(), actor.origin(), identifier, actor.biome(), actor.zone(), subZone, type, name);
 	}
 }

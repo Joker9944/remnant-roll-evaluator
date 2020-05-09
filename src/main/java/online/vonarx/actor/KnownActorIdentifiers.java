@@ -20,7 +20,7 @@ public abstract class KnownActorIdentifiers {
 	// Swamp bosses
 	public static final String THE_THRALL = "Quest_MiniBoss_Tyrant";
 	public static final String CANKER = "Quest_MiniBoss_SlimeHulk";
-	public static final String THE_UNDLEAN_ONE = "Quest_Boss_Fatty";
+	public static final String THE_UNCLEAN_ONE = "Quest_Boss_Fatty";
 	public static final String IXILLIS = "Quest_Boss_SwampGuardian";
 	// Jungle bosses
 	public static final String THE_WARDEN = "Quest_MiniBoss_KinCaller";
@@ -95,6 +95,7 @@ public abstract class KnownActorIdentifiers {
 	public static final String MOTHERS_RING = "Quest_Event_MothersRing";
 	public static final String RAZORSTONE = "Quest_Event_RazorStone";
 	public static final String BLOOD_FONT = "Quest_Event_BloodFont";
+	// DLC
 	public static final String BAND_OF_POLLUX = "Quest_Event_BandOfPollux";
 	public static final String GUNSLINGERS_RING = "Quest_Event_GunslignersRing";
 	public static final String PEARL_OF_LUMINESCENCE = "Quest_Event_PearlOfLuminescence";

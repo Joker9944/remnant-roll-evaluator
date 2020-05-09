@@ -15,10 +15,10 @@ import static java.util.stream.Collectors.groupingBy;
 
 public class TablePrinter extends Printer<String> {
 
-	private static final String[] STORY_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Biome", "Zone", "Type", "Subzone", "Name", "Identifier"};
-	private static final String[] ADVENTURE_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Type", "Subzone", "Name", "Identifier"};
-	private static final String[] STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Biome", "Zone", "Type", "Subzone", "Name"};
-	private static final String[] ADVENTURE_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Type", "Subzone", "Name"};
+	private static final String[] STORY_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Origin", "Biome", "Zone", "Type", "Subzone", "Name", "Identifier"};
+	private static final String[] ADVENTURE_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Origin", "Type", "Subzone", "Name", "Identifier"};
+	private static final String[] STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Origin", "Biome", "Zone", "Type", "Subzone", "Name"};
+	private static final String[] ADVENTURE_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Origin", "Type", "Subzone", "Name"};
 
 	private final boolean showIdentifiers;
 	private final boolean showEngineActors;
@@ -32,6 +32,7 @@ public class TablePrinter extends Printer<String> {
 	private static ASCIITable createStoryTableFromActorsWithIdentifier(final List<Actor> actors) {
 		final var tableBody = actors.stream()
 			.map(actor -> new String[]{
+				actor.origin().displayName(),
 				actor.biome().displayName(),
 				actor.zone().displayName(),
 				actor.type().displayName(),
@@ -48,6 +49,7 @@ public class TablePrinter extends Printer<String> {
 	private static ASCIITable createStoryTableFromActorsWithoutIdentifier(final List<Actor> actors) {
 		final var tableBody = actors.stream()
 			.map(actor -> new String[]{
+				actor.origin().displayName(),
 				actor.biome().displayName(),
 				actor.zone().displayName(),
 				actor.type().displayName(),
@@ -63,6 +65,7 @@ public class TablePrinter extends Printer<String> {
 	private static ASCIITable createAdventureTableFromActorsWithIdentifier(final List<Actor> actors) {
 		final var tableBody = actors.stream()
 			.map(actor -> new String[]{
+				actor.origin().displayName(),
 				actor.type().displayName(),
 				actor.subZone()
 					.orElse(null),
@@ -77,6 +80,7 @@ public class TablePrinter extends Printer<String> {
 	private static ASCIITable createAdventureTableFromActorsWithoutIdentifier(final List<Actor> actors) {
 		final var tableBody = actors.stream()
 			.map(actor -> new String[]{
+				actor.origin().displayName(),
 				actor.type().displayName(),
 				actor.subZone()
 					.orElse(null),

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 import online.vonarx.dictionary.LocationDictionary;
 import online.vonarx.dictionary.NameDictionary;
+import online.vonarx.dictionary.OriginDictionary;
 
 import java.util.Optional;
 
@@ -15,6 +16,7 @@ import java.util.Optional;
 public class Actor {
 
 	private final Mode mode;
+	private final Origin origin;
 	private final String identifier;
 	private final Biome biome;
 	private final Zone zone;
@@ -24,6 +26,8 @@ public class Actor {
 
 	public Actor(final Mode mode, final String identifier, final Zone zone) {
 		this.mode = mode;
+		this.origin = OriginDictionary.dictionary.lookup(identifier)
+			.orElse(Origin.UNKNOWN);
 		this.identifier = identifier;
 		this.biome = Biome.matchBiome(identifier);
 		this.zone = zone;

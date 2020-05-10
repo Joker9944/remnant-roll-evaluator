@@ -62,7 +62,7 @@ public class Save {
 	private static List<String> extractAdventureMode(final List<String> unfilteredActorIdentifiers) {
 		final var startIndexName = unfilteredActorIdentifiers.stream()
 			.filter(name -> name.matches(START_ADVENTURE_MODE_REG_EX))
-			.findFirst();
+			.reduce((first, second) -> second);
 		final var endIndexName = unfilteredActorIdentifiers.stream()
 			.filter(name -> name.matches(END_ADVENTURE_MODE_REG_EX))
 			.findFirst();

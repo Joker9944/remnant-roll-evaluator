@@ -48,7 +48,8 @@ public abstract class LocationDictionary {
 		.put(THE_RISEN, "Ahanae's Lament ->  The Radiant Tomb")
 		.put(RED_DOE_SHRINE, "Widow's Vestry")
 		// DLC
-		.put(DREAM_EATER, "TBD")
-		.put(BARBED_TERROR, "TBD")
+		.put(DREAM_EATER, "Hall of Whispers -> Corrupted Sanctum")
+		.put(BARBED_TERROR, "Needle Lair -> Throne of Barbs")
+		.put(A_SMART_BUG, "Strange pass -> Mar'Gosh's Lair")
 		.build());
 }

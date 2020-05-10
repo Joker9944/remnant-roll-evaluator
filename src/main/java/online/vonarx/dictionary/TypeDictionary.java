@@ -49,7 +49,7 @@ public abstract class TypeDictionary {
 			RING_OF_SHADOWS, BAND_OF_CASTOR,
 			AGGRESSORS_BANE, DECEIVERS_BAND,
 			RING_OF_ELUSION, STOCKPILE_CIRCLET,
-			TBD_ISKAL_HUNTER_BAND
+			A_SMART_BUG
 		)),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_Boss_.*$", Type.BOSS),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_MiniBoss_.*$", Type.BOSS),

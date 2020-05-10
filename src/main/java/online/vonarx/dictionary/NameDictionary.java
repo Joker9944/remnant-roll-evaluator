@@ -106,6 +106,8 @@ public abstract class NameDictionary {
 			// Bosses
 			.put(DREAM_EATER, "Dream Eater")
 			.put(BARBED_TERROR, "Barbed Terror")
+			// Quests
+			.put(A_SMART_BUG, "A Smart Bug?")
 			// Amulets
 			.put(TALISMAN_OF_ANIMOSITY, "Talisman of Animosity")
 			// Rings
@@ -119,7 +121,6 @@ public abstract class NameDictionary {
 			.put(DECEIVERS_BAND, "Deceiver's Band")
 			.put(RING_OF_ELUSION, "Ring of Elusion")
 			.put(STOCKPILE_CIRCLET, "Stockpile Circlet")
-			.put(TBD_ISKAL_HUNTER_BAND, "Iskal Hunter Band")
 			.build()),
 		new RegExExtractionDictionary("^/Game/World_.+/Quest_Event_(.+)/.*$"));
 }

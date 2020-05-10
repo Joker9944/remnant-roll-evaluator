@@ -47,6 +47,7 @@ public abstract class Printer<T> {
 	protected static void purgeRedundantActors(final List<Actor> actors) {
 		final var undesirables = actors.stream()
 			.filter(actor -> Undesirables.redundantActorTypes.contains(actor.type()) ||
+				Undesirables.redundantActors.contains(actor.identifier()) ||
 				Undesirables.redundantActorsByMode.lookup(actor.mode()).orElseThrow(IllegalStateException::new).stream()
 					.anyMatch(undesirableActorName -> actor.identifier().contains(undesirableActorName)))
 			.collect(toList());

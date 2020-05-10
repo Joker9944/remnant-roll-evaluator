@@ -40,6 +40,7 @@ public abstract class KnownActorIdentifiers {
 	public static final String HUNTERS_HIDEOUT = "Quest_SmallD_HuntersHideout";
 	public static final String SUPPLY_RUN = "Quest_SmallD_LastWill";
 	public static final String CULT_OF_THE_ROOT = "Quest_SmallD_RootCultist";
+	public static final String CULT_OF_THE_ROOT_NEXUS_FULL = "/Game/World_City/Quests/Quest_Event_Nexus/Quest_Event_Nexus.Quest_Event_Nexus";
 	// Wasteland quests
 	public static final String MONOLITH = "Quest_OverworldPOI_Monolith";
 	public static final String WUD = "Quest_OverworldPOI_OldManAndConstruct";

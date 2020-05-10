@@ -38,6 +38,7 @@ public abstract class NameDictionary {
 			.put(ONSLAUGHT, "Onslaught")
 			.put(TOTEM_FATHER, "Totem Father")
 			.put(THE_RAVAGER, "The Ravager")
+			.put(BLINK_THIEF, "Blink Thief")
 			// City quests
 			.put(MUD_TOOTH, "Mud Tooth")
 			.put(SETTLEMENT, "Settlement")
@@ -103,7 +104,7 @@ public abstract class NameDictionary {
 			.put(BLOOD_FONT, "Blood Font")
 			// DLC
 			// Bosses
-			.put(FLICKERING_HORROR, "Flickering Horror")
+			.put(DREAM_EATER, "Dream Eater")
 			.put(BARBED_TERROR, "Barbed Terror")
 			// Amulets
 			.put(TALISMAN_OF_ANIMOSITY, "Talisman of Animosity")
@@ -118,6 +119,7 @@ public abstract class NameDictionary {
 			.put(DECEIVERS_BAND, "Deceiver's Band")
 			.put(RING_OF_ELUSION, "Ring of Elusion")
 			.put(STOCKPILE_CIRCLET, "Stockpile Circlet")
+			.put(TBD_ISKAL_HUNTER_BAND, "Iskal Hunter Band")
 			.build()),
 		new RegExExtractionDictionary("^/Game/World_.+/Quest_Event_(.+)/.*$"));
 }

@@ -28,7 +28,7 @@ public class OriginDictionary {
 		new PartialKeySetDictionary<>(Origin.LETOS_LAB_UPDATE, Set.of(RIPHIDE, RIPHIDE_FULL)),
 		new PartialKeySetDictionary<>(Origin.SWAMPS_OF_CORSUS_UPDATE, Set.of(
 			// Bosses
-			FLICKERING_HORROR, BARBED_TERROR,
+			DREAM_EATER, BARBED_TERROR,
 			// Amulets
 			TALISMAN_OF_ANIMOSITY,
 			// Rings
@@ -36,7 +36,8 @@ public class OriginDictionary {
 			PEARL_OF_LUMINESCENCE, COMPULSION_LOOP,
 			RING_OF_SHADOWS, BAND_OF_CASTOR,
 			AGGRESSORS_BANE, DECEIVERS_BAND,
-			RING_OF_ELUSION, STOCKPILE_CIRCLET
+			RING_OF_ELUSION, STOCKPILE_CIRCLET,
+			TBD_ISKAL_HUNTER_BAND
 		))
 	);
 }

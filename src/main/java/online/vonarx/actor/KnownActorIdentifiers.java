@@ -97,7 +97,7 @@ public abstract class KnownActorIdentifiers {
 	public static final String BLOOD_FONT = "Quest_Event_BloodFont";
 	// DLC
 	// Bosses
-	public static final String FLICKERING_HORROR = "Quest_MiniBoss_FlickeringHorror";
+	public static final String DREAM_EATER = "Quest_MiniBoss_FlickeringHorror";
 	public static final String BARBED_TERROR = "Quest_MiniBoss_BarbTerror";
 	// Amulets
 	public static final String TALISMAN_OF_ANIMOSITY = "Quest_Event_TalismanOfAnimosity";
@@ -112,4 +112,6 @@ public abstract class KnownActorIdentifiers {
 	public static final String DECEIVERS_BAND = "Quest_Event_DeceiversBand";
 	public static final String RING_OF_ELUSION = "Quest_Event_RingOfElusion";
 	public static final String STOCKPILE_CIRCLET = "Quest_Event_StockpileCirclet";
+	// Iskal Hunter Band not confirmed yet
+	public static final String TBD_ISKAL_HUNTER_BAND = "Quest_Event_Sketterling_Temple";
 }

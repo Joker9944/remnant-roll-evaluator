@@ -43,11 +43,12 @@ public abstract class LocationDictionary {
 		.put(ONSLAUGHT, "Widow's Pass -> Noble's Rest")
 		.put(TOTEM_FATHER, "The Tempest Court")
 		.put(THE_RAVAGER, "The Ravager's Haunt")
+		.put(BLINK_THIEF, "Forgotten Undercroft")
 		.put(WOLF_SHRINE, "Temple of the Ravager -> Martyr's Sanctuary")
 		.put(THE_RISEN, "Ahanae's Lament ->  The Radiant Tomb")
 		.put(RED_DOE_SHRINE, "Widow's Vestry")
 		// DLC
-		.put(FLICKERING_HORROR, "TBD")
+		.put(DREAM_EATER, "TBD")
 		.put(BARBED_TERROR, "TBD")
 		.build());
 }

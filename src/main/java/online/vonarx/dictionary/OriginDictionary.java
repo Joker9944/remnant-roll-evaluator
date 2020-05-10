@@ -3,10 +3,12 @@ package online.vonarx.dictionary;
 import online.vonarx.actor.Origin;
 import online.vonarx.dictionary.implementation.ChainDictionary;
 import online.vonarx.dictionary.implementation.PartialKeySetDictionary;
+import online.vonarx.dictionary.implementation.RegExUnitDictionary;
 
 import java.util.Set;
 
 import static online.vonarx.actor.KnownActorIdentifiers.*;
+import static online.vonarx.actor.Origin.*;
 
 public class OriginDictionary {
 
@@ -26,10 +28,13 @@ public class OriginDictionary {
 			KEEPERS_RING, STONE_OF_BALANCE, RING_OF_EVASION, LEECH_EMBER, CELERITY_STONE, GUARDIANS_RING, SAGESTONE, MOTHERS_RING, RAZORSTONE, BLOOD_FONT
 		)),
 		new PartialKeySetDictionary<>(Origin.LETOS_LAB_UPDATE, Set.of(RIPHIDE, RIPHIDE_FULL)),
-		new PartialKeySetDictionary<>(Origin.SWAMPS_OF_CORSUS_UPDATE, Set.of(
+		new PartialKeySetDictionary<>(SWAMPS_OF_CORSUS_UPDATE, Set.of(
 			// Bosses
 			DREAM_EATER, BARBED_TERROR,
+			ISKAL_QUEEN,
 			// Quests
+			WISPS, ABANDONED_THRONE,
+			GRAVEYARD_ELF, FETID_POOL,
 			A_SMART_BUG,
 			// Amulets
 			TALISMAN_OF_ANIMOSITY,
@@ -39,6 +44,7 @@ public class OriginDictionary {
 			RING_OF_SHADOWS, BAND_OF_CASTOR,
 			AGGRESSORS_BANE, DECEIVERS_BAND,
 			RING_OF_ELUSION, STOCKPILE_CIRCLET
-		))
+		)),
+		new RegExUnitDictionary<>(CRYPTOLITH_REG_EX, SWAMPS_OF_CORSUS_UPDATE)
 	);
 }

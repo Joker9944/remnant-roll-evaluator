@@ -100,8 +100,16 @@ public abstract class KnownActorIdentifiers {
 	// Bosses
 	public static final String DREAM_EATER = "Quest_MiniBoss_FlickeringHorror";
 	public static final String BARBED_TERROR = "Quest_MiniBoss_BarbTerror";
+	public static final String ISKAL_QUEEN = "Quest_SmallD_QueensTemple";
 	// Quests
-	public static final String A_SMART_BUG = "Quest_Event_Sketterling_Temple";
+	public static final String WISPS = "Quest_SmallD_Wisp";
+	public static final String ABANDONED_THRONE = "Quest_OverworldPOI_AbandonedThrone";
+	public static final String GRAVEYARD_ELF = "Quest_OverWorldPOI_GraveyardElf";
+	public static final String CRYPTOLITH_REG_EX = "^/Game/World_.+/Quests/Quest_OverworldPOI_Cryptolith_.*$";
+	public static final String CRYPTOLITH_LABYRINTH_FULL = "/Game/World_Labyrinth/Quests/Quest_Cryptolith_Labyrinth/Quest_Cryptolith_Labyrinth.Quest_Cryptolith_Labyrinth";
+	public static final String FETID_POOL = "Quest_SmallD_FetidPool";
+	// TODO what is "Quest_Event_Sketterling_Temple"
+	public static final String A_SMART_BUG = "Quest_Siege_BrainBug";
 	// Amulets
 	public static final String TALISMAN_OF_ANIMOSITY = "Quest_Event_TalismanOfAnimosity";
 	// Rings

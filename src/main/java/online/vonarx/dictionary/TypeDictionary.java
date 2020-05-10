@@ -14,11 +14,12 @@ public abstract class TypeDictionary {
 
 	public static final Dictionary<String, Type> dictionary = new ChainDictionary<>(
 		new PartialKeySetDictionary<>(Type.BOSS, Set.of(
-			BLINK_THIEF
+			BLINK_THIEF, ISKAL_QUEEN
 		)),
 		new PartialKeySetDictionary<>(Type.MERCHANT, Set.of(
 			MUD_TOOTH, TWISTED_MASK_MERCHANT, WUD,
-			STUCK_MERCHANT_1, STUCK_MERCHANT_2
+			STUCK_MERCHANT_1, STUCK_MERCHANT_2,
+			GRAVEYARD_ELF
 		)),
 		new PartialKeySetDictionary<>(Type.QUEST_PICKUP, Set.of(
 			TARNISHED_RING, STRANGE_COIN
@@ -48,8 +49,7 @@ public abstract class TypeDictionary {
 			PEARL_OF_LUMINESCENCE, COMPULSION_LOOP,
 			RING_OF_SHADOWS, BAND_OF_CASTOR,
 			AGGRESSORS_BANE, DECEIVERS_BAND,
-			RING_OF_ELUSION, STOCKPILE_CIRCLET,
-			A_SMART_BUG
+			RING_OF_ELUSION, STOCKPILE_CIRCLET
 		)),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_Boss_.*$", Type.BOSS),
 		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_MiniBoss_.*$", Type.BOSS),

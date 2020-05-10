@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import online.vonarx.dictionary.implementation.ChainDictionary;
 import online.vonarx.dictionary.implementation.PartialKeyMapDictionary;
 import online.vonarx.dictionary.implementation.RegExExtractionDictionary;
+import online.vonarx.dictionary.implementation.RegExUnitDictionary;
 
 import static online.vonarx.actor.KnownActorIdentifiers.*;
 
@@ -106,8 +107,13 @@ public abstract class NameDictionary {
 			// Bosses
 			.put(DREAM_EATER, "Dream Eater")
 			.put(BARBED_TERROR, "Barbed Terror")
+			.put(ISKAL_QUEEN, "Iskal Queen")
 			// Quests
+			.put(WISPS, "Wisps (Evocation)")
+			.put(ABANDONED_THRONE, "Abandoned Throne")
+			.put(GRAVEYARD_ELF, "Graveyard Elf")
 			.put(A_SMART_BUG, "A Smart Bug?")
+			.put(FETID_POOL, "Fetid Pool")
 			// Amulets
 			.put(TALISMAN_OF_ANIMOSITY, "Talisman of Animosity")
 			// Rings
@@ -122,5 +128,6 @@ public abstract class NameDictionary {
 			.put(RING_OF_ELUSION, "Ring of Elusion")
 			.put(STOCKPILE_CIRCLET, "Stockpile Circlet")
 			.build()),
+		new RegExUnitDictionary<>(CRYPTOLITH_REG_EX, "Cryptolith"),
 		new RegExExtractionDictionary("^/Game/World_.+/Quest_Event_(.+)/.*$"));
 }

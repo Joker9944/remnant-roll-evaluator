@@ -7,12 +7,13 @@ import online.vonarx.dictionary.implementation.MapDictionary;
 import java.util.Map;
 import java.util.Set;
 
+import static online.vonarx.actor.KnownActorIdentifiers.CRYPTOLITH_LABYRINTH_FULL;
 import static online.vonarx.actor.KnownActorIdentifiers.CULT_OF_THE_ROOT_NEXUS_FULL;
 
 public abstract class Undesirables {
 
 	public static final Set<Type> redundantActorTypes = Set.of();
-	public static final Set<String> redundantActors = Set.of(CULT_OF_THE_ROOT_NEXUS_FULL);
+	public static final Set<String> redundantActors = Set.of(CULT_OF_THE_ROOT_NEXUS_FULL, CRYPTOLITH_LABYRINTH_FULL);
 	public static final Dictionary<Mode, Set<String>> redundantActorsByMode = new MapDictionary<>(Map.of(
 		Mode.STORY, Set.of(
 			"/Templates/",

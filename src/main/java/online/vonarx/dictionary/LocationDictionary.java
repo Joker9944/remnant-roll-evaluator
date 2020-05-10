@@ -39,17 +39,20 @@ public abstract class LocationDictionary {
 		// Jungle
 		.put(THE_WARDEN, "The Halls of Judgement -> The Ring of Trials")
 		.put(STORMCALLER, "Heretic's Nest -> Martyr's Garden")
-		.put(SCALD_AND_SEAR, "Withering Village ->  Warden's Pulpit")
+		.put(SCALD_AND_SEAR, "Withering Village -> Warden's Pulpit")
 		.put(ONSLAUGHT, "Widow's Pass -> Noble's Rest")
 		.put(TOTEM_FATHER, "The Tempest Court")
 		.put(THE_RAVAGER, "The Ravager's Haunt")
 		.put(BLINK_THIEF, "Forgotten Undercroft")
 		.put(WOLF_SHRINE, "Temple of the Ravager -> Martyr's Sanctuary")
-		.put(THE_RISEN, "Ahanae's Lament ->  The Radiant Tomb")
+		.put(THE_RISEN, "Ahanae's Lament -> The Radiant Tomb")
 		.put(RED_DOE_SHRINE, "Widow's Vestry")
 		// DLC
 		.put(DREAM_EATER, "Hall of Whispers -> Corrupted Sanctum")
 		.put(BARBED_TERROR, "Needle Lair -> Throne of Barbs")
+		.put(ISKAL_QUEEN, "Iskal Sanctum")
+		.put(WISPS, "Circlet Hatchery")
+		.put(FETID_POOL, "Fetid Pool")
 		.put(A_SMART_BUG, "Strange pass -> Mar'Gosh's Lair")
 		.build());
 }

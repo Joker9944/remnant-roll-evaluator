@@ -15,10 +15,10 @@ import static java.util.stream.Collectors.groupingBy;
 
 public class TablePrinter extends Printer<String> {
 
-	private static final String[] STORY_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Origin", "Biome", "Zone", "Type", "Subzone", "Name", "Identifier"};
-	private static final String[] ADVENTURE_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Origin", "Type", "Subzone", "Name", "Identifier"};
-	private static final String[] STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Origin", "Biome", "Zone", "Type", "Subzone", "Name"};
-	private static final String[] ADVENTURE_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Origin", "Type", "Subzone", "Name"};
+	private static final String[] STORY_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Origin", "Type", "Name", "Biome", "Zone", "Subzone", "Identifier"};
+	private static final String[] ADVENTURE_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Origin", "Type", "Name", "Subzone", "Identifier"};
+	private static final String[] STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Origin", "Type", "Name", "Biome", "Zone", "Subzone"};
+	private static final String[] ADVENTURE_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Origin", "Type", "Name", "Subzone"};
 
 	private final boolean showIdentifiers;
 	private final boolean showEngineActors;
@@ -33,12 +33,12 @@ public class TablePrinter extends Printer<String> {
 		final var tableBody = actors.stream()
 			.map(actor -> new String[]{
 				actor.origin().displayName(),
+				actor.type().displayName(),
+				actor.name()
+					.orElse(null),
 				actor.biome().displayName(),
 				actor.zone().displayName(),
-				actor.type().displayName(),
 				actor.subZone()
-					.orElse(null),
-				actor.name()
 					.orElse(null),
 				actor.identifier()})
 			.toArray(String[][]::new);
@@ -50,13 +50,13 @@ public class TablePrinter extends Printer<String> {
 		final var tableBody = actors.stream()
 			.map(actor -> new String[]{
 				actor.origin().displayName(),
+				actor.type().displayName(),
+				actor.name()
+					.orElse(actor.identifier()),
 				actor.biome().displayName(),
 				actor.zone().displayName(),
-				actor.type().displayName(),
 				actor.subZone()
-					.orElse(null),
-				actor.name()
-					.orElse(actor.identifier())})
+					.orElse(null)})
 			.toArray(String[][]::new);
 		return ASCIITable.fromData(STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER, tableBody)
 			.withTableFormat(new ASCIITableFormat());
@@ -67,9 +67,9 @@ public class TablePrinter extends Printer<String> {
 			.map(actor -> new String[]{
 				actor.origin().displayName(),
 				actor.type().displayName(),
-				actor.subZone()
-					.orElse(null),
 				actor.name()
+					.orElse(null),
+				actor.subZone()
 					.orElse(null),
 				actor.identifier()})
 			.toArray(String[][]::new);
@@ -82,10 +82,10 @@ public class TablePrinter extends Printer<String> {
 			.map(actor -> new String[]{
 				actor.origin().displayName(),
 				actor.type().displayName(),
-				actor.subZone()
-					.orElse(null),
 				actor.name()
-					.orElse(actor.identifier())})
+					.orElse(actor.identifier()),
+				actor.subZone()
+					.orElse(null)})
 			.toArray(String[][]::new);
 		return ASCIITable.fromData(ADVENTURE_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER, tableBody)
 			.withTableFormat(new ASCIITableFormat());

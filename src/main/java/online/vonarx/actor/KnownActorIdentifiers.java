@@ -35,7 +35,7 @@ public abstract class KnownActorIdentifiers {
 	public static final String SETTLEMENT = "Quest_OverworldPOI_Settlement";
 	public static final String WAILING_WOOD = "Quest_OverworldPOI_WailingWood";
 	public static final String THE_ROOT_SHRINE = "Quest_Siege_RootShrine";
-	public static final String A_TALE_OF_TWO_LIZS = "Quest_Siege_LizAndLiz";
+	public static final String A_TALE_OF_TWO_LIZ_S = "Quest_Siege_LizAndLiz";
 	public static final String TWISTED_MASK_MERCHANT = "Quest_SmallD_MadMerchant";
 	public static final String HUNTERS_HIDEOUT = "Quest_SmallD_HuntersHideout";
 	public static final String SUPPLY_RUN = "Quest_SmallD_LastWill";
@@ -73,12 +73,12 @@ public abstract class KnownActorIdentifiers {
 	public static final String VENGEANCE_IDOL = "Quest_Event_VengeanceIdol";
 	public static final String BRUTAL_MARK = "Quest_Event_BrutalMark";
 	public static final String ROCK_OF_ANGUISH = "Quest_Event_RockOfAnguish";
-	public static final String LETOS_AMULET = "Quest_Event_Penitent";
+	public static final String LETO_S_AMULET = "Quest_Event_Penitent";
 	// Rings
 	public static final String HEARTSEEKER = "Quest_Event_HeartSeeker";
 	public static final String PILLAR_OF_STONE = "Quest_Event_PillarOfStone";
 	public static final String BAND_OF_STRENGTH = "Quest_Event_BandOfStrength";
-	public static final String EZLANS_BAND = "Quest_Event_EzlansBand";
+	public static final String EZLAN_S_BAND = "Quest_Event_EzlansBand";
 	public static final String GRAVITY_STONE = "Quest_Event_GravityStone";
 	public static final String HUNTERS_HALO = "Quest_Event_HuntersHalo";
 	public static final String JEWEL_OF_THE_BLACK_SUN = "Quest_Event_JewelOfTheBlackSun";

@@ -33,13 +33,13 @@ public abstract class TypeDictionary {
 			GALENIC_CHARM, MENDERS_CHARM,
 			BUTCHERS_FETISH, STORM_AMULET,
 			VENGEANCE_IDOL, BRUTAL_MARK,
-			ROCK_OF_ANGUISH, LETOS_AMULET,
+			ROCK_OF_ANGUISH, LETO_S_AMULET,
 			// DLC
 			TALISMAN_OF_ANIMOSITY
 		)),
 		new PartialKeySetDictionary<>(RING, Set.of(
 			HEARTSEEKER, PILLAR_OF_STONE,
-			BAND_OF_STRENGTH, EZLANS_BAND,
+			BAND_OF_STRENGTH, EZLAN_S_BAND,
 			GRAVITY_STONE, HUNTERS_HALO,
 			JEWEL_OF_THE_BLACK_SUN, DEVOURING_LOOP,
 			HEART_OF_THE_WOLF, HUNTERS_BAND,
@@ -58,7 +58,7 @@ public abstract class TypeDictionary {
 		new RegExKeyMapDictionary<>(Map.of(
 			"^/Game/World_.+/Quests/Quest_Boss_.*$", BOSS,
 			"^/Game/World_.+/Quests/Quest_Mini.oss_.*$", BOSS,
-			"^/Game/World_.+/Quests/Quest_Over.orldPOI_.*$", POI,
+			"^/Game/World_.+/Quests/Quest_Over.orldPOI_.*$", POINT_OF_INTEREST,
 			"^/Game/World_.+/Quests/Quest_Siege_.*$", SIEGE,
 			"^/Game/World_.+/Quests/Quest_SmallD_.*$", DUNGEON,
 			"^/Game/World_.+/Quests/Quest_Event_.*$", PICKUP,

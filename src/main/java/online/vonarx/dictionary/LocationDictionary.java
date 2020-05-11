@@ -16,7 +16,7 @@ public abstract class LocationDictionary {
 		.put(THE_ENT, "The Choking Hallow")
 		.put(SINGE, "The Ash Yard")
 		.put(THE_ROOT_SHRINE, "The Gallows")
-		.put(A_TALE_OF_TWO_LIZS, "Land's End")
+		.put(A_TALE_OF_TWO_LIZ_S, "Land's End")
 		.put(TWISTED_MASK_MERCHANT, "Junk Town")
 		.put(HUNTERS_HIDEOUT, "Hidden Grotto")
 		.put(SUPPLY_RUN, "Sorrow's Field")

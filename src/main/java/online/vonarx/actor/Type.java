@@ -15,7 +15,7 @@ public enum Type {
 	SIEGE("Siege"),
 	DUNGEON("Dungeon"),
 	MERCHANT("Merchant"),
-	POI("Point of Interest"),
+	POINT_OF_INTEREST("POI"),
 	QUEST("Quest"),
 	QUEST_PICKUP("Quest pickup"),
 	MAIN_QUEST("Main quest"),

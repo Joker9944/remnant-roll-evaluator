@@ -16,7 +16,7 @@ public class PartialKeyMapDictionary<V> extends HashMap<String, V> implements Di
 	public Optional<V> lookup(final String key) {
 		return entrySet().stream()
 			.filter(entry -> key.contains(entry.getKey()))
-			.findFirst()
+			.findAny()
 			.map(Map.Entry::getValue);
 	}
 }

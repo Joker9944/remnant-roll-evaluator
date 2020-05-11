@@ -62,9 +62,9 @@ public abstract class TypeDictionary {
 			"^/Game/World_.+/Quests/Quest_Siege_.*$", SIEGE,
 			"^/Game/World_.+/Quests/Quest_SmallD_.*$", DUNGEON,
 			"^/Game/World_.+/Quests/Quest_Event_.*$", PICKUP,
-			"^/Game/World_.+/Quests.*$", QUEST,
 			"^/Game/Campaign_Main/.*$", MAIN_QUEST,
 			"^/Game/.+/Templates/.*$", TEMPLATE
-		))
+		)),
+		new RegExKeyMapDictionary<>(Map.of("^/Game/World_.+/Quests.*$", QUEST))
 	);
 }

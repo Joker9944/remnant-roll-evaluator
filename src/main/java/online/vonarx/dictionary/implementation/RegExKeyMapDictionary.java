@@ -16,7 +16,7 @@ public class RegExKeyMapDictionary<V> extends HashMap<String, V> implements Dict
 	public Optional<V> lookup(final String key) {
 		return entrySet().stream()
 			.filter(entry -> key.matches(entry.getKey()))
-			.findFirst()
+			.findAny()
 			.map(Map.Entry::getValue);
 	}
 }

@@ -26,8 +26,7 @@ public class Actor {
 
 	public Actor(final Mode mode, final String identifier, final Zone zone) {
 		this.mode = mode;
-		this.origin = OriginDictionary.dictionary.lookup(identifier)
-			.orElse(Origin.UNKNOWN);
+		this.origin = Origin.matchOrigin(identifier);
 		this.identifier = identifier;
 		this.biome = Biome.matchBiome(identifier);
 		this.zone = zone;

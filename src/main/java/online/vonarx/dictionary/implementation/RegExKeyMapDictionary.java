@@ -6,16 +6,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class PartialKeyMapDictionary<V> extends HashMap<String, V> implements Dictionary<String, V> {
+public class RegExKeyMapDictionary<V> extends HashMap<String, V> implements Dictionary<String, V> {
 
-	public PartialKeyMapDictionary(final Map<String, V> dictionaryMap) {
+	public RegExKeyMapDictionary(final Map<String, V> dictionaryMap) {
 		super(dictionaryMap);
 	}
 
 	@Override
 	public Optional<V> lookup(final String key) {
 		return entrySet().stream()
-			.filter(entry -> key.contains(entry.getKey()))
+			.filter(entry -> key.matches(entry.getKey()))
 			.findFirst()
 			.map(Map.Entry::getValue);
 	}

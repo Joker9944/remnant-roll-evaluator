@@ -26,6 +26,6 @@ public enum Type {
 
 	static Type matchType(final String name) {
 		return TypeDictionary.dictionary.lookup(name)
-			.orElseThrow(() -> new RuntimeException("RegEx as we know it does not work anymore, run!"));
+			.orElse(OTHER);
 	}
 }

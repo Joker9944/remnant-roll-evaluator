@@ -4,7 +4,9 @@ import com.google.common.collect.ImmutableMap;
 import online.vonarx.dictionary.implementation.ChainDictionary;
 import online.vonarx.dictionary.implementation.PartialKeyMapDictionary;
 import online.vonarx.dictionary.implementation.RegExExtractionDictionary;
-import online.vonarx.dictionary.implementation.RegExUnitDictionary;
+import online.vonarx.dictionary.implementation.RegExKeyMapDictionary;
+
+import java.util.Map;
 
 import static online.vonarx.actor.KnownActorIdentifiers.*;
 
@@ -59,8 +61,6 @@ public abstract class NameDictionary {
 			// Jungle quests
 			.put(FLAUTIST, "Flautist")
 			.put(RUINS, "Ruins")
-			.put(STUCK_MERCHANT_1, "Stuck Merchant")
-			.put(STUCK_MERCHANT_2, "Stuck Merchant")
 			.put(WOLF_SHRINE, "Wolf Shrine")
 			.put(THE_RISEN, "The Risen")
 			.put(RED_DOE_SHRINE, "Red Doe Shrine")
@@ -109,7 +109,7 @@ public abstract class NameDictionary {
 			.put(BARBED_TERROR, "Barbed Terror")
 			.put(ISKAL_QUEEN, "Iskal Queen")
 			// Quests
-			.put(WISPS, "Wisps (Evocation)")
+			.put(WISPS, "Wisps")
 			.put(ABANDONED_THRONE, "Abandoned Throne")
 			.put(GRAVEYARD_ELF, "Graveyard Elf")
 			.put(A_SMART_BUG, "A Smart Bug?")
@@ -128,6 +128,9 @@ public abstract class NameDictionary {
 			.put(RING_OF_ELUSION, "Ring of Elusion")
 			.put(STOCKPILE_CIRCLET, "Stockpile Circlet")
 			.build()),
-		new RegExUnitDictionary<>(CRYPTOLITH_REG_EX, "Cryptolith"),
+		new RegExKeyMapDictionary<>(Map.of(
+			STUCK_MERCHANT_REG_EX, "Stuck Merchant",
+			CRYPTOLITH_REG_EX, "Cryptolith"
+		)),
 		new RegExExtractionDictionary("^/Game/World_.+/Quest_Event_(.+)/.*$"));
 }

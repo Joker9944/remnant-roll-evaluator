@@ -3,28 +3,32 @@ package online.vonarx.dictionary;
 import online.vonarx.actor.Type;
 import online.vonarx.dictionary.implementation.ChainDictionary;
 import online.vonarx.dictionary.implementation.PartialKeySetDictionary;
-import online.vonarx.dictionary.implementation.RegExUnitDictionary;
+import online.vonarx.dictionary.implementation.RegExKeyMapDictionary;
 
+import java.util.Map;
 import java.util.Set;
 
 import static online.vonarx.actor.KnownActorIdentifiers.*;
+import static online.vonarx.actor.Type.*;
 
 public abstract class TypeDictionary {
 
-
 	public static final Dictionary<String, Type> dictionary = new ChainDictionary<>(
-		new PartialKeySetDictionary<>(Type.BOSS, Set.of(
-			BLINK_THIEF, ISKAL_QUEEN
+		new PartialKeySetDictionary<>(BOSS, Set.of(
+			BLINK_THIEF,
+			// DLC
+			ISKAL_QUEEN
 		)),
-		new PartialKeySetDictionary<>(Type.MERCHANT, Set.of(
+		new PartialKeySetDictionary<>(MERCHANT, Set.of(
 			MUD_TOOTH, TWISTED_MASK_MERCHANT, WUD,
-			STUCK_MERCHANT_1, STUCK_MERCHANT_2,
+			// DLC
 			GRAVEYARD_ELF
 		)),
-		new PartialKeySetDictionary<>(Type.QUEST_PICKUP, Set.of(
+		new RegExKeyMapDictionary<>(Map.of(STUCK_MERCHANT_REG_EX, MERCHANT)),
+		new PartialKeySetDictionary<>(QUEST_PICKUP, Set.of(
 			TARNISHED_RING, STRANGE_COIN
 		)),
-		new PartialKeySetDictionary<>(Type.AMULET, Set.of(
+		new PartialKeySetDictionary<>(AMULET, Set.of(
 			GUNSLINGERS_CHARM, CLEANSING_JEWEL,
 			GALENIC_CHARM, MENDERS_CHARM,
 			BUTCHERS_FETISH, STORM_AMULET,
@@ -33,7 +37,7 @@ public abstract class TypeDictionary {
 			// DLC
 			TALISMAN_OF_ANIMOSITY
 		)),
-		new PartialKeySetDictionary<>(Type.RING, Set.of(
+		new PartialKeySetDictionary<>(RING, Set.of(
 			HEARTSEEKER, PILLAR_OF_STONE,
 			BAND_OF_STRENGTH, EZLANS_BAND,
 			GRAVITY_STONE, HUNTERS_HALO,
@@ -51,17 +55,16 @@ public abstract class TypeDictionary {
 			AGGRESSORS_BANE, DECEIVERS_BAND,
 			RING_OF_ELUSION, STOCKPILE_CIRCLET
 		)),
-		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_Boss_.*$", Type.BOSS),
-		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_MiniBoss_.*$", Type.BOSS),
-		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_Miniboss_.*$", Type.BOSS),
-		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_OverWorldPOI_.*$", Type.POI),
-		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_OverworldPOI_.*$", Type.POI),
-		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_Siege_.*$", Type.SIEGE),
-		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_SmallD_.*$", Type.DUNGEON),
-		new RegExUnitDictionary<>("^/Game/World_.+/Quests/Quest_Event_.*$", Type.PICKUP),
-		new RegExUnitDictionary<>("^/Game/World_.+/Quests.*$", Type.QUEST),
-		new RegExUnitDictionary<>("^/Game/Campaign_Main/.*$", Type.MAIN_QUEST),
-		new RegExUnitDictionary<>("^/Game/.+/Templates/.*$", Type.TEMPLATE),
-		new RegExUnitDictionary<>("^.*$", Type.OTHER)
+		new RegExKeyMapDictionary<>(Map.of(
+			"^/Game/World_.+/Quests/Quest_Boss_.*$", BOSS,
+			"^/Game/World_.+/Quests/Quest_Mini.oss_.*$", BOSS,
+			"^/Game/World_.+/Quests/Quest_Over.orldPOI_.*$", POI,
+			"^/Game/World_.+/Quests/Quest_Siege_.*$", SIEGE,
+			"^/Game/World_.+/Quests/Quest_SmallD_.*$", DUNGEON,
+			"^/Game/World_.+/Quests/Quest_Event_.*$", PICKUP,
+			"^/Game/World_.+/Quests.*$", QUEST,
+			"^/Game/Campaign_Main/.*$", MAIN_QUEST,
+			"^/Game/.+/Templates/.*$", TEMPLATE
+		))
 	);
 }

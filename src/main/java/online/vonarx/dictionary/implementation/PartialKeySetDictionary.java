@@ -11,8 +11,8 @@ public class PartialKeySetDictionary<V> extends HashSet<String> implements Dicti
 	private final V value;
 
 	public PartialKeySetDictionary(final V value, final Set<String> keys) {
+		super(keys);
 		this.value = value;
-		addAll(keys);
 	}
 
 	@Override

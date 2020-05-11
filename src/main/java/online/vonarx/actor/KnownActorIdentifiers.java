@@ -51,8 +51,7 @@ public abstract class KnownActorIdentifiers {
 	// Jungle quests
 	public static final String FLAUTIST = "Quest_OverworldPOI_Flautist";
 	public static final String RUINS = "Quest_OverworldPOI_Ruins";
-	public static final String STUCK_MERCHANT_1 = "Quest_OverworldPOI_StuckMerchant";
-	public static final String STUCK_MERCHANT_2 = "Quest_OverWorldPOI_StuckMerchant";
+	public static final String STUCK_MERCHANT_REG_EX = "^.*Quest_Over.orldPOI_StuckMerchant.*$";
 	public static final String STUCK_MERCHANT_FULL = "/Game/World_Jungle/Quests/Quest_OverWorldPOI_StuckMerchant/Quest_OverworldPOI_StuckMerchant.Quest_OverworldPOI_StuckMerchant";
 	public static final String WOLF_SHRINE = "Quest_Siege_WolfShrine";
 	public static final String THE_RISEN = "Quest_Siege_TheRisen";
@@ -60,7 +59,7 @@ public abstract class KnownActorIdentifiers {
 	// Quest items
 	public static final String TARNISHED_RING = "Quest_Event_ReggiesRing";
 	public static final String STRANGE_COIN = "Quest_Event_AcesCoin";
-	// Misc
+	// Misc items
 	public static final String SIMULACRUM = "Quest_Event_Simulacrum";
 	public static final String TOME_OF_KNOWLEDGE = "Quest_Event_TraitBook";
 	public static final String DRIFTERS_MASK = "Quest_Event_DrifterMask";
@@ -102,14 +101,16 @@ public abstract class KnownActorIdentifiers {
 	public static final String BARBED_TERROR = "Quest_MiniBoss_BarbTerror";
 	public static final String ISKAL_QUEEN = "Quest_SmallD_QueensTemple";
 	// Quests
-	public static final String WISPS = "Quest_SmallD_Wisp";
 	public static final String ABANDONED_THRONE = "Quest_OverworldPOI_AbandonedThrone";
-	public static final String GRAVEYARD_ELF = "Quest_OverWorldPOI_GraveyardElf";
 	public static final String CRYPTOLITH_REG_EX = "^/Game/World_.+/Quests/Quest_OverworldPOI_Cryptolith_.*$";
 	public static final String CRYPTOLITH_LABYRINTH_FULL = "/Game/World_Labyrinth/Quests/Quest_Cryptolith_Labyrinth/Quest_Cryptolith_Labyrinth.Quest_Cryptolith_Labyrinth";
-	public static final String FETID_POOL = "Quest_SmallD_FetidPool";
-	// TODO what is "Quest_Event_Sketterling_Temple"
+	public static final String GRAVEYARD_ELF = "Quest_OverWorldPOI_GraveyardElf";
 	public static final String A_SMART_BUG = "Quest_Siege_BrainBug";
+	public static final String FETID_POOL = "Quest_SmallD_FetidPool";
+	public static final String WISPS = "Quest_SmallD_Wisp";
+	// Misc items
+	// TODO what is "Quest_Event_Sketterling_Temple"
+	public static final String SKETTERLING = "Quest_Event_Sketterling_Temple";
 	// Amulets
 	public static final String TALISMAN_OF_ANIMOSITY = "Quest_Event_TalismanOfAnimosity";
 	// Rings

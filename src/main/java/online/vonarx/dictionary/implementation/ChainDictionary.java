@@ -10,7 +10,6 @@ public class ChainDictionary<K, V> implements Dictionary<K, V> {
 
 	private final List<Dictionary<K, V>> dictionaries;
 
-
 	@SafeVarargs
 	public ChainDictionary(final Dictionary<K, V>... dictionaries) {
 		this.dictionaries = Arrays.asList(dictionaries);

@@ -11,7 +11,7 @@ import java.util.Set;
 import static online.vonarx.actor.KnownActorIdentifiers.*;
 import static online.vonarx.actor.Origin.*;
 
-public class OriginDictionary {
+public abstract class OriginDictionary {
 
 	public static final Dictionary<String, Origin> dictionary = new ChainDictionary<>(
 		new PartialKeySetDictionary<>(MAIN_GAME, Set.of(

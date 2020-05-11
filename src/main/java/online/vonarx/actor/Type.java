@@ -2,10 +2,8 @@ package online.vonarx.actor;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.experimental.Accessors;
 import online.vonarx.dictionary.TypeDictionary;
 
-@Accessors
 @RequiredArgsConstructor
 public enum Type {
 	BOSS("Boss"),

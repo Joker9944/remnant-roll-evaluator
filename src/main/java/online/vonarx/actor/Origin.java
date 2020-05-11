@@ -1,8 +1,10 @@
 package online.vonarx.actor;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import online.vonarx.dictionary.OriginDictionary;
 
+@RequiredArgsConstructor
 public enum Origin {
 	MAIN_GAME("Main Game"),
 	LETO_S_LAB_UPDATE("LL Update"),
@@ -14,9 +16,5 @@ public enum Origin {
 	static Origin matchOrigin(final String identifier) {
 		return OriginDictionary.dictionary.lookup(identifier)
 			.orElse(UNKNOWN);
-	}
-
-	Origin(final String displayName) {
-		this.displayName = displayName;
 	}
 }

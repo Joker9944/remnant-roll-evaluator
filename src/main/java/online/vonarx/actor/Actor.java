@@ -3,15 +3,12 @@ package online.vonarx.actor;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.experimental.Accessors;
 import online.vonarx.dictionary.LocationDictionary;
 import online.vonarx.dictionary.NameDictionary;
-import online.vonarx.dictionary.OriginDictionary;
 
 import java.util.Optional;
 
 @Data
-@Accessors
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class Actor {
 

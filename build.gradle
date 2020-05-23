@@ -26,10 +26,14 @@ repositories {
 }
 
 dependencies {
+	// APIs
 	implementation 'commons-io:commons-io:2.6'
 	implementation 'com.mitchtalmadge:ascii-data:1.4.0'
 	implementation 'com.beust:jcommander:1.78'
 	implementation 'com.google.guava:guava:29.0-jre'
-	compileOnly 'org.projectlombok:lombok:1.18.10'
-	annotationProcessor 'org.projectlombok:lombok:1.18.10'
+	// Framework
+	implementation 'com.google.dagger:dagger:2.26'
+	annotationProcessor 'com.google.dagger:dagger-compiler:2.26'
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
 }

@@ -1,10 +1,8 @@
-package online.vonarx.actor;
+package online.vonarx.constants;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import online.vonarx.dictionary.ZoneDictionary;
-
-import java.util.Arrays;
+import online.vonarx.components.dictionaries.ZoneDictionary;
 
 @RequiredArgsConstructor
 public enum Zone {
@@ -19,9 +17,4 @@ public enum Zone {
 	NONE("None");
 
 	@Getter private final String displayName;
-
-	public static Zone matchZone(final String identifier) {
-		return ZoneDictionary.dictionary.lookup(identifier)
-			.orElse(NONE);
-	}
 }

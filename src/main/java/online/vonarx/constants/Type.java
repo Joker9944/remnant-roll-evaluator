@@ -1,8 +1,7 @@
-package online.vonarx.actor;
+package online.vonarx.constants;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import online.vonarx.dictionary.TypeDictionary;
 
 @RequiredArgsConstructor
 public enum Type {
@@ -21,9 +20,4 @@ public enum Type {
 	OTHER("Other");
 
 	@Getter private final String displayName;
-
-	static Type matchType(final String name) {
-		return TypeDictionary.dictionary.lookup(name)
-			.orElse(OTHER);
-	}
 }

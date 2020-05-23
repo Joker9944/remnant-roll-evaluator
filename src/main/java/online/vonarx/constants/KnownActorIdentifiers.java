@@ -1,4 +1,4 @@
-package online.vonarx.actor;
+package online.vonarx.constants;
 
 public abstract class KnownActorIdentifiers {
 	// City bosses

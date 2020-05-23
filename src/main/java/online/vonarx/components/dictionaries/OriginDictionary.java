@@ -1,20 +1,22 @@
-package online.vonarx.dictionary;
+package online.vonarx.components.dictionaries;
 
-import online.vonarx.actor.Origin;
+import online.vonarx.constants.Origin;
 import online.vonarx.dictionary.implementation.ChainDictionary;
 import online.vonarx.dictionary.implementation.PartialKeySetDictionary;
 import online.vonarx.dictionary.implementation.RegExKeyMapDictionary;
 
+import javax.inject.Inject;
 import java.util.Map;
 import java.util.Set;
 
-import static online.vonarx.actor.KnownActorIdentifiers.*;
-import static online.vonarx.actor.Origin.*;
+import static online.vonarx.constants.KnownActorIdentifiers.*;
+import static online.vonarx.constants.Origin.*;
 
-public abstract class OriginDictionary {
+public class OriginDictionary extends ChainDictionary<String, Origin> {
 
-	public static final Dictionary<String, Origin> dictionary = new ChainDictionary<>(
-		new PartialKeySetDictionary<>(MAIN_GAME, Set.of(
+	@Inject
+	public OriginDictionary() {
+		super(new PartialKeySetDictionary<>(MAIN_GAME, Set.of(
 			// Bosses
 			GOREFIST, SHROUD, THE_MANGLER, BRABUS, THE_ENT, SINGE,
 			RAZE, SCOURGE, MAUL, SHADE_AND_SHATTER, CLAVIGER, THE_HARROW,
@@ -33,26 +35,27 @@ public abstract class OriginDictionary {
 			// Rings
 			HEARTSEEKER, PILLAR_OF_STONE, BAND_OF_STRENGTH, EZLAN_S_BAND, GRAVITY_STONE, HUNTERS_HALO, JEWEL_OF_THE_BLACK_SUN, DEVOURING_LOOP, HEART_OF_THE_WOLF, HUNTERS_BAND,
 			KEEPERS_RING, STONE_OF_BALANCE, RING_OF_EVASION, LEECH_EMBER, CELERITY_STONE, GUARDIANS_RING, SAGESTONE, MOTHERS_RING, RAZORSTONE, BLOOD_FONT
-		)),
-		new RegExKeyMapDictionary<>(Map.of(STUCK_MERCHANT_REG_EX, MAIN_GAME)),
-		new PartialKeySetDictionary<>(LETO_S_LAB_UPDATE, Set.of(RIPHIDE)),
-		new PartialKeySetDictionary<>(SWAMPS_OF_CORSUS_UPDATE, Set.of(
-			// Bosses
-			DREAM_EATER, BARBED_TERROR,
-			ISKAL_QUEEN,
-			// Quests
-			WISPS, ABANDONED_THRONE,
-			GRAVEYARD_ELF, FETID_POOL,
-			A_SMART_BUG,
-			// Amulets
-			TALISMAN_OF_ANIMOSITY,
-			// Rings
-			BAND_OF_POLLUX, GUNSLINGERS_RING,
-			PEARL_OF_LUMINESCENCE, COMPULSION_LOOP,
-			RING_OF_SHADOWS, BAND_OF_CASTOR,
-			AGGRESSORS_BANE, DECEIVERS_BAND,
-			RING_OF_ELUSION, STOCKPILE_CIRCLET
-		)),
-		new RegExKeyMapDictionary<>(Map.of(CRYPTOLITH_REG_EX, SWAMPS_OF_CORSUS_UPDATE))
-	);
+			)),
+			new RegExKeyMapDictionary<>(Map.of(STUCK_MERCHANT_REG_EX, MAIN_GAME)),
+			new PartialKeySetDictionary<>(LETO_S_LAB_UPDATE, Set.of(RIPHIDE)),
+			new PartialKeySetDictionary<>(SWAMPS_OF_CORSUS_UPDATE, Set.of(
+				// Bosses
+				DREAM_EATER, BARBED_TERROR,
+				ISKAL_QUEEN,
+				// Quests
+				WISPS, ABANDONED_THRONE,
+				GRAVEYARD_ELF, FETID_POOL,
+				A_SMART_BUG,
+				// Amulets
+				TALISMAN_OF_ANIMOSITY,
+				// Rings
+				BAND_OF_POLLUX, GUNSLINGERS_RING,
+				PEARL_OF_LUMINESCENCE, COMPULSION_LOOP,
+				RING_OF_SHADOWS, BAND_OF_CASTOR,
+				AGGRESSORS_BANE, DECEIVERS_BAND,
+				RING_OF_ELUSION, STOCKPILE_CIRCLET
+			)),
+			new RegExKeyMapDictionary<>(Map.of(CRYPTOLITH_REG_EX, SWAMPS_OF_CORSUS_UPDATE))
+		);
+	}
 }

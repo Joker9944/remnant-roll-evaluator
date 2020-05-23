@@ -2,18 +2,19 @@ package online.vonarx.dictionary.implementation;
 
 import online.vonarx.dictionary.Dictionary;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class MapDictionary<K, V> extends HashMap<K, V> implements Dictionary<K, V> {
+public class MapDictionary<K, V> implements Dictionary<K, V> {
 
-	public MapDictionary(final Map<K, V> map) {
-		super(map);
+	private final Map<K, V> wrappedMap;
+
+	public MapDictionary(final Map<K, V> dictionary) {
+		this.wrappedMap = dictionary;
 	}
 
 	@Override
 	public Optional<V> lookup(final K key) {
-		return Optional.ofNullable(get(key));
+		return Optional.ofNullable(wrappedMap.get(key));
 	}
 }

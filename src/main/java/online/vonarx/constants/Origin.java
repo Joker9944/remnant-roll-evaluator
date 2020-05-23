@@ -1,8 +1,7 @@
-package online.vonarx.actor;
+package online.vonarx.constants;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import online.vonarx.dictionary.OriginDictionary;
 
 @RequiredArgsConstructor
 public enum Origin {
@@ -12,9 +11,4 @@ public enum Origin {
 	UNKNOWN("Unknown");
 
 	@Getter private final String displayName;
-
-	static Origin matchOrigin(final String identifier) {
-		return OriginDictionary.dictionary.lookup(identifier)
-			.orElse(UNKNOWN);
-	}
 }

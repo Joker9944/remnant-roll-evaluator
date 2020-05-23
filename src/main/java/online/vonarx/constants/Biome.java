@@ -1,8 +1,7 @@
-package online.vonarx.actor;
+package online.vonarx.constants;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import online.vonarx.dictionary.BiomeDictionary;
 
 @RequiredArgsConstructor
 public enum Biome {
@@ -16,9 +15,4 @@ public enum Biome {
 	UNKNOWN("Unknown");
 
 	@Getter private final String displayName;
-
-	static Biome matchBiome(final String identifier) {
-		return BiomeDictionary.dictionary.lookup(identifier)
-			.orElse(UNKNOWN);
-	}
 }

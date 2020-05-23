@@ -1,7 +1,8 @@
-package online.vonarx.actor;
+package online.vonarx.models;
 
 
 import lombok.RequiredArgsConstructor;
+import online.vonarx.constants.Type;
 
 @RequiredArgsConstructor
 public class RelatedActor {
@@ -19,6 +20,6 @@ public class RelatedActor {
 	}
 
 	public Actor adapt(final Actor actor) {
-		return new Actor(actor.mode(), actor.origin(), identifier, actor.biome(), actor.zone(), subZone, type, name);
+		return new Actor(actor.origin(), identifier, actor.biome(), actor.zone(), subZone, type, name);
 	}
 }

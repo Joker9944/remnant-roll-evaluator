@@ -1,17 +1,17 @@
 package online.vonarx.components.dictionaries;
 
-import com.google.common.collect.ImmutableMap;
+import online.vonarx.dictionary.DictionaryWrapper;
 import online.vonarx.dictionary.implementation.PartialKeyMapDictionary;
 
 import javax.inject.Inject;
 
 import static online.vonarx.constants.KnownActorIdentifiers.*;
 
-public class LocationDictionary extends PartialKeyMapDictionary<String> {
+public class LocationDictionary extends DictionaryWrapper<String, String> {
 
 	@Inject
 	public LocationDictionary() {
-		super(ImmutableMap.<String, String>builder()
+		super(PartialKeyMapDictionary.<String>builder()
 			.put(GOREFIST, "Sunken Passage -> The Grinder")
 			.put(SHROUD, "The Hidden Sanctum -> The Tainted Well")
 			.put(THE_MANGLER, "The Tangled Pass -> The Artery ")

@@ -1,21 +1,21 @@
 package online.vonarx.components.dictionaries;
 
-import com.google.common.collect.ImmutableMap;
+import online.vonarx.dictionary.DictionaryWrapper;
 import online.vonarx.dictionary.implementation.ChainDictionary;
 import online.vonarx.dictionary.implementation.PartialKeyMapDictionary;
 import online.vonarx.dictionary.implementation.RegExExtractionDictionary;
 import online.vonarx.dictionary.implementation.RegExKeyMapDictionary;
 
 import javax.inject.Inject;
-import java.util.Map;
 
 import static online.vonarx.constants.KnownActorIdentifiers.*;
 
-public class NameDictionary extends ChainDictionary<String, String> {
+public class NameDictionary extends DictionaryWrapper<String, String> {
 
 	@Inject
 	public NameDictionary() {
-		super(new PartialKeyMapDictionary<>(ImmutableMap.<String, String>builder()
+		super(ChainDictionary.<String, String>builder()
+			.addDictionary(PartialKeyMapDictionary.<String>builder()
 				// City boss
 				.put(GOREFIST, "Gorefist")
 				.put(SHROUD, "Shroud")
@@ -129,12 +129,15 @@ public class NameDictionary extends ChainDictionary<String, String> {
 				.put(DECEIVERS_BAND, "Deceiver's Band")
 				.put(RING_OF_ELUSION, "Ring of Elusion")
 				.put(STOCKPILE_CIRCLET, "Stockpile Circlet")
-				.build()),
-			new RegExKeyMapDictionary<>(Map.of(
-				STUCK_MERCHANT_REG_EX, "Stuck Merchant",
-				CRYPTOLITH_REG_EX, "Cryptolith"
-			)),
-			new RegExExtractionDictionary("^/Game/World_.+/Quest_Event_(.+)/.*$")
+				.build())
+			.addDictionary(RegExKeyMapDictionary.<String>builder()
+				.put(STUCK_MERCHANT_REG_EX, "Stuck Merchant")
+				.put(CRYPTOLITH_REG_EX, "Cryptolith")
+				.build())
+			.addDictionary(RegExExtractionDictionary.builder()
+				.add("^/Game/World_.+/Quest_Event_(.+)/.*$")
+				.build())
+			.build()
 		);
 	}
 }

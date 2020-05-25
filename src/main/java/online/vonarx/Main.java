@@ -1,7 +1,8 @@
 package online.vonarx;
 
 import com.beust.jcommander.JCommander;
-import online.vonarx.di.app.DaggerAppComponent;
+import com.beust.jcommander.ParameterException;
+import online.vonarx.di.DaggerAppComponent;
 import online.vonarx.models.AppParameters;
 
 public class Main {
@@ -14,7 +15,12 @@ public class Main {
 		.build();
 
 	public static void main(final String[] args) {
-		jCommander.parse(args);
+		try {
+			jCommander.parse(args);
+		} catch (final ParameterException e) {
+			jCommander.usage();
+			return;
+		}
 		if (appParameters.printHelp()) {
 			jCommander.usage();
 			return;

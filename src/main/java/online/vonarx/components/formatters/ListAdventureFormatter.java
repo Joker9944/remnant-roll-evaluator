@@ -6,6 +6,7 @@ import online.vonarx.constants.Type;
 import online.vonarx.constants.Zone;
 import online.vonarx.formatter.ListFormatter;
 import online.vonarx.models.Actor;
+import online.vonarx.models.AppParameters;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -14,8 +15,8 @@ import java.util.Map;
 public class ListAdventureFormatter extends ListFormatter {
 
 	@Inject
-	public ListAdventureFormatter(final boolean showIdentifiers, final boolean showEngineActors) {
-		super(showIdentifiers, showEngineActors);
+	public ListAdventureFormatter(final AppParameters parameters) {
+		super(parameters);
 	}
 
 	@Override
@@ -25,7 +26,7 @@ public class ListAdventureFormatter extends ListFormatter {
 			sb.append(Mode.ADVENTURE.displayName()).append(" (").append(biome.displayName()).append(")").append("\n");
 			zones.values().forEach(types -> types.forEach((type, actors) -> {
 				sb.append("\t").append(type.displayName()).append("\n");
-				actors.forEach((actor) -> sb.append("\t\t").append(" - ").append(this.printActor(actor)).append("\n"));
+				actors.forEach((actor) -> sb.append("\t").append(" - ").append(this.printActor(actor)).append("\n"));
 			}));
 		});
 		return sb.toString();

@@ -6,7 +6,6 @@ public abstract class KnownActorIdentifiers {
 	public static final String SHROUD = "Quest_MiniBoss_RootWraith";
 	public static final String THE_MANGLER = "Quest_MiniBoss_RootTumbleweed";
 	public static final String RIPHIDE = "Quest_MiniBoss_Splitter";
-	public static final String RIPHIDE_FULL = "/Game/World_City/Quests/Quest_MiniBoss_Splitter/Quest_MiniBoss_Splitter.Quest_MiniBoss_Splitter";
 	public static final String BRABUS = "Quest_MiniBoss_Brabus";
 	public static final String THE_ENT = "Quest_Boss_RootEnt";
 	public static final String SINGE = "Quest_Boss_RootDragon";
@@ -40,11 +39,10 @@ public abstract class KnownActorIdentifiers {
 	public static final String HUNTERS_HIDEOUT = "Quest_SmallD_HuntersHideout";
 	public static final String SUPPLY_RUN = "Quest_SmallD_LastWill";
 	public static final String CULT_OF_THE_ROOT = "Quest_SmallD_RootCultist";
-	public static final String CULT_OF_THE_ROOT_NEXUS_FULL = "/Game/World_City/Quests/Quest_Event_Nexus/Quest_Event_Nexus.Quest_Event_Nexus";
+	public static final String CULT_OF_THE_ROOT_NEXUS = "Quest_Event_Nexus";
 	// Wasteland quests
 	public static final String MONOLITH = "Quest_OverworldPOI_Monolith";
 	public static final String WUD = "Quest_OverworldPOI_OldManAndConstruct";
-	public static final String WUD_FULL = "/Game/World_Wasteland/Quests/Quest_OverworldPOI_OldManAndConstruct/Quest_OverworldPOI_OldManAndConstruct.Quest_OverworldPOI_OldManAndConstruct";
 	public static final String THE_LOST_GANTRY = "Quest_Siege_TheLostGantry";
 	public static final String THE_CLEAN_ROOM = "Quest_SmallD_TheCleanRoom";
 	public static final String VAULT_OF_THE_HERALD = "Quest_SmallD_ArmorVault";
@@ -52,7 +50,6 @@ public abstract class KnownActorIdentifiers {
 	public static final String FLAUTIST = "Quest_OverworldPOI_Flautist";
 	public static final String RUINS = "Quest_OverworldPOI_Ruins";
 	public static final String STUCK_MERCHANT_REG_EX = "^.*Quest_Over.orldPOI_StuckMerchant.*$";
-	public static final String STUCK_MERCHANT_FULL = "/Game/World_Jungle/Quests/Quest_OverWorldPOI_StuckMerchant/Quest_OverworldPOI_StuckMerchant.Quest_OverworldPOI_StuckMerchant";
 	public static final String WOLF_SHRINE = "Quest_Siege_WolfShrine";
 	public static final String THE_RISEN = "Quest_Siege_TheRisen";
 	public static final String RED_DOE_SHRINE = "Quest_SmallD_DoeShrine";
@@ -103,7 +100,7 @@ public abstract class KnownActorIdentifiers {
 	// Quests
 	public static final String ABANDONED_THRONE = "Quest_OverworldPOI_AbandonedThrone";
 	public static final String CRYPTOLITH_REG_EX = "^/Game/World_.+/Quests/Quest_OverworldPOI_Cryptolith_.*$";
-	public static final String CRYPTOLITH_LABYRINTH_FULL = "/Game/World_Labyrinth/Quests/Quest_Cryptolith_Labyrinth/Quest_Cryptolith_Labyrinth.Quest_Cryptolith_Labyrinth";
+	public static final String CRYPTOLITH_LABYRINTH = "Quest_Cryptolith_Labyrinth";
 	public static final String GRAVEYARD_ELF = "Quest_OverWorldPOI_GraveyardElf";
 	public static final String A_SMART_BUG = "Quest_Siege_BrainBug";
 	public static final String FETID_POOL = "Quest_SmallD_FetidPool";

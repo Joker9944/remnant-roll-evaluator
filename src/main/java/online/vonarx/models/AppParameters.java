@@ -26,11 +26,11 @@ public class AppParameters {
 	@Parameter(names = "--identifiers", description = "Show actor identifiers", order = 3)
 	@Getter private boolean showIdentifiers = false;
 
-	@Parameter(names = "--engine-actors", description = "Show engine encounter names", order = 4)
-	@Getter boolean showEngineActors = false;
+	@Parameter(names = "--redundant-actors", description = "Show redundant actors", order = 4)
+	@Getter private boolean showRedundantActors = false;
 
 	@Parameter(names = {"--help", "-h"}, description = "Print help", help = true, order = 5)
-	@Getter boolean printHelp = false;
+	@Getter private boolean printHelp = false;
 
 	public enum SaveFormatterType {
 		LIST, TABLE

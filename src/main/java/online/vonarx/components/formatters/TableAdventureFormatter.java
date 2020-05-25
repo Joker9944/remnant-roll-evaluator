@@ -4,6 +4,7 @@ import com.mitchtalmadge.asciidata.table.ASCIITable;
 import com.mitchtalmadge.asciidata.table.formats.TableFormatAbstract;
 import online.vonarx.formatter.TableFormatter;
 import online.vonarx.models.Actor;
+import online.vonarx.models.AppParameters;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -22,10 +23,17 @@ public class TableAdventureFormatter extends TableFormatter {
 	private final boolean showIdentifiers;
 
 	@Inject
-	public TableAdventureFormatter(final boolean showIdentifiers, final boolean hideRedundantActors,
-	                               final TableFormatAbstract tableFormat) {
-		super(hideRedundantActors, tableFormat);
-		this.showIdentifiers = showIdentifiers;
+	public TableAdventureFormatter(final AppParameters parameters, final TableFormatAbstract tableFormat) {
+		super(parameters, tableFormat);
+		this.showIdentifiers = parameters.showIdentifiers();
+	}
+
+	@Override
+	protected String tableTitle(final List<Actor> actors) {
+		if (actors.size() == 0)
+			return "Adventure";
+		else
+			return "Adventure (" + actors.get(0).biome().displayName() + ")";
 	}
 
 	@Override

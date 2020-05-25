@@ -4,6 +4,7 @@ import online.vonarx.constants.Biome;
 import online.vonarx.constants.Type;
 import online.vonarx.constants.Zone;
 import online.vonarx.models.Actor;
+import online.vonarx.models.AppParameters;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -16,18 +17,18 @@ import static java.util.stream.Collectors.toList;
 public abstract class ListFormatter extends Formatter {
 
 	private final boolean showIdentifiers;
-	private final boolean showEngineActors;
+	private final boolean showRedundantActors;
 
-	public ListFormatter(final boolean showIdentifiers, final boolean showEngineActors) {
-		this.showIdentifiers = showIdentifiers;
-		this.showEngineActors = showEngineActors;
+	public ListFormatter(final AppParameters parameters) {
+		this.showIdentifiers = parameters.showIdentifiers();
+		this.showRedundantActors = parameters.showRedundantActors();
 	}
 
 	@Override
-	public final String format(final List<Actor> actors) {
-		purgeDuplicateQuestEntries(actors);
-		if (!showEngineActors)
-			purgeRedundantActors(actors);
+	public final String format(List<Actor> actors) {
+		actors = purgeDuplicateQuestEntries(actors);
+		if (!showRedundantActors)
+			actors = purgeRedundantActors(actors);
 		return formatList(groupActors(actors));
 	}
 

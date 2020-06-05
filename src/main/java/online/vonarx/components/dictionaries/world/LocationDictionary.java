@@ -40,6 +40,7 @@ public class LocationDictionary extends DictionaryWrapper<KnownActor, String> {
 			.put(CANKER, "The Drowned Trench -> Mire Hollow")
 			.put(THE_UNCLEAN_ONE, "The Shack")
 			.put(IXILLIS, "The Grotto")
+			.put(FIGHT_WITH_THE_REBELS, "Shrine of The Immortals")
 			// Jungle
 			.put(THE_WARDEN, "The Halls of Judgement -> The Ring of Trials")
 			.put(STORMCALLER_BOSS, "Heretic's Nest -> Martyr's Garden")

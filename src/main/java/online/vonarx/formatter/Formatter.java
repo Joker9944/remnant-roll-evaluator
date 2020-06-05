@@ -1,6 +1,7 @@
 package online.vonarx.formatter;
 
 import lombok.RequiredArgsConstructor;
+import online.vonarx.constants.Type;
 import online.vonarx.models.world.Encounter;
 import online.vonarx.models.world.WorldSave;
 
@@ -9,16 +10,22 @@ import java.util.List;
 import java.util.Set;
 
 import static java.util.stream.Collectors.toList;
+import static online.vonarx.constants.Type.MAIN_QUEST;
+import static online.vonarx.constants.Type.TEMPLATE;
 
 @RequiredArgsConstructor
 public abstract class Formatter {
 
 	private static final int QUEST_IDENTIFIER_INDEX = 4;
 
-	public static final Set<String> REDUNDANT_ACTORS = Set.of(
+	public static final Set<String> REDUNDANT_PARTIAL_IDENTIFIERS = Set.of(
 		"Quest_Event_Nexus", "Quest_Cryptolith_Labyrinth",
-		"/Campaign_Main/", "/Quest_AdventureMode/",
-		"/Templates/");
+		"Quest_AdventureMode"
+	);
+
+	public static final Set<Type> REDUNDANT_TYPES = Set.of(
+		MAIN_QUEST, TEMPLATE
+	);
 
 	public abstract String format(final WorldSave worldSave);
 
@@ -40,7 +47,8 @@ public abstract class Formatter {
 
 	protected List<Encounter> purgeRedundantEncounters(final List<Encounter> encounters) {
 		return encounters.stream()
-			.filter(encounter -> REDUNDANT_ACTORS.stream().noneMatch(redundantActor -> encounter.identifier().contains(redundantActor)))
+			.filter(encounter -> REDUNDANT_TYPES.stream().noneMatch(type -> encounter.type().equals(type)))
+			.filter(encounter -> REDUNDANT_PARTIAL_IDENTIFIERS.stream().noneMatch(redundantActor -> encounter.identifier().contains(redundantActor)))
 			.collect(toList());
 	}
 }

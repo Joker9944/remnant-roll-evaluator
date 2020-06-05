@@ -111,15 +111,16 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 					rf.optionalReward(AKARI_LEGGINGS)))
 				// Jungle
 				.put(FLAUTIST, of(
-					rf.optionalReward(HEART_OF_THE_WOLF),
-					rf.optionalReward(SWIFTNESS)))
+					rf.reward(HEART_OF_THE_WOLF),
+					rf.reward(SWIFTNESS)))
 				.put(WOLF_SHRINE, of(rf.inclusiveReward(ELDER_HEADDRESS, ELDER_RAIMENT, ELDER_LEGGINGS)))
 				.put(THE_RISEN, of(rf.reward(SOUL_ANCHOR)))
 				.put(RED_DOE_SHRINE, of(
-					rf.optionalReward(SCAVENGER_S_BAUBLE),
-					rf.optionalReward(SWIFTNESS)))
+					rf.reward(SCAVENGER_S_BAUBLE),
+					rf.reward(SWIFTNESS)))
 				.put(STUCK_MERCHANT, of(rf.merchandise(SPEAR, RADIANT_PROTECTOR, RADIANT_GREAVES, GUARDIAN_S_RING)))
 				.put(GUARDIAN_SHRINE, of(rf.reward(RADIANT_VISAGE)))
+				.put(FIGHT_WITH_THE_REBELS, of(rf.reward(TRIAGE)))
 				// Leto's Lab
 				.put(LETO_S_LAB, of(rf.inclusiveReward(LETO_S_HELMET, LETO_S_ARMOR, LETO_S_LEGGINGS)))
 				// Swamps of Corsus

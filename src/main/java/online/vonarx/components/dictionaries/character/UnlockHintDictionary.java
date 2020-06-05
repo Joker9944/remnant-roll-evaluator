@@ -88,7 +88,7 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(GLUTTON, "Defeat The Unclean One.")
 				.put(CATALYST, "Defeat The Thrall or Canker.")
 				.put(EXECUTIONER, "Defeat Ixillis.")
-				.put(TRIAGE, "Defend Navun.")
+				.put(TRIAGE, "Talk to Navun after completing the Fight with the Rebels siege.")
 				.put(KINGSLAYER, "Defeat the Undying King.")
 				.put(WILL_TO_LIVE, "Get revived 10 times.")
 				.put(ARCANE_STRIKE, "Defeat The Ravager or Totem Father.")

@@ -31,6 +31,7 @@ public class KnownEncountersDictionary extends DictionaryWrapper<String, KnownAc
 				.put("Quest_Miniboss_Vyr", SHADE_AND_SHATTER)
 				.put("Quest_Boss_WastelandGuardian", CLAVIGER)
 				.put("Quest_Boss_TheHarrow", THE_HARROW)
+				.put("Quest_Boss_UndyingKing", UNDYING_KING)
 				// Swamp bosses
 				.put("Quest_MiniBoss_Tyrant", THE_THRALL)
 				.put("Quest_MiniBoss_SlimeHulk", CANKER)
@@ -66,6 +67,7 @@ public class KnownEncountersDictionary extends DictionaryWrapper<String, KnownAc
 				.put("Quest_Siege_WolfShrine", WOLF_SHRINE)
 				.put("Quest_Siege_TheRisen", THE_RISEN)
 				.put("Quest_SmallD_DoeShrine", RED_DOE_SHRINE)
+				.put("Quest_Pan_Jungle_Ambush", FIGHT_WITH_THE_REBELS)
 				// Quest items
 				.put("Quest_Event_ReggiesRing", TARNISHED_RING)
 				.put("Quest_Event_AcesCoin", STRANGE_COIN)

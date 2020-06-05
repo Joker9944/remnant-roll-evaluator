@@ -79,6 +79,7 @@ public enum KnownActor {
 	RED_DOE_SHRINE("Red Doe Shrine", MAIN_GAME, DUNGEON),
 	STUCK_MERCHANT("Stuck Merchant", MAIN_GAME, MERCHANT),
 	GUARDIAN_SHRINE("Guardian Shrine", MAIN_GAME, DUNGEON),
+	FIGHT_WITH_THE_REBELS("Fight with the Rebels", MAIN_GAME, SIEGE),
 	// Items
 	// Weapons
 	// Hand Guns

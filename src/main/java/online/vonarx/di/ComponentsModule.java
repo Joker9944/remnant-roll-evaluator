@@ -1,5 +1,6 @@
 package online.vonarx.di;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import dagger.Module;
 import dagger.Provides;
@@ -7,14 +8,15 @@ import online.vonarx.components.formatters.ListAdventureFormatter;
 import online.vonarx.components.formatters.ListStoryFormatter;
 import online.vonarx.components.formatters.TableAdventureFormatter;
 import online.vonarx.components.formatters.TableStoryFormatter;
-import online.vonarx.components.save.AdventureSaveFactory;
-import online.vonarx.components.save.StorySaveFactory;
-import online.vonarx.constants.Mode;
+import online.vonarx.components.save.world.AdventureModeFactory;
+import online.vonarx.components.save.world.StoryModeFactory;
+import online.vonarx.constants.world.Mode;
 import online.vonarx.formatter.Formatter;
 import online.vonarx.models.AppParameters;
-import online.vonarx.save.SaveFactory;
+import online.vonarx.save.ModeFactory;
 
 import javax.inject.Singleton;
+import java.util.List;
 import java.util.Map;
 
 @Module
@@ -22,15 +24,15 @@ public abstract class ComponentsModule {
 
 	@Provides
 	@Singleton
-	static Map<Mode, SaveFactory> mapSaveFactories(final AppParameters parameters,
-	                                               final StorySaveFactory storySaveFactory, final AdventureSaveFactory adventureSaveFactory) {
-		final var factoryMapBuilder = ImmutableMap.<Mode, SaveFactory>builder();
+	static List<ModeFactory> mapSaveFactories(final AppParameters parameters,
+	                                          final StoryModeFactory storySaveFactory, final AdventureModeFactory adventureSaveFactory) {
+		final var listBuilder = ImmutableList.<ModeFactory>builder();
 		final var modes = parameters.modes();
 		if (modes.contains(Mode.STORY))
-			factoryMapBuilder.put(Mode.STORY, storySaveFactory);
+			listBuilder.add(storySaveFactory);
 		if (modes.contains(Mode.ADVENTURE))
-			factoryMapBuilder.put(Mode.ADVENTURE, adventureSaveFactory);
-		return factoryMapBuilder.build();
+			listBuilder.add(adventureSaveFactory);
+		return listBuilder.build();
 	}
 
 	@Provides

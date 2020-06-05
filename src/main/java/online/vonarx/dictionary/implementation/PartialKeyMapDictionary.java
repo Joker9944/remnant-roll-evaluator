@@ -38,6 +38,11 @@ public class PartialKeyMapDictionary<V> implements Dictionary<String, V> {
 			return this;
 		}
 
+		public PartialKeyMapDictionaryBuilder<V> putAll(final Map<String, V> map) {
+			wrappedMapBuilder.putAll(map);
+			return this;
+		}
+
 		public PartialKeyMapDictionary<V> build() {
 			return new PartialKeyMapDictionary<>(wrappedMapBuilder.build());
 		}

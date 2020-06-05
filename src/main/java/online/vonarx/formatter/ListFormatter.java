@@ -1,10 +1,11 @@
 package online.vonarx.formatter;
 
-import online.vonarx.constants.Biome;
+import online.vonarx.constants.world.Biome;
 import online.vonarx.constants.Type;
-import online.vonarx.constants.Zone;
-import online.vonarx.models.Actor;
+import online.vonarx.constants.world.Zone;
 import online.vonarx.models.AppParameters;
+import online.vonarx.models.world.Encounter;
+import online.vonarx.models.world.WorldSave;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -17,43 +18,43 @@ import static java.util.stream.Collectors.toList;
 public abstract class ListFormatter extends Formatter {
 
 	private final boolean showIdentifiers;
-	private final boolean showRedundantActors;
+	private final boolean showRedundantEncounters;
 
 	public ListFormatter(final AppParameters parameters) {
 		this.showIdentifiers = parameters.showIdentifiers();
-		this.showRedundantActors = parameters.showRedundantActors();
+		this.showRedundantEncounters = parameters.showRedundantEncounters();
 	}
 
 	@Override
-	public final String format(List<Actor> actors) {
-		actors = purgeDuplicateQuestEntries(actors);
-		if (!showRedundantActors)
-			actors = purgeRedundantActors(actors);
-		return formatList(groupActors(actors));
+	public final String format(final WorldSave worldSave) {
+		var encounters = purgeDuplicateQuestEncounters(worldSave.encounters());
+		if (!showRedundantEncounters)
+			encounters = purgeRedundantEncounters(encounters);
+		return formatList(groupEncounters(encounters));
 	}
 
-	protected abstract String formatList(final Map<Biome, Map<Zone, Map<Type, List<Actor>>>> groupedActors);
+	protected abstract String formatList(final Map<Biome, Map<Zone, Map<Type, List<Encounter>>>> groupedEncounters);
 
-	private Map<Biome, Map<Zone, Map<Type, List<Actor>>>> groupActors(final List<Actor> actors) {
-		return actors.stream()
-			.sorted(comparing(actor -> actor.name().orElse(actor.identifier())))
-			.sorted(comparing(Actor::type))
-			.sorted(comparing(Actor::zone))
-			.sorted(comparing(Actor::biome))
+	private Map<Biome, Map<Zone, Map<Type, List<Encounter>>>> groupEncounters(final List<Encounter> encounters) {
+		return encounters.stream()
+			.sorted(comparing(actor -> actor.displayName().orElse(actor.identifier())))
+			.sorted(comparing(Encounter::type))
+			.sorted(comparing(Encounter::zone))
+			.sorted(comparing(Encounter::biome))
 			.collect(
-				groupingBy(Actor::biome, LinkedHashMap::new,
-					groupingBy(Actor::zone, LinkedHashMap::new,
-						groupingBy(Actor::type, LinkedHashMap::new,
+				groupingBy(Encounter::biome, LinkedHashMap::new,
+					groupingBy(Encounter::zone, LinkedHashMap::new,
+						groupingBy(Encounter::type, LinkedHashMap::new,
 							toList()))));
 	}
 
-	protected String printActor(final Actor actor) {
-		if (actor.name().isEmpty()) {
-			return actor.identifier();
+	protected String printEncounter(final Encounter encounter) {
+		if (encounter.displayName().isEmpty()) {
+			return encounter.identifier();
 		} else if (showIdentifiers) {
-			return actor.name().get() + " (" + actor.identifier() + ")";
+			return encounter.displayName().get() + " (" + encounter.identifier() + ")";
 		} else {
-			return actor.name().get();
+			return encounter.displayName().get();
 		}
 	}
 }

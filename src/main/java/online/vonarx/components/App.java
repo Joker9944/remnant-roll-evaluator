@@ -1,38 +1,51 @@
 package online.vonarx.components;
 
-import com.google.common.collect.ImmutableMap;
-import online.vonarx.constants.Mode;
+import online.vonarx.components.formatters.UnattainedItemsFormatter;
+import online.vonarx.components.save.character.CharacterFactory;
+import online.vonarx.constants.world.Mode;
 import online.vonarx.formatter.Formatter;
-import online.vonarx.models.Actor;
-import online.vonarx.save.SaveFactory;
+import online.vonarx.save.ModeFactory;
 
 import javax.inject.Inject;
 import java.io.PrintStream;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.stream.Collectors.toList;
+
 public class App {
 
-	private final BinaryProvider binaryProvider;
+	private final SaveBinaryProvider saveBinaryProvider;
 	private final PrintStream out;
-	private final Map<Mode, SaveFactory> saveFactoryMap;
+	private final CharacterFactory characterFactory;
+	private final List<ModeFactory> saveFactories;
 	private final Map<Mode, Formatter> formatterMap;
+	private final UnattainedItemsFormatter unattainedItemsFormatter;
 
 	@Inject
-	public App(final BinaryProvider binaryProvider, final PrintStream out,
-	           final Map<Mode, SaveFactory> saveFactoryMap,
-	           final Map<Mode, Formatter> formatterMap) {
-		this.binaryProvider = binaryProvider;
+	public App(final SaveBinaryProvider saveBinaryProvider, final PrintStream out,
+	           final CharacterFactory characterFactory,
+	           final List<ModeFactory> saveFactories,
+	           final Map<Mode, Formatter> formatterMap,
+	           final UnattainedItemsFormatter unattainedItemsFormatter) {
+		this.saveBinaryProvider = saveBinaryProvider;
 		this.out = out;
-		this.saveFactoryMap = saveFactoryMap;
+		this.characterFactory = characterFactory;
+		this.saveFactories = saveFactories;
 		this.formatterMap = formatterMap;
+		this.unattainedItemsFormatter = unattainedItemsFormatter;
 	}
 
 	public void run() {
-		final var saveBinary = binaryProvider.provideBinary();
-		final var actorsByModeMapBuilder = ImmutableMap.<Mode, List<Actor>>builder();
-		saveFactoryMap.forEach((mode, saveFactory) -> actorsByModeMapBuilder.put(mode, saveFactory.create(saveBinary)));
-		final var actorsByMode = actorsByModeMapBuilder.build();
-		formatterMap.forEach((mode, formatter) -> out.println(formatter.format(actorsByMode.get(mode))));
+		final var profileBinary = saveBinaryProvider.provideProfileBinary();
+		final var character = characterFactory.create(profileBinary);
+
+		final var saveBinary = saveBinaryProvider.provideSaveBinary();
+		final var worldSaves = saveFactories.stream()
+			.map(modeFactory -> modeFactory.create(saveBinary, character))
+			.collect(toList());
+
+		worldSaves.forEach(worldSave -> out.println(formatterMap.get(worldSave.mode()).format(worldSave)));
+		out.println(unattainedItemsFormatter.format(character));
 	}
 }

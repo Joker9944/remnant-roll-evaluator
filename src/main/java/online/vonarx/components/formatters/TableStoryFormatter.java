@@ -2,17 +2,23 @@ package online.vonarx.components.formatters;
 
 import com.mitchtalmadge.asciidata.table.ASCIITable;
 import com.mitchtalmadge.asciidata.table.formats.TableFormatAbstract;
+import online.vonarx.constants.KnownActor;
+import online.vonarx.dictionary.Dictionary;
 import online.vonarx.formatter.TableFormatter;
-import online.vonarx.models.Actor;
 import online.vonarx.models.AppParameters;
+import online.vonarx.models.world.Encounter;
+import online.vonarx.models.world.rewards.RewardLine;
 
 import javax.inject.Inject;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.List.of;
 
 public class TableStoryFormatter extends TableFormatter {
 
-	private static final String[] STORY_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Origin", "Type", "Name", "Biome", "Zone", "Subzone", "Identifier"};
-	private static final String[] STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Origin", "Type", "Name", "Biome", "Zone", "Subzone"};
+	private static final String[] STORY_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Origin", "Type", "Name", "Biome", "Zone", "Subzone", "Unattained Rewards", "Identifier"};
+	private static final String[] STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Origin", "Type", "Name", "Biome", "Zone", "Subzone", "Unattained Rewards"};
 
 	private static final int ORIGIN_COLUMN = 0;
 	private static final int TYPE_COLUMN = 1;
@@ -20,7 +26,8 @@ public class TableStoryFormatter extends TableFormatter {
 	private static final int BIOME_COLUMN = 3;
 	private static final int ZONE_COLUMN = 4;
 	private static final int SUBZONE_COLUMN = 5;
-	private static final int IDENTIFIER_COLUMN = 6;
+	private static final int UNATTAINED_REWARDS_COLUMN = 6;
+	private static final int IDENTIFIER_COLUMN = 7;
 
 	private final boolean showIdentifiers;
 
@@ -31,36 +38,42 @@ public class TableStoryFormatter extends TableFormatter {
 	}
 
 	@Override
-	protected String tableTitle(final List<Actor> actors) {
+	protected String tableTitle(final List<Encounter> encounters) {
 		return "Story";
 	}
 
 	@Override
-	protected ASCIITable formatTable(final List<Actor> actors, final TableFormatAbstract tableFormat) {
+	protected ASCIITable formatTable(final List<Encounter> encounters, final Dictionary<Encounter, List<RewardLine>> unattainedRewardsDictionary,
+	                                 final TableFormatAbstract tableFormat) {
 		final String[] header;
 		if (showIdentifiers)
 			header = STORY_MODE_TABLE_HEADER_WITH_IDENTIFIER;
 		else
 			header = STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER;
-		final var tableBody = actors.stream()
-			.map(actor -> {
+		final var tableBody = encounters.stream()
+			.map(encounter -> {
 				final String[] row;
 				if (showIdentifiers) {
 					row = new String[STORY_MODE_TABLE_HEADER_WITH_IDENTIFIER.length];
-					row[NAME_COLUMN] = actor.name()
+					row[NAME_COLUMN] = encounter.displayName()
 						.orElse(null);
-					row[IDENTIFIER_COLUMN] = actor.identifier();
+					row[IDENTIFIER_COLUMN] = encounter.identifier();
 				} else {
 					row = new String[STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER.length];
-					row[NAME_COLUMN] = actor.name()
-						.orElse(actor.identifier());
+					row[NAME_COLUMN] = encounter.displayName()
+						.orElse(encounter.identifier());
 				}
-				row[ORIGIN_COLUMN] = actor.origin().displayName();
-				row[TYPE_COLUMN] = actor.type().displayName();
-				row[BIOME_COLUMN] = actor.biome().displayName();
-				row[ZONE_COLUMN] = actor.zone().displayName();
-				row[SUBZONE_COLUMN] = actor.subZone()
+				row[ORIGIN_COLUMN] = encounter.origin().displayName();
+				row[TYPE_COLUMN] = encounter.type().displayName();
+				row[BIOME_COLUMN] = encounter.biome().displayName();
+				row[ZONE_COLUMN] = encounter.zone().displayName();
+				row[SUBZONE_COLUMN] = encounter.location()
 					.orElse(null);
+				row[UNATTAINED_REWARDS_COLUMN] = unattainedRewardsDictionary.lookup(encounter)
+					.orElse(of())
+					.stream()
+					.map(reward -> "- " + reward.printReward())
+					.collect(Collectors.joining("\n"));
 				return row;
 			}).toArray(String[][]::new);
 		return ASCIITable.fromData(header, tableBody)

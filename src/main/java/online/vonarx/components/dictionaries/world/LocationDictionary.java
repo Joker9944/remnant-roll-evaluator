@@ -1,28 +1,28 @@
-package online.vonarx.components.dictionaries;
+package online.vonarx.components.dictionaries.world;
 
+import online.vonarx.constants.KnownActor;
 import online.vonarx.dictionary.DictionaryWrapper;
-import online.vonarx.dictionary.implementation.PartialKeyMapDictionary;
+import online.vonarx.dictionary.implementation.MapDictionary;
 
 import javax.inject.Inject;
 
-import static online.vonarx.constants.KnownActorIdentifiers.*;
+import static online.vonarx.constants.KnownActor.*;
 
-public class LocationDictionary extends DictionaryWrapper<String, String> {
+public class LocationDictionary extends DictionaryWrapper<KnownActor, String> {
 
 	@Inject
 	public LocationDictionary() {
-		super(PartialKeyMapDictionary.<String>builder()
+		super(MapDictionary.<KnownActor, String>builder()
 			.put(GOREFIST, "Sunken Passage -> The Grinder")
 			.put(SHROUD, "The Hidden Sanctum -> The Tainted Well")
 			.put(THE_MANGLER, "The Tangled Pass -> The Artery ")
-			.put(RIPHIDE, "Research Station Alpha -> The Cursed Station")
 			.put(BRABUS, "Cutthroat Channel -> The Depot")
 			.put(THE_ENT, "The Choking Hallow")
 			.put(SINGE, "The Ash Yard")
 			.put(THE_ROOT_SHRINE, "The Gallows")
 			.put(A_TALE_OF_TWO_LIZ_S, "Land's End")
 			.put(TWISTED_MASK_MERCHANT, "Junk Town")
-			.put(HUNTERS_HIDEOUT, "Hidden Grotto")
+			.put(HUNTER_S_HIDEOUT, "Hidden Grotto")
 			.put(SUPPLY_RUN, "Sorrow's Field")
 			.put(CULT_OF_THE_ROOT, "Marrow Pass")
 			// Wasteland
@@ -42,7 +42,7 @@ public class LocationDictionary extends DictionaryWrapper<String, String> {
 			.put(IXILLIS, "The Grotto")
 			// Jungle
 			.put(THE_WARDEN, "The Halls of Judgement -> The Ring of Trials")
-			.put(STORMCALLER, "Heretic's Nest -> Martyr's Garden")
+			.put(STORMCALLER_BOSS, "Heretic's Nest -> Martyr's Garden")
 			.put(SCALD_AND_SEAR, "Withering Village -> Warden's Pulpit")
 			.put(ONSLAUGHT, "Widow's Pass -> Noble's Rest")
 			.put(TOTEM_FATHER, "The Tempest Court")
@@ -51,13 +51,16 @@ public class LocationDictionary extends DictionaryWrapper<String, String> {
 			.put(WOLF_SHRINE, "Temple of the Ravager -> Martyr's Sanctuary")
 			.put(THE_RISEN, "Ahanae's Lament -> The Radiant Tomb")
 			.put(RED_DOE_SHRINE, "Widow's Vestry")
-			// DLC
+			// Leto's Lab
+			.put(LETO_S_LAB, "Research Station Alpha")
+			.put(RIPHIDE, "Research Station Alpha -> The Cursed Station")
+			// Swamps of Corsus
 			.put(DREAM_EATER, "Hall of Whispers -> Corrupted Sanctum")
 			.put(BARBED_TERROR, "Needle Lair -> Throne of Barbs")
 			.put(ISKAL_QUEEN, "Iskal Sanctum")
 			.put(WISPS, "Circlet Hatchery")
 			.put(FETID_POOL, "Fetid Pool")
-			.put(A_SMART_BUG, "Strange pass -> Mar'Gosh's Lair")
+			.put(A_SMART_BUG, "Strange Pass -> Mar'Gosh's Lair")
 			.build()
 		);
 	}

@@ -35,6 +35,11 @@ public class MapDictionary<K, V> implements Dictionary<K, V> {
 			return this;
 		}
 
+		public MapDictionary.MapDictionaryBuilder<K, V> putAll(final Map<K, V> map) {
+			wrappedMapBuilder.putAll(map);
+			return this;
+		}
+
 		public MapDictionary<K, V> build() {
 			return new MapDictionary<>(wrappedMapBuilder.build());
 		}

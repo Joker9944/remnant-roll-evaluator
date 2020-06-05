@@ -19,7 +19,7 @@ public abstract class ForeignComponentsModule {
 
 	@Provides
 	@Singleton
-	static TableFormatAbstract provideTableFormatAbstract() {
+	static TableFormatAbstract provideTableFormat() {
 		return new ASCIITableFormat();
 	}
 }

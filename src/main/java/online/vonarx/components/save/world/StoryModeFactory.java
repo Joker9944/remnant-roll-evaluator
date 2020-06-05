@@ -1,20 +1,22 @@
-package online.vonarx.components.save;
+package online.vonarx.components.save.world;
 
-import online.vonarx.components.ActorFactory;
-import online.vonarx.components.dictionaries.ZoneDictionary;
-import online.vonarx.save.SaveFactory;
+import online.vonarx.components.dictionaries.character.ItemCraftingDictionary;
+import online.vonarx.components.dictionaries.world.ZoneDictionary;
+import online.vonarx.constants.world.Mode;
+import online.vonarx.save.ModeFactory;
 
 import javax.inject.Inject;
 import java.util.List;
 
-public class StorySaveFactory extends SaveFactory {
+public class StoryModeFactory extends ModeFactory {
 
 	private static final String START_STORY_MODE = "/Game/Campaign_Main/Quest_Campaign_City.Quest_Campaign_City";
 	private static final String END_STORY_MODE = "/Game/Campaign_Main/Quest_Campaign_Ward13.Quest_Campaign_Ward13";
 
 	@Inject
-	public StorySaveFactory(final ActorFactory actorFactory, final ZoneDictionary zoneDictionary) {
-		super(actorFactory, zoneDictionary);
+	public StoryModeFactory(final EncounterFactory encounterFactory, final ZoneDictionary zoneDictionary,
+	                        final ItemCraftingDictionary itemCraftingDictionary) {
+		super(encounterFactory, zoneDictionary, itemCraftingDictionary);
 	}
 
 	@Override
@@ -24,5 +26,10 @@ public class StorySaveFactory extends SaveFactory {
 		if (startIndex == -1 || endIndex == -1)
 			throw new IllegalStateException("Could not find story mode.");
 		return identifiers.subList(startIndex, endIndex + 1);
+	}
+
+	@Override
+	protected Mode mode() {
+		return Mode.STORY;
 	}
 }

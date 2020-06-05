@@ -1,12 +1,12 @@
-package online.vonarx.components.dictionaries;
+package online.vonarx.components.dictionaries.world;
 
-import online.vonarx.constants.Biome;
+import online.vonarx.constants.world.Biome;
 import online.vonarx.dictionary.DictionaryWrapper;
 import online.vonarx.dictionary.implementation.RegExKeyMapDictionary;
 
 import javax.inject.Inject;
 
-import static online.vonarx.constants.Biome.*;
+import static online.vonarx.constants.world.Biome.*;
 
 public class BiomeDictionary extends DictionaryWrapper<String, Biome> {
 

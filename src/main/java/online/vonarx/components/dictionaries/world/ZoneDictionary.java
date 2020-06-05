@@ -1,12 +1,12 @@
-package online.vonarx.components.dictionaries;
+package online.vonarx.components.dictionaries.world;
 
-import online.vonarx.constants.Zone;
+import online.vonarx.constants.world.Zone;
 import online.vonarx.dictionary.DictionaryWrapper;
 import online.vonarx.dictionary.implementation.PartialKeyMapDictionary;
 
 import javax.inject.Inject;
 
-import static online.vonarx.constants.Zone.*;
+import static online.vonarx.constants.world.Zone.*;
 
 public class ZoneDictionary extends DictionaryWrapper<String, Zone> {
 

@@ -1,4 +1,4 @@
-package online.vonarx.constants;
+package online.vonarx.constants.world;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

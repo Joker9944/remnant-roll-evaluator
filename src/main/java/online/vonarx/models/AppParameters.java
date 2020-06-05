@@ -2,7 +2,7 @@ package online.vonarx.models;
 
 import com.beust.jcommander.Parameter;
 import lombok.Getter;
-import online.vonarx.constants.Mode;
+import online.vonarx.constants.world.Mode;
 import online.vonarx.jcommander.RelativeURIConverter;
 
 import java.net.URI;
@@ -26,8 +26,8 @@ public class AppParameters {
 	@Parameter(names = "--identifiers", description = "Show actor identifiers", order = 3)
 	@Getter private boolean showIdentifiers = false;
 
-	@Parameter(names = "--redundant-actors", description = "Show redundant actors", order = 4)
-	@Getter private boolean showRedundantActors = false;
+	@Parameter(names = "--redundant-encounters", description = "Show redundant actors", order = 4)
+	@Getter private boolean showRedundantEncounters = false;
 
 	@Parameter(names = {"--help", "-h"}, description = "Print help", help = true, order = 5)
 	@Getter private boolean printHelp = false;

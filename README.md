@@ -4,7 +4,7 @@ Basic Java based command line tool to evaluate rolled encounters in a save game 
 
 ## Description
 
-Extracts game actors from a given save, maps then against dictionaries to gain meaningful names and groups the results for easier reading.
+Extracts game encounters from a given save, maps then against dictionaries to gain meaningful names and groups the results for easier reading.
 
 ## Getting Started
 

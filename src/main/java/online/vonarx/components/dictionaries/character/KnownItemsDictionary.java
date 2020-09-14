@@ -188,6 +188,9 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Resource_Wasteland_StoneOfTheGuardian", STONE_OF_THE_GUARDIAN)
 				// Swamps of Corsus
 				.put("Weapon_HerosSword", HERO_S_SWORD)
+				// Subject 2923
+				// TODO Add chain blade
+				.put("Resource_Snow_SteelOfAgony", STEEL_OF_AGONY)
 				// Mods
 				.put("Mod_Hotshot", HOT_SHOT)
 				.put("Mod_HuntersMark", HUNTER_S_MARK)
@@ -246,6 +249,11 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Resource_Swamp_IskalHusk", ISKAL_HUSK)
 				// Static Mods
 				.put("Mod_Vampiric", VAMPIRIC)
+				// Subject 2923
+				// Crafted Mods
+				/* TODO verify */.put("Mod_ColdSpear", COLD_SPEAR)
+				.put("Resource_Snow_JackalsIvory", JACKAL_S_IVORY)
+				// Static Mods
 				// Amulets
 				.put("Trinket_BrutalMark", BRUTAL_MARK)
 				.put("Trinket_ButchersFetish", BUTCHER_S_FETISH)
@@ -270,6 +278,11 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Trinket_DaredevilsCharm", DAREDEVIL_S_CHARM)
 				.put("Trinket_BlackRose", BLACK_ROSE)
 				.put("Trinket_TalismanOfPerseverance", TALISMAN_OF_PERSEVERANCE)
+				// Subject 2923
+				.put("Trinket_RazorwireNecklace", RAZORWIRE_NECKLACE)
+				.put("Trinket_HangmansMemento", HANGMAN_S_MOMENTO)
+				/* TODO verify */.put("Trinket_AbrasiveAmulet", ABRASIVE_AMULET)
+				.put("Trinket_Driftstone", DRIFTSTONE)
 				// Rings
 				.put("Trinket_AkariWarBand", AKARI_WAR_BAND)
 				.put("Trinket_BandOfAccord", BAND_OF_ACCORD)
@@ -319,6 +332,9 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Trinket_SoulEmber", SOUL_EMBER)
 				/* TODO verify */.put("Trinket_SoulLink", SOUL_LINK)
 				.put("Trinket_StockpileCirclet", STOCKPILE_CIRCLET)
+				// Subject 2923
+				.put("Trinket_FiveFingeredRing", FIVE_FINGERED_RING)
+				/* TODO verify */.put("Trinket_BurdenOfTheDevoted", BURDEN_OF_THE_DEVOTED)
 				// Traits
 				.put("Trait_ArcaneStrike", ARCANE_STRIKE)
 				.put("Trait_BarkSkin", BARK_SKIN)
@@ -361,6 +377,11 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Trait_Invoker", INVOKER)
 				.put("Trait_Luminescent", LUMINESCENT)
 				/* TODO verify */.put("Trait_Potency", POTENCY)
+				// Subject 2923
+				.put("Trait_ArmorPiercer", ARMOR_PIERCER)
+				.put("Trait_Wisdom", WISDOM)
+				.put("Trait_FlashCaster", FLASH_CASTER)
+				.put("Trait_HardCharger", HARD_CHARGER)
 				// Emotes
 				.put("Emote_Beckon", BECKON_EMOTE)
 				.put("Emote_Cheer", CHEER)

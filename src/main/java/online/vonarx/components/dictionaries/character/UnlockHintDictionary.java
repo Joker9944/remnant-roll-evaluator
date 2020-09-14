@@ -108,6 +108,11 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(INVOKER, "Let summons kill 100 enemies.")
 				.put(LUMINESCENT, "Give the Opalescent Shell to Mar'Gosh.")
 				.put(EVOCATION, "Destroy all hives without getting hit by wisps in Circlet Hatchery dungeon.")
+				// Subject 2923
+				.put(ARMOR_PIERCER, "Deal 5000 damage to enemy armored regions.")
+				.put(WISDOM, "Open the blast doors in Ward Prime.")
+				.put(FLASH_CASTER, "Acquire 25 weapon mods.")
+				.put(HARD_CHARGER, "Defeat Brudvaak and Vargr.")
 				// Emotes
 				.put(WAVE, "Play with another player.")
 				.put(CHEER, "Defeat The Ent.")
@@ -178,6 +183,9 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(RIVEN, "Give the Guardian's Heart to the Undying King.")
 				// Swamps of Corsus
 				.put(HERO_S_SWORD, "Defeat 10 bosses in survival mode in a single run.")
+				// Subject 2923
+				// TODO Add chain blade
+				.put(STEEL_OF_AGONY, "Defeat Vargr before Brudvaak.")
 				// Mods
 				.put(FLICKER_CLOAK, "Craft with Displacement Crystal.")
 				.put(DISPLACEMENT_CRYSTAL, "Defeat Riphide.")
@@ -224,6 +232,7 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(SPORE_SHOT, "Built into Sporebloom.")
 				.put(GRAVITY_CORE, "Built into Particle Accelerator.")
 				.put(BANISH, "Built into Repulsor.")
+				// Swamps of Corsus
 				.put(VAMPIRIC, "Built into Pride of the Iskal.")
 				.put(RIFT_WALKER, "Craft with Luminous Gland.")
 				.put(LUMINOUS_GLAND, "Defeat Rift Walker.")
@@ -231,6 +240,8 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(BARBED_SINEW, "Defeat Barbed Terror.")
 				.put(SEEKER, "Craft with Iskal Husk.")
 				.put(ISKAL_HUSK, "Squash the Iskal Queen with a stalactite.")
+				// Subject 2923
+				.put(COLD_SPEAR, "Defeat Erfor, the Jackal.")
 				// Armor
 				.put(ADVENTURER_GOGGLES, "Defeat 5 bosses in survival mode in a single run.")
 				.put(AKARI_MASK, "Open the left door in the Vault of The Herald dungeon.")
@@ -246,11 +257,14 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(SOUL_ANCHOR, "Complete The Risen siege.")
 				.put(SCAVENGER_S_BAUBLE, "Play 5-4-3-3-4-1-2-3-2-1 at the Red Doe Shrine bell puzzle.")
 				.put(NIGHTMARE_SPIRAL, "Defeat the Dreamer in hardcore mode.")
+				// Swamps of Corsus
 				.put(RUSTED_AMULET, "Found in Fetid Pools dungeon.")
 				.put(HEART_OF_DARKNESS, "Open door 2 in Fetid Pool dungeon.")
 				.put(TALISMAN_OF_PERSEVERANCE, "Defeat 50 bosses in survival mode.")
 				.put(DAREDEVIL_S_CHARM, "Defeat 75 bosses in survival mode.")
 				.put(BLACK_ROSE, "Defeat 100 bosses in survival mode.")
+				// Subject 2923
+				.put(HANGMAN_S_MOMENTO, "Complete The Barn Siege.")
 				// Rings
 				.put(BRAIDED_THORNS, "Destroy all Root Nexuses in Marrow Pass dungeon and defeat the cultist.")
 				.put(ROOT_CIRCLET, "Talk to the cultist in Marrow Pass dungeon with destroying a Root Nexus.")
@@ -294,7 +308,7 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.add(VOID_SKULL, VOID_CARAPACE, VOID_GREAVES)
 				.build())
 			// Earth random drops
-			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on Earth.")
+			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on City Earth.")
 				// Armor
 				.add(DRIFTER_S_MASK)
 				// Amulets
@@ -318,9 +332,9 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 			// Corsus random drops
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on Corsus.")
 				// Amulets
-				.add(BUTCHER_S_FETISH, ROCK_OF_ANGUISH)
+				.add(BUTCHER_S_FETISH, ROCK_OF_ANGUISH, ABRASIVE_AMULET)
 				// Rings
-				.add(BLOOD_FONT, DEVOURING_LOOP, RAZORSTONE)
+				.add(BLOOD_FONT, DEVOURING_LOOP, RAZORSTONE, BURDEN_OF_THE_DEVOTED)
 				.build())
 			// Yaesha random drops
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on Yaesha.")
@@ -330,6 +344,14 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.add(CELERITY_STONE, HUNTER_S_BAND, KEEPER_S_RING, STONE_OF_BALANCE)
 				// Swamps of Corsus
 				.add(PEARL_OF_LUMINESCENCE, RING_OF_SHADOWS)
+				.build())
+			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on Rural Earth.")
+				// Rings
+				.add(FIVE_FINGERED_RING)
+				.build())
+			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on Reisum.")
+				// Amulets
+				.add(RAZORWIRE_NECKLACE, DRIFTSTONE)
 				.build())
 			.build());
 	}

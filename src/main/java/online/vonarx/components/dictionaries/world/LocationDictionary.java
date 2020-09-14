@@ -66,6 +66,9 @@ public class LocationDictionary extends DictionaryWrapper<KnownActor, String> {
 			.put(WISPS, "Circlet Hatchery")
 			.put(FETID_POOL, "Fetid Pool")
 			.put(A_SMART_BUG, "Strange Pass -> Mar'Gosh's Lair")
+			// Subject 2923
+			.put(ERFOR_THE_JACKAL, "The Wild Reach -> Den of the jackal")
+			.put(BRUDVAAK_AND_VARGR, "The Crimson Hold")
 			.build()
 		);
 	}

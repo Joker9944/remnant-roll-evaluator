@@ -136,6 +136,19 @@ public class KnownEncountersDictionary extends DictionaryWrapper<String, KnownAc
 				.put("Quest_Event_DeceiversBand", DECEIVER_S_BAND)
 				.put("Quest_Event_RingOfElusion", RING_OF_ELUSION)
 				.put("Quest_Event_StockpileCirclet", STOCKPILE_CIRCLET)
+				// Subject 2923
+				// Bosses
+				.put("Quest_MiniBoss_TheJackal", ERFOR_THE_JACKAL)
+				.put("Quest_Boss_RatRider", BRUDVAAK_AND_VARGR)
+				// Quests
+				.put("Quest_OverworldPOI_BarnSiege", THE_BARN_SIEGE)
+				// Amulets
+				.put("Quest_Event_RazorwireNecklace", RAZORWIRE_NECKLACE)
+				.put("Quest_Event_AbrasiveAmulet", ABRASIVE_AMULET)
+				.put("Quest_Event_Driftstone", DRIFTSTONE)
+				// Rings
+				.put("Quest_Event_FiveFingeredRing", FIVE_FINGERED_RING)
+				.put("Quest_Event_BurdenOfTheDevoted", BURDEN_OF_THE_DEVOTED)
 				// Main quest
 				.put("Quest_Campaign_City", CAMPAIGN_EARTH)
 				.put("Quest_Campaign_Labyrinth", CAMPAIGN_THE_LABYRINTH)

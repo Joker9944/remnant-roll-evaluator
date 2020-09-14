@@ -13,7 +13,7 @@ import static online.vonarx.constants.KnownActor.*;
 
 public class ItemCraftingDictionary extends DictionaryWrapper<KnownActor, KnownActor> {
 
-	private static final Map<KnownActor, KnownActor> creatingMaterialToItem = ImmutableMap.<KnownActor, KnownActor>builder()
+	private static final Map<KnownActor, KnownActor> materialToItem = ImmutableMap.<KnownActor, KnownActor>builder()
 		// Weapons
 		// Hand Guns
 		.put(TENTACLE_POD, CURSE_OF_THE_JUNGLE_GOD)
@@ -58,13 +58,15 @@ public class ItemCraftingDictionary extends DictionaryWrapper<KnownActor, KnownA
 		.put(LUMINOUS_GLAND, RIFT_WALKER)
 		.put(BARBED_SINEW, UNSTABLE_QUILLS)
 		.put(ISKAL_HUSK, SEEKER)
+		// Subject 2923
+		.put(JACKAL_S_IVORY, COLD_SPEAR)
 		.build();
 
 	@Inject
 	public ItemCraftingDictionary() {
 		super(MapDictionary.<KnownActor, KnownActor>builder()
-			.putAll(creatingMaterialToItem)
-			.putAll(creatingMaterialToItem.entrySet().stream()
+			.putAll(materialToItem)
+			.putAll(materialToItem.entrySet().stream()
 				.collect(toMap(Map.Entry::getValue, Map.Entry::getKey)))
 			.build()
 		);

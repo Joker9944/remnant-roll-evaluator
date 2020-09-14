@@ -90,6 +90,11 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 				.put(DREAMER, of(
 					rf.reward(DREAMER_S_MANA, MIND_S_EYE, PRAISE_THE_GUN),
 					rf.hardcoreReward(NIGHTMARE_SPIRAL, HIGH_FIVE)))
+				// Subject 2923
+				.put(ERFOR_THE_JACKAL, of(rf.reward(JACKAL_S_IVORY)))
+				.put(BURDEN_OF_THE_DEVOTED, of(
+					rf.reward(HARD_CHARGER),
+					rf.exclusiveReward(STEEL_OF_AGONY/*, TODO Cold Cell */)))
 				.build())
 			// Quests
 			.addDictionary(MapDictionary.<KnownActor, List<RewardLine>>builder()
@@ -164,6 +169,8 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 					rf.optionalReward(CONCENTRATION),
 					rf.optionalReward(BLOOD_BOND),
 					rf.optionalReward(LABYRINTH_HELM, LABYRINTH_ARMOR, LABYRINTH_GREAVES)))
+				// Subject 2923
+				.put(THE_BARN_SIEGE, of(rf.reward(HANGMAN_S_MOMENTO)))
 				.build())
 			// Items
 			.addDictionary(MapDictionary.<KnownActor, List<RewardLine>>builder()
@@ -187,6 +194,10 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 				.put(LETO_S_AMULET, of(rf.reward(LETO_S_AMULET)))
 				// Swamps of Corsus
 				.put(TALISMAN_OF_ANIMOSITY, of(rf.reward(TALISMAN_OF_ANIMOSITY)))
+				// Subject 2923
+				.put(RAZORWIRE_NECKLACE, of(rf.reward(RAZORWIRE_NECKLACE)))
+				.put(ABRASIVE_AMULET, of(rf.reward(ABRASIVE_AMULET)))
+				.put(DRIFTSTONE, of(rf.reward(DRIFTSTONE)))
 				// Rings
 				.put(HEARTSEEKER, of(rf.reward(HEARTSEEKER)))
 				.put(PILLAR_OF_STONE, of(rf.reward(PILLAR_OF_STONE)))
@@ -218,6 +229,9 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 				.put(DECEIVER_S_BAND, of(rf.reward(DECEIVER_S_BAND)))
 				.put(RING_OF_ELUSION, of(rf.reward(RING_OF_ELUSION)))
 				.put(STOCKPILE_CIRCLET, of(rf.reward(STOCKPILE_CIRCLET)))
+				// Subject 2923
+				.put(FIVE_FINGERED_RING, of(rf.reward(FIVE_FINGERED_RING)))
+				.put(BURDEN_OF_THE_DEVOTED, of(rf.reward(BURDEN_OF_THE_DEVOTED)))
 				// Traits
 				.put(TAPE_RECORDER, of(rf.reward(ELDER_KNOWLEDGE)))
 				.build())

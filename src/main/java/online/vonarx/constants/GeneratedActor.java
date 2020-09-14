@@ -18,7 +18,7 @@ public enum GeneratedActor {
 	RIGS(KnownActor.RIGS, 0, "/Game/Generated/Quests/Quest_OverworldPOI_Rigs", WARD_13, NONE),
 	SUBMACHINE_GUN(KnownActor.SUBMACHINE_GUN_PICKUP, 0, "/Game/Generated/Quests/Quest_Event_Submachinegun", WARD_13, NONE),
 	TAPE_RECORDER(KnownActor.TAPE_RECORDER, 0, "/Game/Generated/Quests/Quest_Event_TapeRecorder", WARD_13, NONE),
-	LETO_S_LAB(KnownActor.LETO_S_LAB, 0, "/Game/Generated/Quests/Quest_SmallD_LetosLab", EARTH, null),
+	LETO_S_LAB(KnownActor.LETO_S_LAB, 0, "/Game/Generated/Quests/Quest_SmallD_LetosLab", CITY_EARTH, null),
 	ISKAL_QUEEN_STORY(KnownActor.ISKAL_QUEEN_STORY, 1, "/Game/Generated/Quests/Quest_OverworldPOI_IskalQueen", CORSUS, null),
 	ANCIENT_CONSTRUCT(KnownActor.ANCIENT_CONSTRUCT, 1, "/Game/Generated/Quests/Quest_Boss_AncientConstruct", RHOM, null),
 	SOUL_LINK(KnownActor.SOUL_LINK, 1, "/Game/Generated/Quests/Quest_Event_SoulLink", RHOM, null),

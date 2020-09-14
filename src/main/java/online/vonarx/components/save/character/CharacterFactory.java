@@ -19,9 +19,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
-import static java.util.Set.of;
 import static java.util.stream.Collectors.toList;
 import static online.vonarx.constants.Type.*;
 
@@ -103,23 +101,24 @@ public class CharacterFactory {
 		final var items = itemsBuilder.build();
 		return Character.builder()
 			.archetype(archetype)
-			.obtainedArmor(filterActorByTypes(items, of(HEAD_ARMOUR, BODY_ARMOR, LEG_ARMOR)))
-			.obtainedSkins(filterActorByTypes(items, of(SKIN_HEAD_ARMOUR, SKIN_BODY_ARMOR, SKIN_LEG_ARMOR)))
-			.obtainedWeapons(filterActorByTypes(items, of(HAND_GUN, LONG_GUN, MELEE_WEAPON)))
-			.obtainedMods(filterActorByTypes(items, of(MOD, BUILT_IN_MOD)))
-			.obtainedAmulets(filterActorByTypes(items, of(AMULET)))
-			.obtainedRings(filterActorByTypes(items, of(RING)))
-			.obtainedTraits(filterActorByTypes(items, of(TRAIT)))
-			.obtainedEmotes(filterActorByTypes(items, of(EMOTE)))
-			.obtainedBossResources(filterActorByTypes(items, of(RESOURCE)))
+			.obtainedArmor(filterActorByTypes(items, HEAD_ARMOUR, BODY_ARMOR, LEG_ARMOR))
+			.obtainedSkins(filterActorByTypes(items, SKIN_HEAD_ARMOUR, SKIN_BODY_ARMOR, SKIN_LEG_ARMOR))
+			.obtainedWeapons(filterActorByTypes(items, HAND_GUN, LONG_GUN, MELEE_WEAPON))
+			.obtainedMods(filterActorByTypes(items, MOD, BUILT_IN_MOD))
+			.obtainedAmulets(filterActorByTypes(items, AMULET))
+			.obtainedRings(filterActorByTypes(items, RING))
+			.obtainedTraits(filterActorByTypes(items, TRAIT))
+			.obtainedEmotes(filterActorByTypes(items, EMOTE))
+			.obtainedBossResources(filterActorByTypes(items, RESOURCE))
 			.unattainedItems(unattainedItems(items))
+			.unknownItems(unknownItems(items))
 			.build();
 	}
 
-	private List<Item> filterActorByTypes(final List<Item> actors, final Set<Type> types) {
+	private List<Item> filterActorByTypes(final List<Item> actors, final Type... types) {
 		return actors.stream()
-			.filter(knownActor -> types.stream().anyMatch(type -> knownActor.type().equals(type)))
-			.collect(Collectors.toList());
+			.filter(knownActor -> Arrays.stream(types).anyMatch(type -> knownActor.type().equals(type)))
+			.collect(toList());
 	}
 
 	private UnknownItem createUnknownItem(final String identifier) {
@@ -149,7 +148,7 @@ public class CharacterFactory {
 			return createUnknownItem(identifier, TRAIT);
 		if (identifier.contains("/Emotes/"))
 			return createUnknownItem(identifier, EMOTE);
-		if (identifier.contains("/BossResources/"))
+		if (identifier.contains("/BossResources/") || identifier.contains("/MiniBossResources/"))
 			return createUnknownItem(identifier, RESOURCE);
 		return createUnknownItem(identifier, OTHER);
 	}
@@ -182,6 +181,13 @@ public class CharacterFactory {
 				.map(craftingCounterpart -> attainedItems.stream()
 					.noneMatch(item -> item.equalsToKnownActor(craftingCounterpart)))
 				.orElse(true))
-			.collect(Collectors.toList());
+			.collect(toList());
+	}
+
+	private List<UnknownItem> unknownItems(final List<Item> items) {
+		return items.stream()
+			.filter(item -> item instanceof UnknownItem)
+			.map(item -> (UnknownItem) item)
+			.collect(toList());
 	}
 }

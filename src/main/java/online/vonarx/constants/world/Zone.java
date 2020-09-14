@@ -7,8 +7,8 @@ import static online.vonarx.constants.world.Biome.*;
 
 @RequiredArgsConstructor
 public enum Zone {
-	FAIRVIEW(EARTH, "Fairview"),
-	WESTCOURT(EARTH, "Westcourt"),
+	FAIRVIEW(CITY_EARTH, "Fairview"),
+	WESTCOURT(CITY_EARTH, "Westcourt"),
 	THE_EASTERN_WIND(RHOM, "The Eastern Wind"),
 	THE_SCOURING_WASTE(RHOM, "The Scouring Waste"),
 	THE_VERDANT_STRAND(CORSUS, "The Verdant Strand"),

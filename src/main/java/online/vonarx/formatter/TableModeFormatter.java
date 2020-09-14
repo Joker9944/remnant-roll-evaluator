@@ -10,12 +10,12 @@ import online.vonarx.models.world.rewards.RewardLine;
 
 import java.util.List;
 
-public abstract class TableFormatter extends Formatter {
+public abstract class TableModeFormatter extends ModeFormatter {
 
 	private final boolean showRedundantEncounters;
 	private final TableFormatAbstract tableFormat;
 
-	public TableFormatter(final AppParameters parameters, final TableFormatAbstract tableFormat) {
+	public TableModeFormatter(final AppParameters parameters, final TableFormatAbstract tableFormat) {
 		this.showRedundantEncounters = parameters.showRedundantEncounters();
 		this.tableFormat = tableFormat;
 	}

@@ -15,12 +15,12 @@ import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
-public abstract class ListFormatter extends Formatter {
+public abstract class ListModeFormatter extends ModeFormatter {
 
 	private final boolean showIdentifiers;
 	private final boolean showRedundantEncounters;
 
-	public ListFormatter(final AppParameters parameters) {
+	public ListModeFormatter(final AppParameters parameters) {
 		this.showIdentifiers = parameters.showIdentifiers();
 		this.showRedundantEncounters = parameters.showRedundantEncounters();
 	}

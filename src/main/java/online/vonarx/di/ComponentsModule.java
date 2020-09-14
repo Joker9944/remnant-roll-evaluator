@@ -4,14 +4,14 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import dagger.Module;
 import dagger.Provides;
-import online.vonarx.components.formatters.ListAdventureFormatter;
-import online.vonarx.components.formatters.ListStoryFormatter;
-import online.vonarx.components.formatters.TableAdventureFormatter;
-import online.vonarx.components.formatters.TableStoryFormatter;
+import online.vonarx.components.formatters.ListAdventureModeFormatter;
+import online.vonarx.components.formatters.ListStoryModeFormatter;
+import online.vonarx.components.formatters.TableAdventureModeFormatter;
+import online.vonarx.components.formatters.TableStoryModeFormatter;
 import online.vonarx.components.save.world.AdventureModeFactory;
 import online.vonarx.components.save.world.StoryModeFactory;
 import online.vonarx.constants.world.Mode;
-import online.vonarx.formatter.Formatter;
+import online.vonarx.formatter.ModeFormatter;
 import online.vonarx.models.AppParameters;
 import online.vonarx.save.ModeFactory;
 
@@ -37,10 +37,10 @@ public abstract class ComponentsModule {
 
 	@Provides
 	@Singleton
-	static Map<Mode, Formatter> mapSaveFormatter(final AppParameters parameters,
-	                                             final TableStoryFormatter tableStoryFormatter, final ListStoryFormatter listStoryFormatter,
-	                                             final TableAdventureFormatter tableAdventureFormatter, final ListAdventureFormatter listAdventureFormatter) {
-		final var formatterMapBuilder = ImmutableMap.<Mode, Formatter>builder();
+	static Map<Mode, ModeFormatter> mapSaveFormatter(final AppParameters parameters,
+	                                                 final TableStoryModeFormatter tableStoryFormatter, final ListStoryModeFormatter listStoryFormatter,
+	                                                 final TableAdventureModeFormatter tableAdventureFormatter, final ListAdventureModeFormatter listAdventureFormatter) {
+		final var formatterMapBuilder = ImmutableMap.<Mode, ModeFormatter>builder();
 		final var modes = parameters.modes();
 		if (parameters.printerType().equals(AppParameters.SaveFormatterType.TABLE)) {
 			if (modes.contains(Mode.STORY))

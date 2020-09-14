@@ -3,7 +3,7 @@ package online.vonarx.components.formatters;
 import com.mitchtalmadge.asciidata.table.ASCIITable;
 import com.mitchtalmadge.asciidata.table.formats.TableFormatAbstract;
 import online.vonarx.dictionary.Dictionary;
-import online.vonarx.formatter.TableFormatter;
+import online.vonarx.formatter.TableModeFormatter;
 import online.vonarx.models.AppParameters;
 import online.vonarx.models.world.encounter.Encounter;
 import online.vonarx.models.world.rewards.RewardLine;
@@ -14,7 +14,7 @@ import java.util.List;
 import static java.util.List.of;
 import static java.util.stream.Collectors.joining;
 
-public class TableStoryFormatter extends TableFormatter {
+public class TableStoryModeFormatter extends TableModeFormatter {
 
 	private static final String[] STORY_MODE_TABLE_HEADER_WITH_IDENTIFIER = new String[]{"Origin", "Type", "Name", "Biome", "Zone", "Subzone", "Unattained Rewards", "Identifier"};
 	private static final String[] STORY_MODE_TABLE_HEADER_WITHOUT_IDENTIFIER = new String[]{"Origin", "Type", "Name", "Biome", "Zone", "Subzone", "Unattained Rewards"};
@@ -31,7 +31,7 @@ public class TableStoryFormatter extends TableFormatter {
 	private final boolean showIdentifiers;
 
 	@Inject
-	public TableStoryFormatter(final AppParameters parameters, final TableFormatAbstract tableFormat) {
+	public TableStoryModeFormatter(final AppParameters parameters, final TableFormatAbstract tableFormat) {
 		super(parameters, tableFormat);
 		this.showIdentifiers = parameters.showIdentifiers();
 	}

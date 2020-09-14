@@ -10,6 +10,7 @@ public enum Origin {
 	LETO_S_LAB_UPDATE("LL Update"),
 	HARDCORE_UPDATE("HC Update"),
 	SWAMPS_OF_CORSUS_UPDATE("SoC Update"),
+	SUBJECT_2923_UPDATE("Subject 2923 Update"),
 	UNKNOWN("Unknown");
 
 	@Getter private final String displayName;

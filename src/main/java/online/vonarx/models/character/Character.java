@@ -6,6 +6,7 @@ import lombok.Data;
 import online.vonarx.constants.KnownActor;
 import online.vonarx.constants.character.Archetype;
 import online.vonarx.models.character.item.Item;
+import online.vonarx.models.character.item.UnknownItem;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class Character {
 	private final List<Item> allObtainedItems;
 
 	private final List<KnownActor> unattainedItems;
+	private final List<UnknownItem> unknownItems;
 
 	@Builder
 	private Character(final Archetype archetype,
@@ -34,7 +36,8 @@ public class Character {
 	                  final List<Item> obtainedAmulets, final List<Item> obtainedRings,
 	                  final List<Item> obtainedTraits, final List<Item> obtainedEmotes,
 	                  final List<Item> obtainedBossResources,
-	                  final List<KnownActor> unattainedItems) {
+	                  final List<KnownActor> unattainedItems,
+	                  final List<UnknownItem> unknownItems) {
 		this.archetype = archetype;
 		this.obtainedArmor = obtainedArmor;
 		this.obtainedSkins = obtainedSkins;
@@ -46,6 +49,7 @@ public class Character {
 		this.obtainedEmotes = obtainedEmotes;
 		this.obtainedBossResources = obtainedBossResources;
 		this.unattainedItems = unattainedItems;
+		this.unknownItems = unknownItems;
 		allObtainedItems = ImmutableList.<Item>builder()
 			.addAll(obtainedArmor)
 			.addAll(obtainedSkins)

@@ -3,7 +3,7 @@ package online.vonarx.components.formatters;
 import online.vonarx.constants.Type;
 import online.vonarx.constants.world.Biome;
 import online.vonarx.constants.world.Zone;
-import online.vonarx.formatter.ListFormatter;
+import online.vonarx.formatter.ListModeFormatter;
 import online.vonarx.models.AppParameters;
 import online.vonarx.models.world.encounter.Encounter;
 
@@ -11,10 +11,10 @@ import javax.inject.Inject;
 import java.util.List;
 import java.util.Map;
 
-public class ListStoryFormatter extends ListFormatter {
+public class ListStoryModeFormatter extends ListModeFormatter {
 
 	@Inject
-	public ListStoryFormatter(final AppParameters parameters) {
+	public ListStoryModeFormatter(final AppParameters parameters) {
 		super(parameters);
 	}
 

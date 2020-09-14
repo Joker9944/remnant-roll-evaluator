@@ -1,4 +1,4 @@
-package online.vonarx.models.world;
+package online.vonarx.models.world.encounter;
 
 import lombok.Data;
 import online.vonarx.constants.world.Biome;

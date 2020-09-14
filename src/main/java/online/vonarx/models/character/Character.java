@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import online.vonarx.constants.KnownActor;
 import online.vonarx.constants.character.Archetype;
+import online.vonarx.models.character.item.Item;
 
 import java.util.List;
 

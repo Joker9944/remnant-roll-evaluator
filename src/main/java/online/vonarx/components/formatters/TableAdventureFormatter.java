@@ -2,18 +2,17 @@ package online.vonarx.components.formatters;
 
 import com.mitchtalmadge.asciidata.table.ASCIITable;
 import com.mitchtalmadge.asciidata.table.formats.TableFormatAbstract;
-import online.vonarx.constants.KnownActor;
 import online.vonarx.dictionary.Dictionary;
 import online.vonarx.formatter.TableFormatter;
 import online.vonarx.models.AppParameters;
-import online.vonarx.models.world.Encounter;
+import online.vonarx.models.world.encounter.Encounter;
 import online.vonarx.models.world.rewards.RewardLine;
 
 import javax.inject.Inject;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.List.of;
+import static java.util.stream.Collectors.joining;
 
 public class TableAdventureFormatter extends TableFormatter {
 
@@ -72,7 +71,7 @@ public class TableAdventureFormatter extends TableFormatter {
 					.orElse(of())
 					.stream()
 					.map(reward -> "- " + reward.printReward())
-					.collect(Collectors.joining("\n"));
+					.collect(joining("\n"));
 				return row;
 			}).toArray(String[][]::new);
 		return ASCIITable.fromData(header, tableBody)

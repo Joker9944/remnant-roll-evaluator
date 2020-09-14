@@ -2,6 +2,8 @@ package online.vonarx.constants;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import online.vonarx.constants.world.Biome;
+import online.vonarx.constants.world.Zone;
 
 import static online.vonarx.constants.Origin.*;
 import static online.vonarx.constants.Type.*;
@@ -22,7 +24,7 @@ public enum KnownActor {
 	SCOURGE("Scourge", MAIN_GAME, BOSS),
 	MAUL("Maul", MAIN_GAME, BOSS),
 	SHADE_AND_SHATTER("Shade and Shatter", MAIN_GAME, BOSS),
-	ANCIENT_CONSTRUCT("Ancient Construct", MAIN_GAME, BOSS),
+	/* Generated */ ANCIENT_CONSTRUCT("Ancient Construct", MAIN_GAME, BOSS),
 	CLAVIGER("Claviger", MAIN_GAME, WORLD_BOSS),
 	THE_HARROW("The Harrow", MAIN_GAME, WORLD_BOSS),
 	UNDYING_KING("Undying King", MAIN_GAME, BOSS),
@@ -33,17 +35,24 @@ public enum KnownActor {
 	IXILLIS("Ixillis", MAIN_GAME, WORLD_BOSS),
 	DREAM_EATER("Dream Eater", SWAMPS_OF_CORSUS_UPDATE, BOSS),
 	BARBED_TERROR("Barbed Terror", SWAMPS_OF_CORSUS_UPDATE, BOSS),
-	ISKAL_QUEEN("Iskal Queen", SWAMPS_OF_CORSUS_UPDATE, BOSS),
+	ISKAL_QUEEN_ADVENTURE("Iskal Queen", SWAMPS_OF_CORSUS_UPDATE, BOSS),
 	// Yaesha
 	THE_WARDEN("The Warden", MAIN_GAME, BOSS),
 	STORMCALLER_BOSS("Stormcaller", MAIN_GAME, BOSS),
 	SCALD_AND_SEAR("Scald and Sear", MAIN_GAME, BOSS),
 	ONSLAUGHT("Onslaught", MAIN_GAME, BOSS),
 	BLINK_THIEF("Blink Thief", MAIN_GAME, BOSS),
+	/* Generated */ ROOT_HORROR("Root Horror", MAIN_GAME, BOSS),
 	TOTEM_FATHER("Totem Father", MAIN_GAME, WORLD_BOSS),
-	ROOT_HORROR("Root Horror", MAIN_GAME, BOSS),
 	THE_RAVAGER("The Ravager", MAIN_GAME, WORLD_BOSS),
+	// Ward 17
+	/* Generated */ DREAMER("Dreamer", MAIN_GAME, WORLD_BOSS),
 	// Quests
+	// Ward 13
+	/* Generated */ ACE("Ace", MAIN_GAME, MERCHANT),
+	/* Generated */ MC_CABE("McCabe", MAIN_GAME, MERCHANT),
+	/* Generated */ REGGIE("Reggie", MAIN_GAME, MERCHANT),
+	/* Generated */ RIGS("Rigs", MAIN_GAME, MERCHANT),
 	// Earth
 	MUD_TOOTH("Mud Tooth", MAIN_GAME, MERCHANT),
 	SETTLEMENT("Settlement", MAIN_GAME, POINT_OF_INTEREST),
@@ -55,7 +64,7 @@ public enum KnownActor {
 	SUPPLY_RUN("Supply Run", MAIN_GAME, DUNGEON),
 	CULT_OF_THE_ROOT("Cult of the Root", MAIN_GAME, DUNGEON),
 	THE_ROOT_MOTHER("The Root Mother", MAIN_GAME, SIEGE),
-	LETO_S_LAB("Leto's Lab", LETO_S_LAB_UPDATE, DUNGEON),
+	/* Generated */ LETO_S_LAB("Leto's Lab", LETO_S_LAB_UPDATE, DUNGEON),
 	// Rhom
 	MONOLITH("Monolith", MAIN_GAME, POINT_OF_INTEREST),
 	WUD("Wud", MAIN_GAME, MERCHANT),
@@ -63,7 +72,9 @@ public enum KnownActor {
 	THE_CLEAN_ROOM("The Clean Room", MAIN_GAME, DUNGEON),
 	VAULT_OF_THE_HERALD("Vault of The Herald", MAIN_GAME, DUNGEON),
 	// Corsus
+	/* Generated */ ISKAL_QUEEN_STORY("Iskal Queen", MAIN_GAME, MERCHANT),
 	ABANDONED_THRONE("Abandoned Throne", SWAMPS_OF_CORSUS_UPDATE, POINT_OF_INTEREST),
+	CRYPTOLITH_RHOM("Cryptolith", SWAMPS_OF_CORSUS_UPDATE, POINT_OF_INTEREST),
 	CRYPTOLITH("Cryptolith", SWAMPS_OF_CORSUS_UPDATE, POINT_OF_INTEREST),
 	GRAVEYARD_ELF("Graveyard Elf", SWAMPS_OF_CORSUS_UPDATE, MERCHANT),
 	A_SMART_BUG("A Smart Bug?", SWAMPS_OF_CORSUS_UPDATE, SIEGE),
@@ -432,7 +443,27 @@ public enum KnownActor {
 	ZEPHYR_S_CONDUIT("Zephyr's Conduit", MAIN_GAME, RESOURCE),
 	LUMINOUS_GLAND("Luminous Gland", SWAMPS_OF_CORSUS_UPDATE, RESOURCE),
 	BARBED_SINEW("Barbed Sinew", SWAMPS_OF_CORSUS_UPDATE, RESOURCE),
-	ISKAL_HUSK("Iskal Husk", SWAMPS_OF_CORSUS_UPDATE, RESOURCE);
+	ISKAL_HUSK("Iskal Husk", SWAMPS_OF_CORSUS_UPDATE, RESOURCE),
+	// Main quest
+	CAMPAIGN_EARTH(Biome.EARTH.displayName(), MAIN_GAME, MAIN_QUEST),
+	CAMPAIGN_THE_LABYRINTH(Biome.THE_LABYRINTH.displayName(), MAIN_GAME, MAIN_QUEST),
+	CAMPAIGN_RHOM(Biome.RHOM.displayName(), MAIN_GAME, MAIN_QUEST),
+	CAMPAIGN_CORSUS(Biome.CORSUS.displayName(), MAIN_GAME, MAIN_QUEST),
+	CAMPAIGN_YAESHA(Biome.YAESHA.displayName(), MAIN_GAME, MAIN_QUEST),
+	CAMPAIGN_FOUNDERS_PRISON("Founders Prison", MAIN_GAME, MAIN_QUEST),
+	CAMPAIGN_WARD_17(Biome.WARD_17.displayName(), MAIN_GAME, MAIN_QUEST),
+	// Zone templates
+	FAIRVIEW(Zone.FAIRVIEW.displayName(), MAIN_GAME, TEMPLATE),
+	WESTCOURT(Zone.WESTCOURT.displayName(), MAIN_GAME, TEMPLATE),
+	THE_EASTERN_WIND(Zone.THE_EASTERN_WIND.displayName(), MAIN_GAME, TEMPLATE),
+	THE_SCOURING_WASTE(Zone.THE_SCOURING_WASTE.displayName(), MAIN_GAME, TEMPLATE),
+	THE_VERDANT_STRAND(Zone.THE_VERDANT_STRAND.displayName(), MAIN_GAME, TEMPLATE),
+	THE_SCALDING_GLADE(Zone.THE_SCALDING_GLADE.displayName(), MAIN_GAME, TEMPLATE),
+	THE_FETID_GLADE(Zone.THE_FETID_GLADE.displayName(), MAIN_GAME, TEMPLATE),
+	THE_MIST_FEN(Zone.THE_MIST_FEN.displayName(), MAIN_GAME, TEMPLATE),
+	// Misc actors
+	/* Generated */ TAPE_RECORDER("Tape Recorder", MAIN_GAME, PICKUP),
+	/* Generated */ SUBMACHINE_GUN_PICKUP("Submachine Gun", MAIN_GAME, PICKUP);
 
 	@Getter private final String displayName;
 	@Getter private final Origin origin;

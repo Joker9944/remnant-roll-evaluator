@@ -5,10 +5,9 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum Archetype {
-	// TODO check order
-	SCRAPPER("Scrapper"),
+	HUNTER("Hunter"),
 	CULTIST("Cultist"),
-	HUNTER("Hunter");
+	SCRAPPER("Scrapper");
 
 	@Getter private final String displayName;
 }

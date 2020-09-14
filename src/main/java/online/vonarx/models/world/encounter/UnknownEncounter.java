@@ -1,10 +1,13 @@
-package online.vonarx.models.world;
+package online.vonarx.models.world.encounter;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 import online.vonarx.constants.KnownActor;
-import online.vonarx.constants.world.Biome;
 import online.vonarx.constants.Origin;
 import online.vonarx.constants.Type;
+import online.vonarx.constants.world.Biome;
 import online.vonarx.constants.world.Zone;
 import online.vonarx.models.world.rewards.RewardLine;
 
@@ -21,8 +24,8 @@ public class UnknownEncounter extends Encounter {
 	@Getter private final Type type;
 
 	@Builder
-	public UnknownEncounter(final String identifier, final Biome biome, final Zone zone,
-	                        final Type type) {
+	private UnknownEncounter(final String identifier, final Biome biome, final Zone zone,
+	                         final Type type) {
 		super(identifier, biome, zone);
 		this.type = type;
 	}

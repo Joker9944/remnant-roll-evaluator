@@ -2,11 +2,10 @@ package online.vonarx.formatter;
 
 import com.mitchtalmadge.asciidata.table.ASCIITable;
 import com.mitchtalmadge.asciidata.table.formats.TableFormatAbstract;
-import online.vonarx.constants.KnownActor;
 import online.vonarx.dictionary.Dictionary;
 import online.vonarx.models.AppParameters;
-import online.vonarx.models.world.Encounter;
 import online.vonarx.models.world.WorldSave;
+import online.vonarx.models.world.encounter.Encounter;
 import online.vonarx.models.world.rewards.RewardLine;
 
 import java.util.List;

@@ -13,9 +13,9 @@ public class ArchetypeDictionary extends DictionaryWrapper<String, Archetype> {
 	@Inject
 	public ArchetypeDictionary() {
 		super(PartialKeyMapDictionary.<Archetype>builder()
-			.put("Archetype_Scrapper_UI", SCRAPPER)
-			.put("Archetype_Cultist_UI", CULTIST)
 			.put("Archetype_Hunter_UI", HUNTER)
+			.put("Archetype_Cultist_UI", CULTIST)
+			.put("Archetype_Scrapper_UI", SCRAPPER)
 			.build()
 		);
 	}

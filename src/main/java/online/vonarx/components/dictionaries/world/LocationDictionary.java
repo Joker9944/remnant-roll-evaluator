@@ -15,7 +15,7 @@ public class LocationDictionary extends DictionaryWrapper<KnownActor, String> {
 		super(MapDictionary.<KnownActor, String>builder()
 			.put(GOREFIST, "Sunken Passage -> The Grinder")
 			.put(SHROUD, "The Hidden Sanctum -> The Tainted Well")
-			.put(THE_MANGLER, "The Tangled Pass -> The Artery ")
+			.put(THE_MANGLER, "The Tangled Pass -> The Artery")
 			.put(BRABUS, "Cutthroat Channel -> The Depot")
 			.put(THE_ENT, "The Choking Hallow")
 			.put(SINGE, "The Ash Yard")
@@ -25,6 +25,7 @@ public class LocationDictionary extends DictionaryWrapper<KnownActor, String> {
 			.put(HUNTER_S_HIDEOUT, "Hidden Grotto")
 			.put(SUPPLY_RUN, "Sorrow's Field")
 			.put(CULT_OF_THE_ROOT, "Marrow Pass")
+			.put(THE_ROOT_MOTHER, "Church of the Harbringer")
 			// Wasteland
 			.put(RAZE, "Shackled Canyon -> Lair of the Eyeless")
 			.put(SCOURGE, "The Iron Rift -> The Hive")
@@ -35,6 +36,7 @@ public class LocationDictionary extends DictionaryWrapper<KnownActor, String> {
 			.put(THE_LOST_GANTRY, "Concourse of the Sun -> The Lost Gantry")
 			.put(THE_CLEAN_ROOM, "The Purge Hall")
 			.put(VAULT_OF_THE_HERALD, "Vault of Heralds")
+			.put(UNDYING_KING, "Undying Throne")
 			// Swamp
 			.put(THE_THRALL, "The Capillary -> Musk Forge")
 			.put(CANKER, "The Drowned Trench -> Mire Hollow")
@@ -52,13 +54,15 @@ public class LocationDictionary extends DictionaryWrapper<KnownActor, String> {
 			.put(WOLF_SHRINE, "Temple of the Ravager -> Martyr's Sanctuary")
 			.put(THE_RISEN, "Ahanae's Lament -> The Radiant Tomb")
 			.put(RED_DOE_SHRINE, "Widow's Vestry")
+			.put(GUARDIAN_SHRINE, "Guardian Shrine")
+			.put(ROOT_HORROR, "Guardian Shrine")
 			// Leto's Lab
 			.put(LETO_S_LAB, "Research Station Alpha")
 			.put(RIPHIDE, "Research Station Alpha -> The Cursed Station")
 			// Swamps of Corsus
 			.put(DREAM_EATER, "Hall of Whispers -> Corrupted Sanctum")
 			.put(BARBED_TERROR, "Needle Lair -> Throne of Barbs")
-			.put(ISKAL_QUEEN, "Iskal Sanctum")
+			.put(ISKAL_QUEEN_ADVENTURE, "Iskal Sanctum")
 			.put(WISPS, "Circlet Hatchery")
 			.put(FETID_POOL, "Fetid Pool")
 			.put(A_SMART_BUG, "Strange Pass -> Mar'Gosh's Lair")

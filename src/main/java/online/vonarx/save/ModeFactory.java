@@ -5,26 +5,25 @@ import online.vonarx.components.dictionaries.character.ItemCraftingDictionary;
 import online.vonarx.components.dictionaries.world.ZoneDictionary;
 import online.vonarx.components.save.world.EncounterFactory;
 import online.vonarx.constants.world.Mode;
-import online.vonarx.constants.world.Zone;
 import online.vonarx.dictionary.Dictionary;
 import online.vonarx.dictionary.implementation.MapDictionary;
 import online.vonarx.models.character.Character;
-import online.vonarx.models.world.Encounter;
 import online.vonarx.models.world.WorldSave;
+import online.vonarx.models.world.encounter.Encounter;
 import online.vonarx.models.world.rewards.RewardLine;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 
 import static java.util.stream.Collectors.toList;
+import static online.vonarx.constants.world.Zone.NONE;
 
 public abstract class ModeFactory {
 
 	private static final Pattern ACTOR_IDENTIFIER_PATTERN = Pattern.compile("/Game/[a-zA-Z0-9/._]+");
-	private static final Pattern IS_TEMPLATE_PATTERN = Pattern.compile("^/Game/World_.+/Templates/.*$");
+	private static final Pattern TEMPLATE_PATTERN = Pattern.compile("^/Game/World_.+/Templates/.*$");
 
 	private final EncounterFactory encounterFactory;
 	private final ZoneDictionary zoneDictionary;
@@ -61,15 +60,15 @@ public abstract class ModeFactory {
 	protected abstract Mode mode();
 
 	private List<Encounter> mapIdentifiersToEncounters(final List<String> identifiers) {
-		final var mappedEncounters = new ArrayList<Encounter>();
-		var currentZone = Zone.NONE;
+		final var mappedEncountersBuilder = ImmutableList.<Encounter>builder();
+		var currentZone = NONE;
 		for (final String identifier : identifiers) {
-			if (IS_TEMPLATE_PATTERN.matcher(identifier).matches())
+			if (TEMPLATE_PATTERN.matcher(identifier).matches())
 				currentZone = zoneDictionary.lookup(identifier)
-					.orElse(Zone.NONE);
-			mappedEncounters.add(encounterFactory.create(currentZone, identifier));
+					.orElse(NONE);
+			mappedEncountersBuilder.addAll(encounterFactory.create(currentZone, identifier));
 		}
-		return mappedEncounters;
+		return mappedEncountersBuilder.build();
 	}
 
 	private Dictionary<Encounter, List<RewardLine>> buildUnattainedRewardsDictionary(final List<Encounter> encounters, final Character character) {
@@ -89,7 +88,7 @@ public abstract class ModeFactory {
 					unattainedItemsBuilder.add(rewardLine);
 			});
 			final var unattainedItems = unattainedItemsBuilder.build();
-			if (unattainedItems.size() > 0)
+			if (unattainedItems.size() > 0 && !dictionaryBuilder.contains(knownEncounter))
 				dictionaryBuilder.put(knownEncounter, unattainedItems);
 		});
 		return dictionaryBuilder.build();

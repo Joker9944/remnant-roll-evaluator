@@ -1,5 +1,6 @@
 package online.vonarx.components.save.character;
 
+import com.google.common.collect.ImmutableList;
 import online.vonarx.components.dictionaries.character.ArchetypeDictionary;
 import online.vonarx.components.dictionaries.character.ItemCraftingDictionary;
 import online.vonarx.components.dictionaries.character.KnownItemsDictionary;
@@ -7,13 +8,12 @@ import online.vonarx.constants.KnownActor;
 import online.vonarx.constants.Type;
 import online.vonarx.models.AppParameters;
 import online.vonarx.models.character.Character;
-import online.vonarx.models.character.Item;
-import online.vonarx.models.character.KnownItem;
-import online.vonarx.models.character.UnknownItem;
+import online.vonarx.models.character.item.Item;
+import online.vonarx.models.character.item.KnownItem;
+import online.vonarx.models.character.item.UnknownItem;
 
 import javax.inject.Inject;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -88,18 +88,19 @@ public class CharacterFactory {
 	private Character createCharacter(final List<String> characterIdentifiers) {
 		final var archetype = archetypeDictionary.lookup(characterIdentifiers.get(0))
 			.orElseThrow(() -> new IllegalStateException("Could not find character archetype"));
-		final var items = new ArrayList<Item>();
+		final var itemsBuilder = ImmutableList.<Item>builder();
 		characterIdentifiers.forEach(identifier -> {
 			final var knownActorOptional = knownItemsDictionary.lookup(identifier);
 			if (knownActorOptional.isPresent()) {
-				items.add(KnownItem.builder()
+				itemsBuilder.add(KnownItem.builder()
 					.identifier(identifier)
 					.knownActor(knownActorOptional.get())
 					.build());
 			} else {
-				items.add(createUnknownItem(identifier));
+				itemsBuilder.add(createUnknownItem(identifier));
 			}
 		});
+		final var items = itemsBuilder.build();
 		return Character.builder()
 			.archetype(archetype)
 			.obtainedArmor(filterActorByTypes(items, of(HEAD_ARMOUR, BODY_ARMOR, LEG_ARMOR)))
@@ -177,13 +178,10 @@ public class CharacterFactory {
 				.anyMatch(type -> knownActor.type().equals(type)))
 			.filter(knownActor -> attainedItems.stream()
 				.noneMatch(item -> item.equalsToKnownActor(knownActor)))
-			.filter(knownActor -> {
-				final var craftingCounterpartOptional = itemCraftingDictionary.lookup(knownActor);
-				if (craftingCounterpartOptional.isEmpty())
-					return true;
-				return attainedItems.stream()
-					.noneMatch(item -> item.equalsToKnownActor(craftingCounterpartOptional.get()));
-			})
+			.filter(knownActor -> itemCraftingDictionary.lookup(knownActor)
+				.map(craftingCounterpart -> attainedItems.stream()
+					.noneMatch(item -> item.equalsToKnownActor(craftingCounterpart)))
+				.orElse(true))
 			.collect(Collectors.toList());
 	}
 }

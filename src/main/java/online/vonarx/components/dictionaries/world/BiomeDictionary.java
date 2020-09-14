@@ -25,7 +25,16 @@ public class BiomeDictionary extends DictionaryWrapper<String, Biome> {
 				.put("^/Game/World_Atoll/.*$", WARD_17)
 				.build())
 			.addDictionary(PartialKeyMapDictionary.<Biome>builder()
+				.put("Quest_Campaign_City", EARTH)
+				.put("Quest_Church", EARTH)
+				.put("Quest_Campaign_Labyrinth", THE_LABYRINTH)
+				.put("Quest_Campaign_Wasteland", RHOM)
 				.put("Quest_Boss_UndyingKing", RHOM)
+				.put("Quest_Campaign_Swamp", CORSUS)
+				.put("Quest_Campaign_Jungle", YAESHA)
+				.put("Quest_Pan_Jungle_Ambush", YAESHA)
+				.put("Quest_FoundersPrison", YAESHA)
+				.put("Quest_Campaign_Ward13", WARD_17)
 				.build())
 			.build());
 	}

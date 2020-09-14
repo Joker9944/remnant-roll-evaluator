@@ -2,8 +2,8 @@ package online.vonarx.formatter;
 
 import lombok.RequiredArgsConstructor;
 import online.vonarx.constants.Type;
-import online.vonarx.models.world.Encounter;
 import online.vonarx.models.world.WorldSave;
+import online.vonarx.models.world.encounter.Encounter;
 
 import java.util.ArrayList;
 import java.util.List;

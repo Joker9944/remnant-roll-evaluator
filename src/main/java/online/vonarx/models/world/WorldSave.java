@@ -5,6 +5,7 @@ import lombok.Data;
 import online.vonarx.constants.world.Mode;
 import online.vonarx.dictionary.Dictionary;
 import online.vonarx.models.character.Character;
+import online.vonarx.models.world.encounter.Encounter;
 import online.vonarx.models.world.rewards.RewardLine;
 
 import java.util.List;

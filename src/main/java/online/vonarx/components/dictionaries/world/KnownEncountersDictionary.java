@@ -55,12 +55,14 @@ public class KnownEncountersDictionary extends DictionaryWrapper<String, KnownAc
 				.put("Quest_SmallD_HuntersHideout", HUNTER_S_HIDEOUT)
 				.put("Quest_SmallD_LastWill", SUPPLY_RUN)
 				.put("Quest_SmallD_RootCultist", CULT_OF_THE_ROOT)
+				.put("Quest_Church", THE_ROOT_MOTHER)
 				// Wasteland quests
 				.put("Quest_OverworldPOI_Monolith", MONOLITH)
 				.put("Quest_OverworldPOI_OldManAndConstruct", WUD)
 				.put("Quest_Siege_TheLostGantry", THE_LOST_GANTRY)
 				.put("Quest_SmallD_TheCleanRoom", THE_CLEAN_ROOM)
 				.put("Quest_SmallD_ArmorVault", VAULT_OF_THE_HERALD)
+				.put("Quest_OverworldPOI_Cryptolith_Wasteland", CRYPTOLITH_RHOM)
 				// Jungle quests
 				.put("Quest_OverworldPOI_Flautist", FLAUTIST)
 				.put("Quest_OverworldPOI_Ruins", RUINS)
@@ -111,7 +113,7 @@ public class KnownEncountersDictionary extends DictionaryWrapper<String, KnownAc
 				// Bosses
 				.put("Quest_MiniBoss_FlickeringHorror", DREAM_EATER)
 				.put("Quest_MiniBoss_BarbTerror", BARBED_TERROR)
-				.put("Quest_SmallD_QueensTemple", ISKAL_QUEEN)
+				.put("Quest_SmallD_QueensTemple", ISKAL_QUEEN_ADVENTURE)
 				// Quests
 				.put("Quest_OverworldPOI_AbandonedThrone", ABANDONED_THRONE)
 				.put("Quest_OverWorldPOI_GraveyardElf", GRAVEYARD_ELF)
@@ -134,6 +136,23 @@ public class KnownEncountersDictionary extends DictionaryWrapper<String, KnownAc
 				.put("Quest_Event_DeceiversBand", DECEIVER_S_BAND)
 				.put("Quest_Event_RingOfElusion", RING_OF_ELUSION)
 				.put("Quest_Event_StockpileCirclet", STOCKPILE_CIRCLET)
+				// Main quest
+				.put("Quest_Campaign_City", CAMPAIGN_EARTH)
+				.put("Quest_Campaign_Labyrinth", CAMPAIGN_THE_LABYRINTH)
+				.put("Quest_Campaign_Wasteland", CAMPAIGN_RHOM)
+				.put("Quest_Campaign_Swamp", CAMPAIGN_CORSUS)
+				.put("Quest_Campaign_Jungle", CAMPAIGN_YAESHA)
+				.put("Quest_FoundersPrison", CAMPAIGN_FOUNDERS_PRISON)
+				.put("Quest_Campaign_Ward13", CAMPAIGN_WARD_17)
+				// Zone templates
+				.put("City_Overworld_Zone1", FAIRVIEW)
+				.put("City_Overworld_Zone2", WESTCOURT)
+				.put("Wasteland_Overworld_Zone1", THE_EASTERN_WIND)
+				.put("Wasteland_Overworld_Zone2", THE_SCOURING_WASTE)
+				.put("Swamp_Overworld_Zone1", THE_FETID_GLADE)
+				.put("Swamp_Overworld_Zone2", THE_MIST_FEN)
+				.put("Jungle_Overworld_Zone1", THE_VERDANT_STRAND)
+				.put("Jungle_Overworld_Zone2", THE_SCALDING_GLADE)
 				.build())
 			.addDictionary(RegExKeyMapDictionary.<KnownActor>builder()
 				.put("^/Game/World_.+/Quests/Quest_OverworldPOI_Cryptolith_.*$", CRYPTOLITH)

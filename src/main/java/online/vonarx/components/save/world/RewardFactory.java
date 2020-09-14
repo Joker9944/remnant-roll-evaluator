@@ -1,9 +1,10 @@
 package online.vonarx.components.save.world;
 
 import online.vonarx.constants.KnownActor;
-import online.vonarx.models.world.rewards.CombinationRewardLine;
+import online.vonarx.models.world.rewards.BasicRewardLine;
+import online.vonarx.models.world.rewards.BasicRewardLineWithMessage;
 import online.vonarx.models.world.rewards.RewardLine;
-import online.vonarx.models.world.rewards.SingleRewardLine;
+import online.vonarx.models.world.rewards.RewardLineCombinator;
 
 import javax.inject.Inject;
 
@@ -12,43 +13,35 @@ public class RewardFactory {
 	@Inject
 	public RewardFactory() {}
 
-	public RewardLine reward(final KnownActor reward) {
-		return reward(null, reward);
+	public RewardLine reward(final KnownActor... rewards) {
+		return new BasicRewardLine("and", rewards);
 	}
 
-	public RewardLine reward(final String message, final KnownActor reward) {
-		return new SingleRewardLine(message, reward);
+	public RewardLine reward(final String message, final KnownActor... rewards) {
+		return new BasicRewardLineWithMessage(message, "and", rewards);
 	}
 
-	public RewardLine hardcoreReward(final KnownActor reward) {
-		return reward("Hardcore mode", reward);
+	public RewardLine hardcoreReward(final KnownActor... rewards) {
+		return reward("Hardcore mode", rewards);
 	}
 
-	public RewardLine optionalReward(final KnownActor reward) {
-		return reward("Not guaranteed", reward);
-	}
-
-	public RewardLine exclusiveReward(final KnownActor... rewards) {
-		return exclusiveReward(null, rewards);
-	}
-
-	public RewardLine exclusiveReward(final String message, final KnownActor... rewards) {
-		return new CombinationRewardLine(message, " or ", rewards);
-	}
-
-	public RewardLine inclusiveReward(final KnownActor... rewards) {
-		return inclusiveReward(null, rewards);
-	}
-
-	public RewardLine inclusiveReward(final String message, final KnownActor... rewards) {
-		return new CombinationRewardLine(message, " and ", rewards);
+	public RewardLine optionalReward(final KnownActor... rewards) {
+		return reward("Missable", rewards);
 	}
 
 	public RewardLine merchandise(final KnownActor... merchandise) {
-		return inclusiveReward("Merchandise", merchandise);
+		return reward("Merchandise", merchandise);
 	}
 
-	public RewardLine inclusiveOptionalReward(final KnownActor... rewards) {
-		return inclusiveReward("Not guaranteed", rewards);
+	public RewardLine exclusiveReward(final KnownActor... rewards) {
+		return new BasicRewardLine("or", rewards);
+	}
+
+	public RewardLine exclusiveReward(final String message, final KnownActor... rewards) {
+		return new BasicRewardLineWithMessage(message, "or", rewards);
+	}
+
+	public RewardLine combineRewardLines(final RewardLine... rewardLines) {
+		return new RewardLineCombinator("or", rewardLines);
 	}
 }

@@ -1,4 +1,4 @@
-package online.vonarx.models.character;
+package online.vonarx.models.character.item;
 
 import lombok.Builder;
 import lombok.Data;

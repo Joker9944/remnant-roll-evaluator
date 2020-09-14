@@ -1,11 +1,11 @@
 package online.vonarx.formatter;
 
-import online.vonarx.constants.world.Biome;
 import online.vonarx.constants.Type;
+import online.vonarx.constants.world.Biome;
 import online.vonarx.constants.world.Zone;
 import online.vonarx.models.AppParameters;
-import online.vonarx.models.world.Encounter;
 import online.vonarx.models.world.WorldSave;
+import online.vonarx.models.world.encounter.Encounter;
 
 import java.util.LinkedHashMap;
 import java.util.List;

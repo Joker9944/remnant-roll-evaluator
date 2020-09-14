@@ -3,17 +3,20 @@ package online.vonarx.constants.world;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import static online.vonarx.constants.world.Biome.*;
+
 @RequiredArgsConstructor
 public enum Zone {
-	FAIRVIEW("Fairview"),
-	WESTCOURT("Westcourt"),
-	THE_EASTERN_WIND("The Eastern Wind"),
-	THE_SCOURING_WASTE("The Scouring Waste"),
-	THE_FETID_GLADE("The Fetid Glade"),
-	THE_MIST_FEN("The Mist Fen"),
-	THE_VERDANT_STRAND("The Verdant Strand"),
-	THE_SCALDING_GLADE("The Scalding Glade"),
-	NONE("None");
+	FAIRVIEW(EARTH, "Fairview"),
+	WESTCOURT(EARTH, "Westcourt"),
+	THE_EASTERN_WIND(RHOM, "The Eastern Wind"),
+	THE_SCOURING_WASTE(RHOM, "The Scouring Waste"),
+	THE_VERDANT_STRAND(CORSUS, "The Verdant Strand"),
+	THE_SCALDING_GLADE(CORSUS, "The Scalding Glade"),
+	THE_FETID_GLADE(YAESHA, "The Fetid Glade"),
+	THE_MIST_FEN(YAESHA, "The Mist Fen"),
+	NONE(UNKNOWN, "None");
 
+	@Getter private final Biome biome;
 	@Getter private final String displayName;
 }

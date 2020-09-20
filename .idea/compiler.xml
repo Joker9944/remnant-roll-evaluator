@@ -34,6 +34,6 @@
         <module name="remnant-roll-evaluator.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="15" />
+    <bytecodeTargetLevel target="12" />
   </component>
 </project>

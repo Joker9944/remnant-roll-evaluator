@@ -15,7 +15,7 @@ public class StoryModeFactory extends ModeFactory {
 	private static final String END_FROM_THE_ASHES = "/Game/Campaign_Main/Quest_Campaign_Ward13.Quest_Campaign_Ward13";
 
 	private static final Pattern START_SUBJECT_2923_PATTERN = Pattern.compile("^/Game/World_Rural/Templates/Template_Rural_Overworld_\\d{2}.Template_Rural_Overworld_\\d{2}$");
-	private static final String END_SUBJECT_2923 = "/Game/Campaign_Clementine/Quest_Campaign_Clementine.Quest_Campaign_Clementine_C";
+	private static final String END_SUBJECT_2923 = "/Game/Campaign_Clementine/Quests/WardPrime/Quest_Keycard_WardPrime.Quest_Keycard_WardPrime_C";
 
 	@Inject
 	public StoryModeFactory(final EncounterFactory encounterFactory, final ZoneDictionary zoneDictionary,

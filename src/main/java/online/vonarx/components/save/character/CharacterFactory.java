@@ -89,14 +89,11 @@ public class CharacterFactory {
 		final var itemsBuilder = ImmutableList.<Item>builder();
 		characterIdentifiers.forEach(identifier -> {
 			final var knownActorOptional = knownItemsDictionary.lookup(identifier);
-			if (knownActorOptional.isPresent()) {
-				itemsBuilder.add(KnownItem.builder()
+			knownActorOptional.ifPresentOrElse(knownActor -> itemsBuilder.add(KnownItem.builder()
 					.identifier(identifier)
-					.knownActor(knownActorOptional.get())
-					.build());
-			} else {
-				itemsBuilder.add(createUnknownItem(identifier));
-			}
+					.knownActor(knownActor)
+					.build()),
+				() -> itemsBuilder.add(createUnknownItem(identifier)));
 		});
 		final var items = itemsBuilder.build();
 		return Character.builder()
@@ -122,7 +119,7 @@ public class CharacterFactory {
 	}
 
 	private UnknownItem createUnknownItem(final String identifier) {
-		if (identifier.contains("/Armor/") && !identifier.contains("_Skin_C")) {
+		if (identifier.contains("/Armor/") && !identifier.endsWith("_Skin_C") && !identifier.endsWith("_PreOrder_C")) {
 			if (identifier.contains("_Head_"))
 				return createUnknownItem(identifier, HEAD_ARMOUR);
 			else if (identifier.contains("_Body_"))
@@ -130,7 +127,7 @@ public class CharacterFactory {
 			else if (identifier.contains("_Legs_"))
 				return createUnknownItem(identifier, LEG_ARMOR);
 		}
-		if (identifier.contains("_Skin_C")) {
+		if (identifier.endsWith("_Skin_C") || identifier.endsWith("_PreOrder_C")) {
 			if (identifier.contains("_Head_"))
 				return createUnknownItem(identifier, SKIN_HEAD_ARMOUR);
 			else if (identifier.contains("_Body_"))

@@ -12,6 +12,8 @@ import java.util.Arrays;
 
 import static java.util.stream.Collectors.toSet;
 import static online.vonarx.constants.KnownActor.*;
+import static online.vonarx.constants.Origin.PREORDER_BONUS;
+import static online.vonarx.constants.Origin.SWAMPS_OF_CORSUS_DLC;
 
 public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> {
 
@@ -46,6 +48,14 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 			// Whispers inventory
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Purchase from Whispers.")
 				.allAdd(Arrays.stream(KnownActor.values())
+					.filter(knownActor -> knownActor.origin().equals(SWAMPS_OF_CORSUS_DLC))
+					.filter(knownActor -> knownActor.type().equals(Type.SKIN_HEAD_ARMOUR) || knownActor.type().equals(Type.SKIN_BODY_ARMOR) || knownActor.type().equals(Type.SKIN_LEG_ARMOR))
+					.collect(toSet()))
+				.build())
+			// Preorder skins
+			.addDictionary(SetDictionary.<KnownActor, String>builder("Preorder the game. Granted to all players by default as of Subject 2923 DLC.")
+				.allAdd(Arrays.stream(KnownActor.values())
+					.filter(knownActor -> knownActor.origin().equals(PREORDER_BONUS))
 					.filter(knownActor -> knownActor.type().equals(Type.SKIN_HEAD_ARMOUR) || knownActor.type().equals(Type.SKIN_BODY_ARMOR) || knownActor.type().equals(Type.SKIN_LEG_ARMOR))
 					.collect(toSet()))
 				.build())

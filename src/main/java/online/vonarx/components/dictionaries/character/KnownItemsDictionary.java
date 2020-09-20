@@ -148,6 +148,8 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Weapon_Pan_RicochetRifle", RICOCHET_RIFLE)
 				.put("Weapon_Shotgun", SHOTGUN)
 				.put("Weapon_SniperRifle", SNIPER_RIFLE)
+				// Subject 2923
+				.put("Weapon_Rural_FusionRifle", FUSION_RIFLE)
 				// Crafted Guns
 				.put("Weapon_Swamp_Devastator", DEVASTATOR)
 				/* TODO verify */.put("Resource_Swamp_UncleanHeart", UNCLEAN_HEART)
@@ -189,8 +191,10 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				// Swamps of Corsus
 				.put("Weapon_HerosSword", HERO_S_SWORD)
 				// Subject 2923
-				// TODO Add chain blade
+				.put("Weapon_Snow_ChainBlade", CHAIN_BLADE)
 				.put("Resource_Snow_SteelOfAgony", STEEL_OF_AGONY)
+				/* TODO verify */.put("Weapon_Rural_WorldsEdge", WORLD_S_EDGE)
+				.put("Resource_Rural_RootNeoplasm", ROOT_NEOPLASM)
 				// Mods
 				.put("Mod_Hotshot", HOT_SHOT)
 				.put("Mod_HuntersMark", HUNTER_S_MARK)
@@ -251,9 +255,12 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Mod_Vampiric", VAMPIRIC)
 				// Subject 2923
 				// Crafted Mods
-				/* TODO verify */.put("Mod_ColdSpear", COLD_SPEAR)
+				.put("Mod_ColdSpear", COLD_SPEAR)
 				.put("Resource_Snow_JackalsIvory", JACKAL_S_IVORY)
+				/* TODO verify */.put("Mod_Blizzard", BLIZZARD)
+				.put("Resource_Snow_GlacialScepter", GLACIAL_SCEPTER)
 				// Static Mods
+				.put("Mod_FusionCannon", FUSION_CANNON)
 				// Amulets
 				.put("Trinket_BrutalMark", BRUTAL_MARK)
 				.put("Trinket_ButchersFetish", BUTCHER_S_FETISH)
@@ -335,6 +342,8 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				// Subject 2923
 				.put("Trinket_FiveFingeredRing", FIVE_FINGERED_RING)
 				/* TODO verify */.put("Trinket_BurdenOfTheDevoted", BURDEN_OF_THE_DEVOTED)
+				.put("Trinket_VolatileGem", VOLATILE_GEM)
+				.put("Trinket_AmberMoonstone", AMBER_MOONSTONE)
 				// Traits
 				.put("Trait_ArcaneStrike", ARCANE_STRIKE)
 				.put("Trait_BarkSkin", BARK_SKIN)
@@ -382,6 +391,8 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Trait_Wisdom", WISDOM)
 				.put("Trait_FlashCaster", FLASH_CASTER)
 				.put("Trait_HardCharger", HARD_CHARGER)
+				.put("Trait_Tormentor", TORMENTOR)
+				.put("Trait_LastResort", LAST_RESORT)
 				// Emotes
 				.put("Emote_Beckon", BECKON_EMOTE)
 				.put("Emote_Cheer", CHEER)

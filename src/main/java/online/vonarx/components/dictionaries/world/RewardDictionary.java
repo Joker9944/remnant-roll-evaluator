@@ -92,9 +92,14 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 					rf.hardcoreReward(NIGHTMARE_SPIRAL, HIGH_FIVE)))
 				// Subject 2923
 				.put(ERFOR_THE_JACKAL, of(rf.reward(JACKAL_S_IVORY)))
+				.put(IKRO_THE_ICE_CONJURER, of(rf.reward(GLACIAL_SCEPTER)))
 				.put(BURDEN_OF_THE_DEVOTED, of(
 					rf.reward(HARD_CHARGER),
 					rf.exclusiveReward(STEEL_OF_AGONY/*, TODO Cold Cell */)))
+				.put(HARSGAARD_ROOT_HARBINGER, of(
+					rf.reward(FUSION_RIFLE),
+					rf.reward(ROOT_NEOPLASM, LAST_RESORT)
+				))
 				.build())
 			// Quests
 			.addDictionary(MapDictionary.<KnownActor, List<RewardLine>>builder()
@@ -232,6 +237,7 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 				// Subject 2923
 				.put(FIVE_FINGERED_RING, of(rf.reward(FIVE_FINGERED_RING)))
 				.put(BURDEN_OF_THE_DEVOTED, of(rf.reward(BURDEN_OF_THE_DEVOTED)))
+				.put(VOLATILE_GEM, of(rf.reward(VOLATILE_GEM)))
 				// Traits
 				.put(TAPE_RECORDER, of(rf.reward(ELDER_KNOWLEDGE)))
 				.build())

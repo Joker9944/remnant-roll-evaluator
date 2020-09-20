@@ -113,6 +113,8 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(WISDOM, "Open the blast doors in Ward Prime.")
 				.put(FLASH_CASTER, "Acquire 25 weapon mods.")
 				.put(HARD_CHARGER, "Defeat Brudvaak and Vargr.")
+				.put(TORMENTOR, "Apply 100 status effects.")
+				.put(LAST_RESORT, "Defeat Harsgaard, Root Harbinger.")
 				// Emotes
 				.put(WAVE, "Play with another player.")
 				.put(CHEER, "Defeat The Ent.")
@@ -161,6 +163,8 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(DREAMER_S_MANA, "Defeat the Dreamer.")
 				.put(RICOCHET_RIFLE, "Defeat the Blink Thief.")
 				.put(CHICAGO_TYPEWRITER, "Complete the A Tale of Two Liz's siege with both NPC's surviving.")
+				// Subject 2923
+				.put(FUSION_RIFLE, "Complete phase 1 of the Harsgaard, Root Harbinger fight.")
 				// Melee Weapons
 				.put(PETRIFIED_MAUL, "Craft with Twisted Heart.")
 				.put(TWISTED_HEART, "Destroy the legs of The Ent before defeating him.")
@@ -184,8 +188,10 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				// Swamps of Corsus
 				.put(HERO_S_SWORD, "Defeat 10 bosses in survival mode in a single run.")
 				// Subject 2923
-				// TODO Add chain blade
+				.put(CHAIN_BLADE, "Craft with Steel of Agony.")
 				.put(STEEL_OF_AGONY, "Defeat Vargr before Brudvaak.")
+				.put(WORLD_S_EDGE, "Craft with Root Neoplasm.")
+				.put(ROOT_NEOPLASM, "Defeat Harsgaard, Root Harbinger.")
 				// Mods
 				.put(FLICKER_CLOAK, "Craft with Displacement Crystal.")
 				.put(DISPLACEMENT_CRYSTAL, "Defeat Riphide.")
@@ -241,7 +247,11 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(SEEKER, "Craft with Iskal Husk.")
 				.put(ISKAL_HUSK, "Squash the Iskal Queen with a stalactite.")
 				// Subject 2923
-				.put(COLD_SPEAR, "Defeat Erfor, the Jackal.")
+				.put(COLD_SPEAR, "Craft with Jackal's Ivory.")
+				.put(JACKAL_S_IVORY, "Defeat Erfor, the Jackal.")
+				.put(BLIZZARD, "Craft with Glacial Scepter.")
+				.put(GLACIAL_SCEPTER, "Defeat Ikro, the Ice Conjurer.")
+				.put(FUSION_CANNON, "Built into Fusion Rifle.")
 				// Armor
 				.put(ADVENTURER_GOGGLES, "Defeat 5 bosses in survival mode in a single run.")
 				.put(AKARI_MASK, "Open the left door in the Vault of The Herald dungeon.")
@@ -282,6 +292,8 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(LOOP_OF_PROSPERITY, "Defeat 25 bosses in survival mode.")
 				.put(GIFT_OF_THE_ISKAL, "Defeat Mar'Gosh")
 				.put(SOUL_LINK, "Found in a cave next to a Cryptolith on Rhom.")
+				// Subject 2923
+				.put(AMBER_MOONSTONE, "Give the Janitor's Watch to Clementine.")
 				.build())
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Trade the Pocket Watch with Brabus.")
 				.add(BANDIT_S_MASK, BANDIT_JACKET, BANDIT_TROUSERS)
@@ -352,6 +364,8 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on Reisum.")
 				// Amulets
 				.add(RAZORWIRE_NECKLACE, DRIFTSTONE)
+				// Rings
+				.add(VOLATILE_GEM)
 				.build())
 			.build());
 	}

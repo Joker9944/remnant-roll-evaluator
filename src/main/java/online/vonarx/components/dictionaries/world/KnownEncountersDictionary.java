@@ -139,6 +139,7 @@ public class KnownEncountersDictionary extends DictionaryWrapper<String, KnownAc
 				// Subject 2923
 				// Bosses
 				.put("Quest_MiniBoss_TheJackal", ERFOR_THE_JACKAL)
+				.put("Quest_MiniBoss_BlizzardMage", IKRO_THE_ICE_CONJURER)
 				.put("Quest_Boss_RatRider", BRUDVAAK_AND_VARGR)
 				// Quests
 				.put("Quest_OverworldPOI_BarnSiege", THE_BARN_SIEGE)
@@ -149,6 +150,7 @@ public class KnownEncountersDictionary extends DictionaryWrapper<String, KnownAc
 				// Rings
 				.put("Quest_Event_FiveFingeredRing", FIVE_FINGERED_RING)
 				.put("Quest_Event_BurdenOfTheDevoted", BURDEN_OF_THE_DEVOTED)
+				.put("Quest_Event_VolatileGem", VOLATILE_GEM)
 				// Main quest
 				.put("Quest_Campaign_City", CAMPAIGN_EARTH)
 				.put("Quest_Campaign_Labyrinth", CAMPAIGN_THE_LABYRINTH)

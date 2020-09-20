@@ -37,6 +37,8 @@ public class ItemCraftingDictionary extends DictionaryWrapper<KnownActor, KnownA
 		.put(DRAGON_LINKS, SMOLDER)
 		.put(TEMPEST_HEARTSTRING, VOICE_OF_THE_TEMPEST)
 		.put(STONE_OF_THE_GUARDIAN, WORLD_BREAKER)
+		// Subject 2923
+		.put(STEEL_OF_AGONY, CHAIN_BLADE)
 		// Mods
 		.put(SENTINEL_SHARD, BECKON_MOD)
 		.put(BLINK_SPEAR_SHARD, BLINK_TOKEN)
@@ -60,6 +62,7 @@ public class ItemCraftingDictionary extends DictionaryWrapper<KnownActor, KnownA
 		.put(ISKAL_HUSK, SEEKER)
 		// Subject 2923
 		.put(JACKAL_S_IVORY, COLD_SPEAR)
+		.put(GLACIAL_SCEPTER, BLIZZARD)
 		.build();
 
 	@Inject

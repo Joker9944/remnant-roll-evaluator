@@ -13,7 +13,6 @@ import java.util.Arrays;
 import static java.util.stream.Collectors.toSet;
 import static online.vonarx.constants.KnownActor.*;
 import static online.vonarx.constants.Origin.PREORDER_BONUS;
-import static online.vonarx.constants.Origin.SWAMPS_OF_CORSUS_DLC;
 
 public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> {
 
@@ -48,9 +47,14 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 			// Whispers inventory
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Purchase from Whispers.")
 				.allAdd(Arrays.stream(KnownActor.values())
-					.filter(knownActor -> knownActor.origin().equals(SWAMPS_OF_CORSUS_DLC))
 					.filter(knownActor -> knownActor.type().equals(Type.SKIN_HEAD_ARMOUR) || knownActor.type().equals(Type.SKIN_BODY_ARMOR) || knownActor.type().equals(Type.SKIN_LEG_ARMOR))
+					.filter(knownActor -> !knownActor.origin().equals(PREORDER_BONUS))
 					.collect(toSet()))
+				.build())
+			// Sebum inventor
+			.addDictionary(SetDictionary.<KnownActor, String>builder("Purchase from Sebum.")
+				.add(SAWED_OFF)
+				.add(BAND_OF_DISCORD, RING_OF_SYNERGY)
 				.build())
 			// Preorder skins
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Preorder the game. Granted to all players by default as of Subject 2923 DLC.")
@@ -79,6 +83,15 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.add(FORTIFICATION)
 				.add(HERO_S_RING)
 				.build())
+			// Sebum hunt quest
+			.addDictionary(SetDictionary.<KnownActor, String>builder("Hunt a Pack Master for Sebum. Before giving him the Master's Tusk see the armor below deck trough a hole.")
+				.add(WARLORD_SKULL, WARLORD_ARMOR, WARLORD_BOOTS)
+				.build())
+			// Magir's Test
+			.addDictionary(SetDictionary.<KnownActor, String>builder("Solve Magir's Puzzle at Judgement's Spear dungeon.")
+				.add(WARLORD_SKULL, WARLORD_ARMOR, WARLORD_BOOTS)
+				.build())
+			// TODO Grave Siege
 			.addDictionary(MapDictionary.<KnownActor, String>builder()
 				// Traits
 				.put(EXPLOITER, "Kill 150 enemies with weak spot hits.")
@@ -125,6 +138,10 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(HARD_CHARGER, "Defeat Brudvaak and Vargr.")
 				.put(TORMENTOR, "Apply 100 status effects.")
 				.put(LAST_RESORT, "Defeat Harsgaard, Root Harbinger.")
+				.put(CLIMBER, "Vault 50 times.")
+				.put(VACCINE, "Cure 25 status afflictions with consumables.")
+				.put(DEMOLITIONIST, "Get 100 kills with explosive damage.")
+				.put(SIPHONER, "Free the Krall Baby from it's cage.")
 				// Emotes
 				.put(WAVE, "Play with another player.")
 				.put(CHEER, "Defeat The Ent.")
@@ -155,6 +172,9 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				// Swamps of Corsus
 				.put(PRIDE_OF_THE_ISKAL, "Craft with Crystalline Plasma.")
 				.put(CRYSTALLINE_PLASMA, "Defeat the Iskal Queen.")
+				// Subject 2923
+				.put(MACHINE_PISTOL, "Solve the password puzzle in Ward Prime.")
+				.put(TWIN_SHOT, "Acquire the Creeper's Peeper from Watcher's Hollow dungeon and insert into an statue found on the overworld.")
 				// Long Guns
 				.put(ASSAULT_RIFLE, "Found behind the Monkey Door in Sorrow's Field dungeon.")
 				.put(BEAM_RIFLE, "Complete The Lost Gantry event.")
@@ -175,6 +195,8 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(CHICAGO_TYPEWRITER, "Complete the A Tale of Two Liz's siege with both NPC's surviving.")
 				// Subject 2923
 				.put(FUSION_RIFLE, "Complete phase 1 of the Harsgaard, Root Harbinger fight.")
+				.put(ALTERNATOR, "Craft with Cold Cell.")
+				.put(COLD_CELL, "Defeat Brudvaak before Vargr.")
 				// Melee Weapons
 				.put(PETRIFIED_MAUL, "Craft with Twisted Heart.")
 				.put(TWISTED_HEART, "Destroy the legs of The Ent before defeating him.")
@@ -202,6 +224,7 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(STEEL_OF_AGONY, "Defeat Vargr before Brudvaak.")
 				.put(WORLD_S_EDGE, "Craft with Root Neoplasm.")
 				.put(ROOT_NEOPLASM, "Defeat Harsgaard, Root Harbinger.")
+				.put(FROSTBORNE, "Found in Felmourn Burrow POI behind some shelves and a wall.")
 				// Mods
 				.put(FLICKER_CLOAK, "Craft with Displacement Crystal.")
 				.put(DISPLACEMENT_CRYSTAL, "Defeat Riphide.")
@@ -262,6 +285,12 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(BLIZZARD, "Craft with Glacial Scepter.")
 				.put(GLACIAL_SCEPTER, "Defeat Ikro, the Ice Conjurer.")
 				.put(FUSION_CANNON, "Built into Fusion Rifle.")
+				.put(INCINERATOR, "Built into Alternator.")
+				.put(FAN_OF_KNIVES, "Craft with Silver Fragment.")
+				.put(SILVER_FRAGMENT, "Defeat Tian, the Assassin.")
+				.put(FROZEN_MIST, "Craft with Obryk's Bracelet.")
+				.put(OBRYK_S_BRACELET, "Defeat Obryk, the Shield Warden.")
+				.put(VERY_GOOD_BOY, "Pet the Good Boy next to Wud on Rhom.")
 				// Armor
 				.put(ADVENTURER_GOGGLES, "Defeat 5 bosses in survival mode in a single run.")
 				.put(AKARI_MASK, "Open the left door in the Vault of The Herald dungeon.")
@@ -285,6 +314,11 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(BLACK_ROSE, "Defeat 100 bosses in survival mode.")
 				// Subject 2923
 				.put(HANGMAN_S_MOMENTO, "Complete The Barn Siege.")
+				.put(VULCAN_S_DETONATOR, "Alert all totems during the Warding Totems event.")
+				.put(BLESSED_NECKLACE, "Return to the Krall Mother after freeing the Krall Baby from it's cage.")
+				.put(SHATTERED_VERTEBRAE, "Defeat Harsgaard, Root Harbinger in hardcore mode.")
+				.put(ONYX_PENDULUM, "Defeat the Dreamer and Harsgaard, Root Harbinger in hardcore mode.")
+				/* TODO verify */.put(WHITE_ROSE, "Unlocked in Survival Mode, exact requirements not clear.")
 				// Rings
 				.put(BRAIDED_THORNS, "Destroy all Root Nexuses in Marrow Pass dungeon and defeat the cultist.")
 				.put(ROOT_CIRCLET, "Talk to the cultist in Marrow Pass dungeon with destroying a Root Nexus.")
@@ -304,6 +338,17 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.put(SOUL_LINK, "Found in a cave next to a Cryptolith on Rhom.")
 				// Subject 2923
 				.put(AMBER_MOONSTONE, "Give the Janitor's Watch to Clementine.")
+				.put(RING_OF_HONOR, "Found in Ward Prime.")
+				.put(SCAVENGER_S_RING, "Purchase from Krall Mother.")
+				.put(BLOODLETTER_S_INSIGNIA, "Found in Magir's Dirge dungeon during the Warding Totems event.")
+				.put(SWASHBUCKLER_S_SIGNET, "Kill only the Emin with the false green eye during the Creeper's Pepper event.")
+				.put(RING_OF_THE_PUNISHER, "Defeat Brudvaak and Vargr in hardcore mode.")
+				.put(JUGGERNAUT_BAND, "Alert some totems during the Warding Totems event.")
+				.put(EVOKER_S_SEAL, "Alert no totems during the Warding Totems event.")
+				.put(VANGUARD_RING, "Found in Homestead POI behind some shelves and a door locked wih the Homestead Basement Key which can be found in Ward Prime")
+				/* TODO verify */.put(BLACK_CAT_BAND, "Unlocked in Survival Mode, exact requirements not clear.")
+				/* TODO verify */.put(BRIGHT_STEEL_RING, "Unlocked in Survival Mode, exact requirements not clear.")
+				.put(RING_OF_FLAWLESS_BEAUTY, "Purchase 100 items in Survival Mode.")
 				.build())
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Trade the Pocket Watch with Brabus.")
 				.add(BANDIT_S_MASK, BANDIT_JACKET, BANDIT_TROUSERS)
@@ -329,7 +374,7 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Purchase after solving the Monolith floor tile puzzle.")
 				.add(VOID_SKULL, VOID_CARAPACE, VOID_GREAVES)
 				.build())
-			// Earth random drops
+			// City earth random drops
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on City Earth.")
 				// Armor
 				.add(DRIFTER_S_MASK)
@@ -339,6 +384,8 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.add(HEARTSEEKER, MOTHER_S_RING, PILLAR_OF_STONE, RING_OF_EVASION, SAGESTONE)
 				// Swamps of Corsus
 				.add(COMPULSION_LOOP, GUNSLINGER_S_RING, STOCKPILE_CIRCLET, AGGRESSOR_S_BANE, BAND_OF_POLLUX, BAND_OF_CASTOR)
+				// Subject 2923
+				.add(BURDEN_OF_THE_GAMBLER)
 				.build())
 			// Rhom random drops
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on Rhom.")
@@ -346,10 +393,14 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 				.add(BRUTAL_MARK, CLEANSING_JEWEL, GALENIC_CHARM)
 				// Swamps of Corsus
 				.add(TALISMAN_OF_ANIMOSITY)
+				// Subject 2923
+				.add(RADIOACTIVE_EMBER)
 				// Rings
 				.add(BAND_OF_STRENGTH, EZLAN_S_BAND, GRAVITY_STONE, HUNTER_S_HALO, LEECH_EMBER)
 				// Swamps of Corsus
 				.add(DECEIVER_S_BAND, RING_OF_ELUSION)
+				// Subject 2923
+				.add(BURDEN_OF_THE_RECKLESS)
 				.build())
 			// Corsus random drops
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on Corsus.")
@@ -362,20 +413,28 @@ public class UnlockHintDictionary extends DictionaryWrapper<KnownActor, String> 
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on Yaesha.")
 				// Amulets
 				.add(STORM_AMULET, VENGEANCE_IDOL)
+				// Subject 2923
+				.add(STALKER_S_BRAND)
 				// Rings
 				.add(CELERITY_STONE, HUNTER_S_BAND, KEEPER_S_RING, STONE_OF_BALANCE)
 				// Swamps of Corsus
 				.add(PEARL_OF_LUMINESCENCE, RING_OF_SHADOWS)
+				// Subject 2923
+				.add(RESTRICTION_CORD, BURDEN_OF_THE_FOLLOWER, SPIRIT_STONE)
 				.build())
+			// Rural earth random drops
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on Rural Earth.")
+				// Amulets
+				.add(TERROR_MARGIN)
 				// Rings
-				.add(FIVE_FINGERED_RING)
+				.add(FIVE_FINGERED_RING, BACKBREAKER_RING, ALCHEMIST_S_JEWEL)
 				.build())
+			// Reisum random drops
 			.addDictionary(SetDictionary.<KnownActor, String>builder("Found randomly on Reisum.")
 				// Amulets
-				.add(RAZORWIRE_NECKLACE, DRIFTSTONE)
+				.add(RAZORWIRE_NECKLACE, DRIFTSTONE, CHARCOAL_NECKLACE, POLISHED_WHETSTONE)
 				// Rings
-				.add(VOLATILE_GEM)
+				.add(VOLATILE_GEM, BURDEN_OF_THE_WARLORD, SERPENT_S_FANG)
 				.build())
 			.build());
 	}

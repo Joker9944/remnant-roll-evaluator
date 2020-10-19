@@ -29,6 +29,8 @@ public class ItemCraftingDictionary extends DictionaryWrapper<KnownActor, KnownA
 		.put(DREAMER_S_MANA, REPULSOR)
 		.put(THE_UNDYING_HEART, RUIN)
 		.put(SPORE_GLAND, SPOREBLOOM)
+		// Subject 2923
+		.put(COLD_CELL, ALTERNATOR)
 		// Melee Weapons
 		.put(HAMMERHEAD_S_ORE, BUTCHERS_FLAIL)
 		.put(GUARDIAN_TENTACLE, GUARDIAN_AXE)
@@ -39,6 +41,7 @@ public class ItemCraftingDictionary extends DictionaryWrapper<KnownActor, KnownA
 		.put(STONE_OF_THE_GUARDIAN, WORLD_BREAKER)
 		// Subject 2923
 		.put(STEEL_OF_AGONY, CHAIN_BLADE)
+		.put(ROOT_NEOPLASM, WORLD_S_EDGE)
 		// Mods
 		.put(SENTINEL_SHARD, BECKON_MOD)
 		.put(BLINK_SPEAR_SHARD, BLINK_TOKEN)
@@ -63,6 +66,8 @@ public class ItemCraftingDictionary extends DictionaryWrapper<KnownActor, KnownA
 		// Subject 2923
 		.put(JACKAL_S_IVORY, COLD_SPEAR)
 		.put(GLACIAL_SCEPTER, BLIZZARD)
+		.put(SILVER_FRAGMENT, FAN_OF_KNIVES)
+		.put(OBRYK_S_BRACELET, FROZEN_MIST)
 		.build();
 
 	@Inject

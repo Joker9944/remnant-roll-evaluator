@@ -70,6 +70,12 @@ public class LocationDictionary extends DictionaryWrapper<KnownActor, String> {
 			.put(ERFOR_THE_JACKAL, "The Wild Reach -> Den of the jackal")
 			.put(IKRO_THE_ICE_CONJURER, "Wuthering Keep -> The Sundered Court")
 			.put(BRUDVAAK_AND_VARGR, "The Crimson Hold")
+			.put(SEBUM, "The Frieran Sea")
+			.put(CREEPER_S_PEEPER, "Watcher's Hollow")
+			.put(WARNING_TOTEMS, "Magir's Dirge")
+			.put(TIAN_THE_ASSASSIN, "Valenga Mines")
+			.put(OBRYK_THE_SHIELD_WARDEN, "Exiles's Trench")
+			.put(MAGIR_S_TEST, "Judgement's Spear")
 			.build()
 		);
 	}

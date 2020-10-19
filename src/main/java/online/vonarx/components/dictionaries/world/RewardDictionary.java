@@ -89,17 +89,20 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 				// Ward 17
 				.put(DREAMER, of(
 					rf.reward(DREAMER_S_MANA, MIND_S_EYE, PRAISE_THE_GUN),
-					rf.hardcoreReward(NIGHTMARE_SPIRAL, HIGH_FIVE)))
+					rf.hardcoreReward(NIGHTMARE_SPIRAL, ONYX_PENDULUM, HIGH_FIVE)))
 				// Subject 2923
 				.put(ERFOR_THE_JACKAL, of(rf.reward(JACKAL_S_IVORY)))
 				.put(IKRO_THE_ICE_CONJURER, of(rf.reward(GLACIAL_SCEPTER)))
-				.put(BURDEN_OF_THE_DEVOTED, of(
+				.put(TIAN_THE_ASSASSIN, of(rf.reward(SILVER_FRAGMENT)))
+				.put(OBRYK_THE_SHIELD_WARDEN, of(rf.reward(OBRYK_S_BRACELET)))
+				.put(BRUDVAAK_AND_VARGR, of(
 					rf.reward(HARD_CHARGER),
-					rf.exclusiveReward(STEEL_OF_AGONY/*, TODO Cold Cell */)))
+					rf.exclusiveReward(STEEL_OF_AGONY, COLD_CELL),
+					rf.hardcoreReward(RING_OF_THE_PUNISHER)))
 				.put(HARSGAARD_ROOT_HARBINGER, of(
 					rf.reward(FUSION_RIFLE),
-					rf.reward(ROOT_NEOPLASM, LAST_RESORT)
-				))
+					rf.reward(ROOT_NEOPLASM, LAST_RESORT),
+					rf.hardcoreReward(SHATTERED_VERTEBRAE, ONYX_PENDULUM)))
 				.build())
 			// Quests
 			.addDictionary(MapDictionary.<KnownActor, List<RewardLine>>builder()
@@ -129,7 +132,9 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 				.put(THE_ROOT_MOTHER, of(rf.reward(MOTHER_S_BLESSING), rf.reward(SNIPER_RIFLE)))
 				// Wasteland
 				.put(MONOLITH, of(rf.merchandise(VOID_SKULL, VOID_CARAPACE, VOID_GREAVES)))
-				.put(WUD, of(rf.merchandise(OSSEOUS_HELM, OSSEOUS_HUSK, OSSEOUS_KILT, MENDER_S_CHARM, JEWEL_OF_THE_BLACK_SUN)))
+				.put(WUD, of(
+					rf.merchandise(OSSEOUS_HELM, OSSEOUS_HUSK, OSSEOUS_KILT, MENDER_S_CHARM, JEWEL_OF_THE_BLACK_SUN),
+					rf.optionalReward(VERY_GOOD_BOY)))
 				.put(THE_LOST_GANTRY, of(rf.reward(BEAM_RIFLE)))
 				.put(THE_CLEAN_ROOM, of(rf.reward(WASTELANDER_FLAIL)))
 				.put(VAULT_OF_THE_HERALD, of(
@@ -176,6 +181,23 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 					rf.optionalReward(LABYRINTH_HELM, LABYRINTH_ARMOR, LABYRINTH_GREAVES)))
 				// Subject 2923
 				.put(THE_BARN_SIEGE, of(rf.reward(HANGMAN_S_MOMENTO)))
+				.put(SEBUM, of(
+					rf.merchandise(SAWED_OFF),
+					rf.merchandise(BAND_OF_DISCORD, RING_OF_SYNERGY),
+					rf.optionalReward(WARLORD_SKULL, WARLORD_ARMOR, WARLORD_BOOTS)))
+				.put(CREEPER_S_PEEPER, of(
+					rf.reward(TWIN_SHOT),
+					rf.optionalReward(SWASHBUCKLER_S_SIGNET)))
+				.put(KRALL_MOTHER, of(
+					rf.merchandise(SCAVENGER_S_RING),
+					rf.optionalReward(BLESSED_NECKLACE)))
+				.put(KRALL_BABY, of(rf.reward(SIPHONER)))
+				.put(WARNING_TOTEMS, of(
+					rf.reward(BLOODLETTER_S_INSIGNIA),
+					rf.exclusiveReward(VULCAN_S_DETONATOR, JUGGERNAUT_BAND, EVOKER_S_SEAL)))
+				.put(FELMOURN_BURROW, of(rf.reward(FROSTBORNE)))
+				.put(HOMESTEAD, of(rf.reward(VANGUARD_RING)))
+				.put(MAGIR_S_TEST, of(rf.optionalReward(SCAVENGER_HELMET, SCAVENGER_ARMOR, SCAVENGER_BOOTS)))
 				.build())
 			// Items
 			.addDictionary(MapDictionary.<KnownActor, List<RewardLine>>builder()
@@ -203,6 +225,11 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 				.put(RAZORWIRE_NECKLACE, of(rf.reward(RAZORWIRE_NECKLACE)))
 				.put(ABRASIVE_AMULET, of(rf.reward(ABRASIVE_AMULET)))
 				.put(DRIFTSTONE, of(rf.reward(DRIFTSTONE)))
+				.put(CHARCOAL_NECKLACE, of(rf.reward(CHARCOAL_NECKLACE)))
+				.put(POLISHED_WHETSTONE, of(rf.reward(POLISHED_WHETSTONE)))
+				.put(RADIOACTIVE_EMBER, of(rf.reward(RADIOACTIVE_EMBER)))
+				.put(TERROR_MARGIN, of(rf.reward(TERROR_MARGIN)))
+				.put(STALKER_S_BRAND, of(rf.reward(STALKER_S_BRAND)))
 				// Rings
 				.put(HEARTSEEKER, of(rf.reward(HEARTSEEKER)))
 				.put(PILLAR_OF_STONE, of(rf.reward(PILLAR_OF_STONE)))
@@ -238,6 +265,15 @@ public class RewardDictionary extends DictionaryWrapper<KnownActor, List<RewardL
 				.put(FIVE_FINGERED_RING, of(rf.reward(FIVE_FINGERED_RING)))
 				.put(BURDEN_OF_THE_DEVOTED, of(rf.reward(BURDEN_OF_THE_DEVOTED)))
 				.put(VOLATILE_GEM, of(rf.reward(VOLATILE_GEM)))
+				.put(BURDEN_OF_THE_WARLORD, of(rf.reward(BURDEN_OF_THE_WARLORD)))
+				.put(SERPENT_S_FANG, of(rf.reward(SERPENT_S_FANG)))
+				.put(BACKBREAKER_RING, of(rf.reward(BACKBREAKER_RING)))
+				.put(BURDEN_OF_THE_GAMBLER, of(rf.reward(BURDEN_OF_THE_GAMBLER)))
+				.put(BURDEN_OF_THE_RECKLESS, of(rf.reward(BURDEN_OF_THE_RECKLESS)))
+				.put(RESTRICTION_CORD, of(rf.reward(RESTRICTION_CORD)))
+				.put(ALCHEMIST_S_JEWEL, of(rf.reward(ALCHEMIST_S_JEWEL)))
+				.put(BURDEN_OF_THE_FOLLOWER, of(rf.reward(BURDEN_OF_THE_FOLLOWER)))
+				.put(SPIRIT_STONE, of(rf.reward(SPIRIT_STONE)))
 				// Traits
 				.put(TAPE_RECORDER, of(rf.reward(ELDER_KNOWLEDGE)))
 				.build())

@@ -73,6 +73,9 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Armor_Head_Labyrinth_Skin", MYSTIC_HELM_SKIN)
 				.put("Armor_Body_Labyrinth_Skin", MYSTIC_ARMOR_SKIN)
 				.put("Armor_Legs_Labyrinth_Skin", MYSTIC_GREAVES_SKIN)
+				.put("Armor_Head_Warlord_Skin", DESTROYER_SKULL_SKIN)
+				.put("Armor_Body_Warlord_Skin", DESTROYER_ARMOR_SKIN)
+				.put("Armor_Legs_Warlord_Skin", DESTROYER_BOOTS_SKIN)
 				.build())
 			.addDictionary(PartialKeyMapDictionary.<KnownActor>builder()
 				// Armor
@@ -128,12 +131,23 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Armor_Head_Labyrinth.", LABYRINTH_HELM)
 				.put("Armor_Body_Labyrinth.", LABYRINTH_ARMOR)
 				.put("Armor_Legs_Labyrinth.", LABYRINTH_GREAVES)
+				// Subject 2923
+				.put("Armor_Head_Scavenger.", SCAVENGER_HELMET)
+				.put("Armor_Body_Scavenger.", SCAVENGER_ARMOR)
+				.put("Armor_Legs_Scavenger.", SCAVENGER_BOOTS)
+				.put("Armor_Head_Warlord.", WARLORD_SKULL)
+				.put("Armor_Body_Warlord.", WARLORD_ARMOR)
+				.put("Armor_Legs_Warlord.", WARLORD_BOOTS)
 				// Weapons
 				// Hand Guns
 				.put("Weapon_HuntingPistol", HUNTING_PISTOL)
 				.put("Weapon_Revolver", MAGNUM_REVOLVER)
 				.put("Weapon_RepeaterPistol", REPEATER_PISTOL)
 				.put("Weapon_Submachinegun", SUBMACHINE_GUN)
+				// Subject 2923
+				.put("Weapon_MachinePistol", MACHINE_PISTOL)
+				.put("Weapon_SawedOffShotgun", SAWED_OFF)
+				.put("Weapon_MiniCrossbow", TWIN_SHOT)
 				// Crafted Guns
 				.put("Weapon_Pan_CurseOfTheJungleGod", CURSE_OF_THE_JUNGLE_GOD)
 				/* TODO verify */.put("Resource_Pan_TentaclePod", TENTACLE_POD)
@@ -144,7 +158,6 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Weapon_Root_Spitfire", SPITFIRE)
 				/* TODO verify */.put("Resource_CIty_BlazingHeart", BLAZING_HEART)
 				// Swamps of Corsus
-				// Crafted Guns
 				.put("Weapon_Swamp_PrideOfTheIskal", PRIDE_OF_THE_ISKAL)
 				.put("Resource_Swamp_CrystallinePlasma", CRYSTALLINE_PLASMA)
 				// Long Guns
@@ -171,7 +184,10 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Weapon_Wasteland_Ruin", RUIN)
 				/* TODO verify */.put("Resource_Wasteland_TheUndyingHeart", THE_UNDYING_HEART)
 				.put("Weapon_Root_SporeLauncher", SPOREBLOOM)
-				/* TODO verify */.put("Resource_Root_SporeGland", SPORE_GLAND)
+				.put("Resource_City_SporeGland", SPORE_GLAND)
+				// Subject 2923
+				.put("Weapon_Snow_Alternator", ALTERNATOR)
+				.put("Resource_Snow_ColdCell", COLD_CELL)
 				// Melee Weapons
 				// "Blade of Adventure" is a tutorial only weapon
 				.put("Weapon_Wasteland_LostHarpoon", LOST_HARPOON)
@@ -182,6 +198,8 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Weapon_Swamp_Scythe", SCYTHE)
 				.put("Weapon_Pan_Spear", SPEAR)
 				.put("Weapon_Wasteland_Flail", WASTELANDER_FLAIL)
+				// Subject 2923
+				/* TODO verify */.put("Weapon_Snow_Frostborne", FROSTBORNE)
 				// Crafted Weapons
 				.put("Weapon_Swamp_ButchersFlail", BUTCHERS_FLAIL)
 				/* TODO verify */.put("Resource_Swamp_HammerheadsOre", HAMMERHEAD_S_ORE)
@@ -226,7 +244,7 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Mod_IronSentinel", IRON_SENTINEL)
 				/* TODO verify */.put("Resource_Wasteland_AncientCore", ANCIENT_CORE)
 				.put("Mod_MantleOfThorns", MANTLE_OF_THORNS)
-				/* TODO verify */.put("Resource_CIty_FleshBarb", FLESH_BARB)
+				.put("Resource_City_FleshBarb", FLESH_BARB)
 				.put("Mod_RattleWeed", RATTLE_WEED)
 				/* TODO verify */.put("Resource_CIty_Shadewood", SHADEWOOD)
 				.put("Mod_SeedCaller", SEED_CALLER)
@@ -263,13 +281,19 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				// Static Mods
 				.put("Mod_Vampiric", VAMPIRIC)
 				// Subject 2923
+				/* TODO verify */.put("Mod_VeryGoodBoy", VERY_GOOD_BOY)
 				// Crafted Mods
 				.put("Mod_ColdSpear", COLD_SPEAR)
 				.put("Resource_Snow_JackalsIvory", JACKAL_S_IVORY)
 				/* TODO verify */.put("Mod_Blizzard", BLIZZARD)
 				.put("Resource_Snow_GlacialScepter", GLACIAL_SCEPTER)
+				/* TODO verify */.put("Mod_FanOfKnives", FAN_OF_KNIVES)
+				.put("Resource_Snow_SilverFragment", SILVER_FRAGMENT)
+				/* TODO verify */.put("Mod_FrozenMist", FROZEN_MIST)
+				.put("Resource_Snow_ObryksBracelet", OBRYK_S_BRACELET)
 				// Static Mods
 				.put("Mod_FusionCannon", FUSION_CANNON)
+				.put("Mod_Incinerator", INCINERATOR)
 				// Amulets
 				.put("Trinket_BrutalMark", BRUTAL_MARK)
 				.put("Trinket_ButchersFetish", BUTCHER_S_FETISH)
@@ -299,6 +323,16 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Trinket_HangmansMemento", HANGMAN_S_MOMENTO)
 				/* TODO verify */.put("Trinket_AbrasiveAmulet", ABRASIVE_AMULET)
 				.put("Trinket_Driftstone", DRIFTSTONE)
+				.put("Trinket_CharcoalNecklace", CHARCOAL_NECKLACE)
+				.put("Trinket_VulcansDetonator", VULCAN_S_DETONATOR)
+				.put("Trinket_PolishedWhetstone", POLISHED_WHETSTONE)
+				.put("Trinket_ShatteredVertebrae", SHATTERED_VERTEBRAE)
+				.put("Trinket_OnyxPendulum", ONYX_PENDULUM)
+				/* TODO verify */.put("Trinket_BlessedNecklace", BLESSED_NECKLACE)
+				/* TODO verify */.put("Trinket_RadioactiveEmber", RADIOACTIVE_EMBER)
+				/* TODO verify */.put("Trinket_TerrorMargin", TERROR_MARGIN)
+				/* TODO verify */.put("Trinket_StalkersBrand", STALKER_S_BRAND)
+				/* TODO verify */.put("Trinket_WhiteRose", WHITE_ROSE)
 				// Rings
 				.put("Trinket_AkariWarBand", AKARI_WAR_BAND)
 				.put("Trinket_BandOfAccord", BAND_OF_ACCORD)
@@ -353,6 +387,29 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				/* TODO verify */.put("Trinket_BurdenOfTheDevoted", BURDEN_OF_THE_DEVOTED)
 				.put("Trinket_VolatileGem", VOLATILE_GEM)
 				.put("Trinket_AmberMoonstone", AMBER_MOONSTONE)
+				.put("Trinket_RingOfHonor", RING_OF_HONOR)
+				.put("Trinket_ScavengersRing", SCAVENGER_S_RING)
+				.put("Trinket_BloodlettersInsignia", BLOODLETTER_S_INSIGNIA)
+				.put("Trinket_BandOfDiscord", BAND_OF_DISCORD)
+				.put("Trinket_RingOfSynergy", RING_OF_SYNERGY)
+				.put("Trinket_BurdenOfTheWarlord", BURDEN_OF_THE_WARLORD)
+				.put("Trinket_SwashbucklersSignet", SWASHBUCKLER_S_SIGNET)
+				.put("Trinket_RingOfThePunisher", RING_OF_THE_PUNISHER)
+				.put("Trinket_SerpentsFang", SERPENT_S_FANG)
+				/* TODO verify */.put("Trinket_BackbreakerRing", BACKBREAKER_RING)
+				/* TODO verify */.put("Trinket_BurdenOfTheGambler", BURDEN_OF_THE_GAMBLER)
+				/* TODO verify */.put("Trinket_BurdenOfTheReckless", BURDEN_OF_THE_RECKLESS)
+				/* TODO verify */.put("Trinket_JuggernautBand", JUGGERNAUT_BAND)
+				/* TODO verify */.put("Trinket_RestrictionCord", RESTRICTION_CORD)
+				/* TODO verify */.put("Trinket_AlchemistsJewel", ALCHEMIST_S_JEWEL)
+				/* TODO verify */.put("Trinket_BurdenOfTheFollower", BURDEN_OF_THE_FOLLOWER)
+				/* TODO verify */.put("Trinket_EvokersSeal", EVOKER_S_SEAL)
+				/* TODO verify */.put("Trinket_PrismaticDiamondRing", PRISMATIC_DIAMOND_RING)
+				/* TODO verify */.put("Trinket_SpiritStone", SPIRIT_STONE)
+				/* TODO verify */.put("Trinket_VanguardRing", VANGUARD_RING)
+				/* TODO verify */.put("Trinket_BlackCatBand", BLACK_CAT_BAND)
+				/* TODO verify */.put("Trinket_BrightSteelRing", BRIGHT_STEEL_RING)
+				/* TODO verify */.put("Trinket_RingOfFlawlessBeauty", RING_OF_FLAWLESS_BEAUTY)
 				// Traits
 				.put("Trait_ArcaneStrike", ARCANE_STRIKE)
 				.put("Trait_BarkSkin", BARK_SKIN)
@@ -402,6 +459,10 @@ public class KnownItemsDictionary extends DictionaryWrapper<String, KnownActor> 
 				.put("Trait_HardCharger", HARD_CHARGER)
 				.put("Trait_Tormentor", TORMENTOR)
 				.put("Trait_LastResort", LAST_RESORT)
+				.put("Trait_Climber", CLIMBER)
+				.put("Trait_Vaccine", VACCINE)
+				/* TODO verify */.put("Trait_Demolitionist", DEMOLITIONIST)
+				/* TODO verify */.put("Trait_Siphoner", SIPHONER)
 				// Emotes
 				.put("Emote_Beckon", BECKON_EMOTE)
 				.put("Emote_Cheer", CHEER)
